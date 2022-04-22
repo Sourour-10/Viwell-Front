@@ -2,7 +2,10 @@ import { Component, OnInit, Inject, Renderer2, ElementRef, ViewChild, HostListen
 import { Router, NavigationEnd } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+
 import { filter, Subscription } from 'rxjs';
+import { AppService } from './Service/app.service';
 
 var didScroll;
 var lastScrollTop = 0;
@@ -17,7 +20,9 @@ var navbarHeight = 0;
 export class AppComponent implements OnInit {
     private _router: Subscription;
 
-    constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
+    constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location, private app: AppService, private http: HttpClient) {
+        this.app.authenticate(undefined, undefined);
+    }
     @HostListener('window:scroll', ['$event'])
     hasScrolled() {
 

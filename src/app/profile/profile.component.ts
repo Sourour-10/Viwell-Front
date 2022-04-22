@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AddEventListenerOptions } from 'rxjs/internal/observable/fromEvent';
+import { User } from '../Model/User';
+import { AdduserService } from '../Service/User/adduser.service';
 
 @Component({
     selector: 'app-profile',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ProfileComponent implements OnInit {
+user : User;
+    constructor(private service:AdduserService) { }
 
-    constructor() { }
+    ngOnInit() {
+       return this.service.GetUser().subscribe();
 
-    ngOnInit() {}
+       
+    }
 
 }

@@ -15,9 +15,22 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
 import { PollComponent } from './poll/poll.component';
 import { RateColleagueComponent } from './rate-colleague/rate-colleague.component';
+import { HttpClientModule, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppService } from './Service/app.service';
+import { RateCollabComponent } from './rate-collab/rate-collab.component';
+import { RateEventComponent } from './rate-event/rate-event.component';
+
+export class XhrInterceptor implements HttpInterceptor {
+
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    const xhr = req.clone({
+      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
+    });
+    return next.handle(xhr);
+  }
+}
 
 @NgModule({
   declarations: [
@@ -29,7 +42,9 @@ import { RateColleagueComponent } from './rate-colleague/rate-colleague.componen
     FooterComponent,
     LoginComponent,
     PollComponent,
-    RateColleagueComponent
+    RateColleagueComponent,
+    RateCollabComponent,
+    RateEventComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +56,7 @@ import { RateColleagueComponent } from './rate-colleague/rate-colleague.componen
     HttpClientModule
 
   ],
-  providers: [],
+  providers:[AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
