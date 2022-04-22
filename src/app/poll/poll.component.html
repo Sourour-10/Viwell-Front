@@ -1,0 +1,48 @@
+<h1> Create Poll </h1>
+
+<form role="form">
+    <div class="form-group" [ngClass]="{'focused':focus===true}">
+      <div class="input-group input-group-alternative mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+        </div>
+        <input class="form-control" placeholder="Description" type="text" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="poll.description">
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{'focused':focus2===true}">
+      <div class="input-group input-group-alternative">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+        </div>
+        <input class="form-control" placeholder="Badge name" type="text" (focus)="focus2=true" (blur)="focus2=false" [(ngModel)]="poll.badgeName">
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{'focused':focus===true}">
+      <div class="input-group input-group-alternative mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+        </div>
+        <input class="form-control" placeholder="Points " type="number" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="poll.points">
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{'focused':focus===true}">
+      <div class="input-group input-group-alternative mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+        </div>
+        <input class="form-control" placeholder="Start date" type="datetime" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="poll.startDate">
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{'focused':focus===true}">
+        <div class="input-group input-group-alternative mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+          </div>
+          <input class="form-control" placeholder="End date" type="datetime" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="poll.endDate">
+        </div>
+      </div>
+     
+    <div class="text-center">
+      <button type="button" class="btn btn-primary mt-4" (click)="savePoll()">Create Poll</button>
+    </div>
+  </form>

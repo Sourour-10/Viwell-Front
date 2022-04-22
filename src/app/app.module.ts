@@ -16,6 +16,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PollComponent } from './poll/poll.component';
+import { RateColleagueComponent } from './rate-colleague/rate-colleague.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    PollComponent,
+    RateColleagueComponent
   ],
   imports: [
     BrowserModule,
