@@ -1,0 +1,20 @@
+<div class="content">
+    <div class="container">
+        <div class="head">
+            <div class="heading"><h1>express your feelings towards this person anonymously</h1></div>
+            <div class="close" (click)="close()" >
+                <div class="s s1"></div>
+                <div class="s s2"></div>
+            </div>
+        </div>
+        <div class="textarea">
+            <textarea name="exp" id="exp" placeholder={{feedbackText}} [(ngModel)]="feedbackText" ></textarea>
+        </div>
+        <div class="end">
+            <div class="submission">
+                <button class="sub btn" (click)="sendFeedBack()">Send</button>
+            </div>
+          
+        </div>
+    </div>
+</div>

@@ -21,6 +21,10 @@ import { HttpClientModule, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTER
 import { AppService } from './Service/app.service';
 import { RateCollabComponent } from './rate-collab/rate-collab.component';
 import { RateEventComponent } from './rate-event/rate-event.component';
+import { FeedbackEventComponent } from './feedback-event/feedback-event.component';
+import { FeedbackColleagueComponent } from './feedback-colleague/feedback-colleague.component';
+import { MyBadgesComponent } from './Badge/my-badges/my-badges.component';
+import { ChatComponent } from './chat/chat.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -44,7 +48,11 @@ export class XhrInterceptor implements HttpInterceptor {
     PollComponent,
     RateColleagueComponent,
     RateCollabComponent,
-    RateEventComponent
+    RateEventComponent,
+    FeedbackEventComponent,
+    FeedbackColleagueComponent,
+    MyBadgesComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

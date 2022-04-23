@@ -1,0 +1,14 @@
+<h1> My badges</h1>
+<button (click)="getAllBadges()">click</button>
+
+<div *ngfor='let b in listBadges'>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{b.name }} </h5>
+      <p class="card-text">{{b.points}}
+      </p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
