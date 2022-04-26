@@ -17,6 +17,10 @@ import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppService } from './Service/app.service';
+import { UserListComponent } from './Component/user-list/user-list.component';
+import { ResetpasswordComponent } from './Component/resetpassword/resetpassword.component';
+import { NotificationComponent } from './Component/notification/notification.component';
+import { CompleteProfileComponent } from './Component/complete-profile/complete-profile.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -36,7 +40,11 @@ export class XhrInterceptor implements HttpInterceptor {
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    UserListComponent,
+    ResetpasswordComponent,
+    NotificationComponent,
+    CompleteProfileComponent
   ],
   imports: [
     BrowserModule,
