@@ -6,13 +6,24 @@ import { Badge } from '../Model/Badge';
   providedIn: 'root'
 })
 export class BadgeService {
-  apiUrl = "http://localhost:8089/Badge"
+  badge: Badge;
+  apiUrl: string = "/api/Badge/";
+
   constructor(private http: HttpClient) {
+    this.badge = new Badge() ;
 
   }
 
   getAllMyBadges(id: number) {
-    return this.http.get<Badge[]>(`${this.apiUrl}/getBadgesByIdUser/${id}`)
+    return this.http.get(`${this.apiUrl}/getBadgesByIdUser/${id}`)
+  }
+
+  getBadgeByName(name:string) {
+    this.badge.name = name  ;
+  
+    //return this.http.post(`${this.apiUrl}/getBadgeByName`, this.badge);
+    return this.http.post(`${this.apiUrl}getBadgeByName`,this.badge);
+
   }
 
 }

@@ -1,14 +1,43 @@
-<h1> My badges</h1>
-<button (click)="getAllBadges()">click</button>
-
-<div *ngfor='let b in listBadges'>
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{b.name }} </h5>
-      <p class="card-text">{{b.points}}
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+<main>
+  <section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  </div>
-</div>
+    <div class="container pt-lg-md">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-header bg-white pb-5">
+              <div class="text-muted text-center mb-3">
+                <small>My badges</small>
+              </div>
+              <!--<button (click)="getAllBadges()">click</button>   -->
+
+              <div *ngFor='let b of listBadges'>
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="" alt="Card image cap">
+                  <img id="image" [src]='image' width="100" height="50">
+
+                  <div class="card-body">
+                    <h5 class="card-title">{{b.name }} </h5>
+                    <p class="card-text">{{b.points}}
+                    </p>
+                    <a class="btn btn-primary" (click)="getBadgeDetails(b.name)">Get Badge details</a>
+                    <p> </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

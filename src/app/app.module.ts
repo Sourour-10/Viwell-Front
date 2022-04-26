@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
+
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
@@ -25,6 +26,11 @@ import { FeedbackEventComponent } from './feedback-event/feedback-event.componen
 import { FeedbackColleagueComponent } from './feedback-colleague/feedback-colleague.component';
 import { MyBadgesComponent } from './Badge/my-badges/my-badges.component';
 import { ChatComponent } from './chat/chat.component';
+import { GetPhotoComponent } from './get-photo/get-photo.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UsersComponent } from './users/users.component';
+import { VoteComponent } from './vote/vote.component';
+import * as dayjs from 'dayjs';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -52,7 +58,11 @@ export class XhrInterceptor implements HttpInterceptor {
     FeedbackEventComponent,
     FeedbackColleagueComponent,
     MyBadgesComponent,
-    ChatComponent
+    ChatComponent,
+    GetPhotoComponent,
+    UserListComponent,
+    UsersComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +71,8 @@ export class XhrInterceptor implements HttpInterceptor {
     RouterModule,
     AppRoutingModule,
     HomeModule,
-    HttpClientModule
+    HttpClientModule,
+
 
   ],
   providers:[AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],

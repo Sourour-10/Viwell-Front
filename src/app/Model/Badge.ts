@@ -4,5 +4,5 @@ badgeId: number;
 name: string;
 points: number;
 
-photo: File;
+photo: any;
 }

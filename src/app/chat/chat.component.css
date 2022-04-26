@@ -1,13 +1,21 @@
+strong{
+    color: rgb(4, 4, 92);
+}
 .chat {
     margin-top: 10rem;
+   
 }
+
 
 div.chat-content {
     border-radius: .25rem;
-    height: 80rem;
+    height: 25rem;
     margin-bottom: 2rem;
+
 }
 
 .card {
     height: 50%;
+    color: rgb(54, 66, 62);
+
 }
