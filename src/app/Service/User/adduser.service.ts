@@ -6,7 +6,7 @@ import { User } from 'src/app/Model/User';
   providedIn: 'root'
 })
 export class AdduserService {
-  apiUrl="http://localhost:8089/User/registration";
+  apiUrl="/api/User/registration";
   constructor(private http:HttpClient) { }
 
   addUser(u:User){

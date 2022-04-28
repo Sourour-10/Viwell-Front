@@ -8,6 +8,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
+import { NewsfeedComponent } from './newsfeed/newsfeed.component';
+import { DetailPostComponent } from './Post/detail-post/detail-post.component';
+import { PostComponent } from './post/post.component';
+
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
@@ -15,7 +19,12 @@ const routes: Routes =[
     { path: 'register',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'login',          component: LoginComponent },
-    { path: '', redirectTo: 'home', pathMatch: 'full' }
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'newsfeed',          component: NewsfeedComponent },
+    { path: 'postdetail/:postId',          component: DetailPostComponent },
+    {path: 'posts' , component: PostComponent},
+    { path: '',  redirectTo: '/posts', pathMatch: 'full' },
+
 ];
 
 @NgModule({
