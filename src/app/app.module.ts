@@ -22,6 +22,7 @@ import { ResetpasswordComponent } from './Component/resetpassword/resetpassword.
 import { NotificationComponent } from './Component/notification/notification.component';
 import { CompleteProfileComponent } from './Component/complete-profile/complete-profile.component';
 
+
 export class XhrInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
@@ -44,7 +45,8 @@ export class XhrInterceptor implements HttpInterceptor {
     UserListComponent,
     ResetpasswordComponent,
     NotificationComponent,
-    CompleteProfileComponent
+    CompleteProfileComponent,
+   
   ],
   imports: [
     BrowserModule,

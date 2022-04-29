@@ -23,8 +23,10 @@ currentUser: any;
 
     ngOnInit() {
         this.currentUser = this.token.getUser();
+        
       }
         
+
 
        
        logout(): void {

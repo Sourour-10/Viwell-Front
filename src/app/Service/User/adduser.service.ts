@@ -13,14 +13,15 @@ const httpOptions={
 };
 
 const TOKEN_KEY='AuthToken';
+const USER_KEY = 'auth-user';
 @Injectable({
   providedIn: 'root'
 })
 export class AdduserService {
 private currentUserSubject:BehaviorSubject<any>;
 public CurrentUser:Observable<any>;
-private signupUrl='http://localhost:8089/User/Register';
-private loginUrl='http://localhost:8089/User/login';
+private signupUrl='http://localhost:8089/Auth/Register';
+private loginUrl='http://localhost:8089/Auth/login';
 private getUserByUserName='http://localhost:8089/User/getUserbyUserName/';
 
   public user: Observable<User>;
@@ -33,10 +34,10 @@ private getUserByUserName='http://localhost:8089/User/getUserbyUserName/';
   apiUrl="http://localhost:8089/User";
  // apiuser="http://localhost:8089/User/getUserConnected";
   constructor(private http:HttpClient, private router:Router , private tokenStorage:TokenStorageService) {
-    this.currentUserSubject = new BehaviorSubject<any>(sessionStorage.getItem(TOKEN_KEY));
+    this.currentUserSubject = new BehaviorSubject<any>(sessionStorage.getItem('user'));
   this.CurrentUser =this.currentUserSubject.asObservable();
 
-  this.userSubject=new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+  this.userSubject=new BehaviorSubject<User>(JSON.parse(localStorage.getItem(USER_KEY)));
   this.user=this.userSubject.asObservable();
   }
   public  get userValue(): User{
@@ -45,10 +46,15 @@ return this.userSubject.value;
   public get currentUserValue(): any{
     return this.currentUserSubject.value;
   }
+
+  public get currentUser(): any{
+    return this.tokenStorage.getUser;
+  }
   login(loginInfo:LoginInfo){
     return this.http.post<jwtResponse>(this.loginUrl, loginInfo, httpOptions)
     .pipe(map(data=>{
       this.saveUserData(data);
+     // console.log('iddddddd',this.userValue.id)
       return data;
     }))
   }
@@ -75,7 +81,6 @@ public isLoggedIn(): boolean {
     }
   }
 
-  
 
 public getCurrentUser(): User {
   if (this.isLoggedIn()) {
@@ -86,22 +91,41 @@ public getCurrentUser(): User {
 }
 
 //UPDATE USER
-update(id, params) {
-  return this.http.put(`http://localhost:8089/User/update/${id}`, params)
+public update(id, params) {
+console.log('azertyu'+this.currentUser().id)
+  return this.http.put(`http://localhost:8089/User/update/${ this.currentUser().id}`, params)
       .pipe(map(x => {
+        
+      //  console.log('iddddddd',this.userValue.id)
           // update stored user if the logged in user updated their own record
-          if (id == this.userValue.id) {
+         
               // update local storage
               const user = { ...this.userValue, ...params };
-              localStorage.setItem('user', JSON.stringify(user));
+              console.log('hknhk',user)
+              localStorage.setItem(USER_KEY, JSON.stringify(user));
+            
 
               // publish updated user to subscribers
               this.userSubject.next(user);
-          }
+          
           return x;
       }));
 }
+//delete User
+deleteUser(idUser :any){
+  return this.http.delete(`http://localhost:8089/User/delete/${idUser}`);
+}
 
+/*delete(id: number) {
+  return this.http.delete(`http://localhost:8089/User/delete/${id}`)
+      .pipe(map(x => {
+          // auto logout if the logged in user deleted their own record
+          if (id == this.userValue.id) {
+              this.logout();
+          }
+          return x;
+      }));
+}*/
 //getByUserName
 //public getByUserName(userName : string):User {
   //return User;
@@ -122,30 +146,23 @@ updateUser(u:User){
   return this.http.post(`${this.apiUrl}/registration`,u);
   
 }
-  resetPassword(model:any){
-    let headers = new HttpHeaders({
-      'changePasswordUrl':this.changePasswordUrl
-    });
-    let options = {headers:headers};
-    let idpOptions ={
-      headers: new HttpHeaders({
-         "Content-Type": "application/x-www-form-urlencoded",
-         "Accept": "/",
-         "Cache-Control": "no-cache",
-         "accept-encoding": "gzip, deflate",
-         "content-length": "2337",
-         "Connection": "keep-alive",
-         "cache-control": "no-cache"
-         }),
-     withCredentials: true,
-   };
-    console.log(model)
-    console.log(idpOptions)
-
-    return this.http.post(`${this.apiUrl}/resetPassword`, model)
+  resetPassword(email):Observable<any>{
+   
+    return this.http.post(`${this.apiUrl}/resetPassword`, {email}).pipe(map(
+      response=>{
+        return response;
+      }
+    ))
 
   }
-
+//LOGOUT
   public logout(): void {
-    window.sessionStorage.clear();}
+    window.sessionStorage.removeItem("auth-user");}
+//Uplodad photo
+    uploadProfileImage(formData: FormData): Observable<any> {
+      return this.http.post<FormData>('http://localhost:8089/Photo/upload/image', formData, {
+        reportProgress: true,
+        observe: 'events'
+      })
+    }
 }

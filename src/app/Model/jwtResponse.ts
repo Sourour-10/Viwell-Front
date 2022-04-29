@@ -11,4 +11,5 @@ export class jwtResponse {
   lastname: string;
   phoneNumber: number;
   birthdate: Date;
+  Role:any;
 }

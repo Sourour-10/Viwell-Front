@@ -1,5 +1,5 @@
 export class User {
-    id!: any;
+    userId!:any ;
     userName!: any;
     password!: any;
     mail!: any;

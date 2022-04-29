@@ -1,8 +1,9 @@
+import { HttpErrorResponse, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { first } from 'rxjs';
+import { catchError, first, map, of } from 'rxjs';
 import { AdduserService } from 'src/app/Service/User/adduser.service';
 
 @Component({
@@ -11,12 +12,19 @@ import { AdduserService } from 'src/app/Service/User/adduser.service';
   styleUrls: ['./complete-profile.component.css']
 })
 export class CompleteProfileComponent implements OnInit {
-  form: FormGroup;
-  id: string;
+  form: any ={};
+  id: number;
   isAddMode: boolean;
   loading = false;
   submitted = false;
   closeResult = '';
+
+  
+ // file: File = {
+   // data: null,
+    //inProgress: false,
+    //progress: 0
+  //};
 
   constructor(private modalService: NgbModal, private service:AdduserService ,  private route: ActivatedRoute,
     private router: Router,) {}
@@ -42,21 +50,48 @@ export class CompleteProfileComponent implements OnInit {
 
 
   ngOnInit(): void {
+ 
   }
+ // get f() { return this.form.controls; }
 
-  private updateUser() {
+  public updateUser() {
     this.service.update(this.id, this.form.value)
         .pipe(first())
         .subscribe({
             next: () => {
              //   this.alertService.success('Update successful', { keepAfterRouteChange: true });
-                this.router.navigate(['/profile'], { relativeTo: this.route });
+             console.log("updated");
+                this.router.navigate(['/user-profile'], { relativeTo: this.route });
             },
             error: error => {
                // this.alertService.error(error);
+               console.log('erreuuuur')
                 this.loading = false;
             }
         });
 }
+/*uploadFile() {
+  const formData = new FormData();
+  formData.append('file', this.file.data);
+  this.file.inProgress = true;
 
+  this.service.uploadProfileImage(formData).pipe(
+    map((event) => {
+      switch (event.type) {
+        case HttpEventType.UploadProgress:
+          this.file.progress = Math.round(event.loaded * 100 / event.total);
+          break;
+        case HttpEventType.Response:
+          return event;
+      }
+    }),
+    catchError((error: HttpErrorResponse) => {
+      this.file.inProgress = false;
+      return of('Upload failed');
+    })).subscribe((event: any) => {
+      if(typeof (event) === 'object') {
+        this.form.patchValue({profileImage: event.body.profileImage});
+      }
+    })
+}*/
 }

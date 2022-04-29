@@ -1,12 +1,32 @@
-<div class="row">
-    <div *ngFor='let u of listUser'>
-<div class="col-md-3">
-    <div class="carsd;qs;c,wkd" style="width: 18rem;">
-        <img src="../../assets/User.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{u.userName}}</h5>
-                <p class="card-text">{{u.mail}}</p>
+﻿<div class="container">
 
-            </div>
-        </div>
-</div> </div>
+<table class="table table-striped">
+    <h1>Users</h1>
+    <thead>
+        <tr>
+            <th style="width: 30%">First Name</th>
+            <th style="width: 30%">Last Name</th>
+            <th style="width: 30%">Username</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.userName}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Details</a>
+                <button (click)="deleteUser(user.userId)" class="btn btn-sm btn-danger btn-delete-user">
+                   Delete
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!users">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
