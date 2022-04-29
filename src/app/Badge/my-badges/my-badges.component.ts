@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Badge } from 'src/app/Model/Badge';
 import { DomSanitizer } from '@angular/platform-browser';
 import { BadgeService } from 'src/app/Service/badge.service';
+import { TokenStorageService } from 'src/app/Service/User/token-storage.service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class MyBadgesComponent implements OnInit {
   imageSrc: any;
   badge: Badge;
 
-  constructor(private service: BadgeService,private sanitizer: DomSanitizer) { }
+  constructor(private tokenStorage:TokenStorageService,private service: BadgeService,private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     /*this.service.getAllMyBadges(1).subscribe((res: Badge[]) => {
@@ -34,7 +35,7 @@ export class MyBadgesComponent implements OnInit {
 
     }); 
   */
-    this.service.getAllMyBadges(1).subscribe(res => {
+    this.service.getAllMyBadges(this.currentUser().id).subscribe(res => {
       this.image = JSON.stringify(res['photo']);
       let objectURL = 'data:image/png;base64,' + res['photo'];
       this.image = this.sanitizer.bypassSecurityTrustUrl(objectURL);
@@ -71,5 +72,7 @@ export class MyBadgesComponent implements OnInit {
     });
   }
 
-
+  public get currentUser(): any{
+    return this.tokenStorage.getUser;
+  }
 }

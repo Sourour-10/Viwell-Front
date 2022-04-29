@@ -37,13 +37,13 @@
               <div class="text-center text-muted mb-4">
                 <small>Or sign up with credentials</small>
               </div>
-              <form role="form">
+              <form role="form" (ngSubmit)="f.form.valid && onsubmit()" #f="ngForm">
                 <div class="form-group" [ngClass]="{'focused':focus===true}">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="UserName" type="text" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="user.userName">
+                    <input class="form-control" placeholder="UserName" type="text" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="form.username">
                   </div>
                 </div>
                 <div class="form-group" [ngClass]="{'focused':focus===true}">
@@ -51,7 +51,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="First Name" type="text" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="user.firstName">
+                    <input class="form-control" placeholder="First Name" type="text" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="form.firstname">
                   </div>
                 </div>
                 <div class="form-group" [ngClass]="{'focused':focus===true}">
@@ -59,7 +59,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Last Name" type="text" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="user.lastName">
+                    <input class="form-control" placeholder="Last Name" type="text" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="form.lastname">
                   </div>
                 </div>
                 <div class="form-group" [ngClass]="{'focused':focus===true}">
@@ -67,7 +67,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Mail" type="text" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="user.mail">
+                    <input class="form-control" placeholder="Mail" type="text" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="form.email">
                   </div>
                 </div>
                 <div class="form-group" [ngClass]="{'focused':focus2===true}">
@@ -75,25 +75,10 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" type="password" (focus)="focus2=true" (blur)="focus2=false" [(ngModel)]="user.password">
+                    <input class="form-control" placeholder="Password" type="password" (focus)="focus2=true" (blur)="focus2=false" [(ngModel)]="form.password">
                   </div>
                 </div>
-                <div class="form-group" [ngClass]="{'focused':focus===true}">
-                  <div class="input-group input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="Phone Number" type="number" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="user.phoneNumber">
-                  </div>
-                </div>
-                <div class="form-group" [ngClass]="{'focused':focus===true}">
-                  <div class="input-group input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="Cin" type="number" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="user.cin">
-                  </div>
-                </div>
+               
                
                 <div class="text-muted font-italic">
                   <small>password strength:
@@ -113,7 +98,7 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary mt-4" (click)="saveUser()">Create account</button>
+                  <button class="btn btn-primary mt-4" >Create account</button>
                 </div>
               </form>
             </div>

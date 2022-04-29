@@ -27,10 +27,15 @@ import { FeedbackColleagueComponent } from './feedback-colleague/feedback-collea
 import { MyBadgesComponent } from './Badge/my-badges/my-badges.component';
 import { ChatComponent } from './chat/chat.component';
 import { GetPhotoComponent } from './get-photo/get-photo.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UsersComponent } from './users/users.component';
 import { VoteComponent } from './vote/vote.component';
 import * as dayjs from 'dayjs';
+
+import { UserListComponent } from './Component/user-list/user-list.component';
+import { ResetpasswordComponent } from './Component/resetpassword/resetpassword.component';
+import { NotificationComponent } from './Component/notification/notification.component';
+import { CompleteProfileComponent } from './Component/complete-profile/complete-profile.component';
+import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
+
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -61,8 +66,12 @@ export class XhrInterceptor implements HttpInterceptor {
     ChatComponent,
     GetPhotoComponent,
     UserListComponent,
-    UsersComponent,
-    VoteComponent
+    VoteComponent,
+    ResetpasswordComponent,
+    NotificationComponent,
+    CompleteProfileComponent,
+    ProfileFriendComponent,
+   
   ],
   imports: [
     BrowserModule,

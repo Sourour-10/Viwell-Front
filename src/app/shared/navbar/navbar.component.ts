@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
-      this.router.events.subscribe((event) => {
+     /* this.router.events.subscribe((event) => {
         this.isCollapsed = true;
         if (event instanceof NavigationStart) {
            if (event.url != this.lastPoppedUrl)
@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
      });
      this.location.subscribe((ev:PopStateEvent) => {
          this.lastPoppedUrl = ev.url;
-     });
+     });*/
     }
 
     isHome() {

@@ -1,20 +1,20 @@
 export class User {
-    id!: number;
-    userName!: string;
-    password!: string;
-    mail!: string;
-    phoneNumber!: bigint;
-    firstName!: string;
-    lastName!: string;
-    cin!: string;
-    birthdate!: Date;
-    ratingNumber!: number;
-    rating!: number;
-    points!: number;
-    numberOfVote!: number;
-    hasVoted!: boolean;
-    active !: boolean;
-    role!: string;
-    
+
+    userId!:any ;
+    userName!: any;
+    password!: any;
+    mail!: any;
+    phoneNumber!: any;
+    firstName!: any;
+    lastName!: any;
+    cin!: any;
+    birthdate!: any;
+    ratingNumber!: any;
+    rating!: any;
+    points!: any;
+    numberOfVote!: any;
+    hasVoted!: any;
+    active !: any;
+    role!: any;
 
 }

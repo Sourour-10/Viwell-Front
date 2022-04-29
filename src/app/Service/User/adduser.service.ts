@@ -1,34 +1,182 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from 'src/app/Model/User';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { SignupInfo } from 'src/app/Model/SignupInfo';
+import { jwtResponse } from 'src/app/Model/jwtResponse';
+import { TokenStorageService } from './token-storage.service';
+import { LoginInfo } from 'src/app/Model/LoginInfo';
 
+const httpOptions={
+  headers: new HttpHeaders({'Content-Type':'application/json'})
+};
+
+const TOKEN_KEY='AuthToken';
+const USER_KEY = 'auth-user';
 @Injectable({
   providedIn: 'root'
 })
 export class AdduserService {
-  user: User;
-  listUser: Observable<User[]> ;
-  apiUrl: string = "/api/User/getAllUsers" ;
 
-  apiuser="http://localhost:8089/User/getUserConnected";
-  constructor(private http:HttpClient,obj:any) { }
+private currentUserSubject:BehaviorSubject<any>;
+public CurrentUser:Observable<any>;
+private signupUrl='http://localhost:8089/Auth/Register';
+private loginUrl='http://localhost:8089/Auth/login';
+private getUserByUserName='http://localhost:8089/User/getUserbyUserName/';
+
+  public user: Observable<User>;
+  public userSubject: BehaviorSubject<User>;
+
+
+  //
+  changePasswordUrl:"http://localhost:4200/#/app-resetpassword/";
+ 
+  apiUrl="http://localhost:8089/User";
+ // apiuser="http://localhost:8089/User/getUserConnected";
+  constructor(private http:HttpClient, private router:Router , private tokenStorage:TokenStorageService) {
+    this.currentUserSubject = new BehaviorSubject<any>(sessionStorage.getItem('user'));
+  this.CurrentUser =this.currentUserSubject.asObservable();
+
+  this.userSubject=new BehaviorSubject<User>(JSON.parse(localStorage.getItem(USER_KEY)));
+  this.user=this.userSubject.asObservable();
+  }
+  public  get userValue(): User{
+return this.userSubject.value;
+  }
+  public get currentUserValue(): any{
+    return this.currentUserSubject.value;
+  }
+
+  public get currentUser(): any{
+    return this.tokenStorage.getUser;
+  }
+  login(loginInfo:LoginInfo){
+    return this.http.post<jwtResponse>(this.loginUrl, loginInfo, httpOptions)
+    .pipe(map(data=>{
+      this.saveUserData(data);
+     // console.log('iddddddd',this.userValue.id)
+      return data;
+    }))
+  }
+  signUp(signupInfo: SignupInfo) {
+    return this.http.post<jwtResponse>(this.signupUrl, signupInfo, httpOptions)
+    .pipe(map(data=>{
+      this.saveUserData(data);
+      return data;
+    }))
+  }
+  private saveUserData(data){
+    this.tokenStorage.saveToken(data.accessToken);
+    this.tokenStorage.saveUser(data);
+    
+  }
+//UserConnected
+public isLoggedIn(): boolean {
+  const token: string = this.tokenStorage.getToken();
+    if (token) {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.exp > (Date.now() / 1000);
+    } else {
+      return false;
+    }
+  }
+
+
+public getCurrentUser(): User {
+  if (this.isLoggedIn()) {
+    const token: string = this.tokenStorage.getToken();
+    const {  userName,lastName,firstName ,mail, phoneNumber  } = JSON.parse(atob(token.split('.')[1]));
+    return { userName , lastName,firstName ,mail, phoneNumber } as User;
+  }
+}
+
+//UPDATE USER
+public update(id, params) {
+console.log('azertyu'+this.currentUser().id)
+  return this.http.put(`http://localhost:8089/User/update/${ this.currentUser().id}`, params)
+      .pipe(map(x => {
+        
+      //  console.log('iddddddd',this.userValue.id)
+          // update stored user if the logged in user updated their own record
+         
+              // update local storage
+              const user = { ...this.userValue, ...params };
+              console.log('hknhk',user)
+              localStorage.setItem(USER_KEY, JSON.stringify(user));
+            
+
+              // publish updated user to subscribers
+              this.userSubject.next(user);
+          
+          return x;
+      }));
+}
+//delete User
+deleteUser(idUser :any){
+  return this.http.delete(`http://localhost:8089/User/delete/${idUser}`);
+}
+
+/*delete(id: number) {
+  return this.http.delete(`http://localhost:8089/User/delete/${id}`)
+      .pipe(map(x => {
+          // auto logout if the logged in user deleted their own record
+          if (id == this.userValue.id) {
+              this.logout();
+          }
+          return x;
+      }));
+}*/
+//getByUserName
+//public getByUserName(userName : string):User {
+  //return User;
+//return this.http.get(this.getUserByUserName,)}
+
+
 
   addUser(u:User){
     return this.http.post(`${this.apiUrl}/registration`,u);
   }
 
-  GetUser(){
-    return this.http.get(this.apiuser);
-    console.log()
-  }
-  getAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUrl);
-  }
-  ListUser(){
-    return this.http.get("http://localhost:8089/User/getAllUsers");
+  
+
+ListUser(){
+  return this.http.get(`${this.apiUrl}/getAllUsers`);
+}
+updateUser(u:User){
+  return this.http.post(`${this.apiUrl}/registration`,u);
+  
+}
+  resetPassword(email):Observable<any>{
+   
+    return this.http.post(`${this.apiUrl}/resetPassword`, {email}).pipe(map(
+      response=>{
+        return response;
+      }
+    ))
+
   }
 
+//LOGOUT
+  public logout(): void {
+    window.sessionStorage.removeItem("auth-user");}
+//Uplodad photo
+    uploadProfileImage(formData: FormData): Observable<any> {
+      return this.http.post<FormData>('http://localhost:8089/Photo/upload/image', formData, {
+        reportProgress: true,
+        observe: 'events'
+      })
+    }
+
+// Anas
+
+
+getFriend(id:any) :Observable<any> {
+
+
+  return this.http.get(`${this.apiUrl}/GetUserById/${id}`);
+
+}
 
 }
   

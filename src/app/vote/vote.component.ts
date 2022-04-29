@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PollService } from '../Service/Poll/poll.service';
+import { AdduserService } from 'src/app/Service/User/adduser.service';
 
 @Component({
   selector: 'app-vote',
@@ -7,16 +8,22 @@ import { PollService } from '../Service/Poll/poll.service';
   styleUrls: ['./vote.component.css']
 })
 export class VoteComponent implements OnInit {
+  users = null;
   msg: string;
-  constructor(private pollService: PollService) { }
+  constructor(private service:AdduserService ,private pollService: PollService) { }
 
   ngOnInit(): void {
+    this.getusers() ;
+  }
+    getusers(){
+    this.service.ListUser().subscribe(res =>this.users=res)
   }
 
   getCurrentResult() {
 
-    this.pollService.showCurrentResult().subscribe(res => {
-      (this.msg = JSON.stringify(res));
+    this.pollService.showCurrentResult(1).subscribe(res => {
+      (this.msg = "Now you have " + JSON.stringify(res))  ;
+      this.msg= this.msg + "  vote, never lose hope" ;
     })
   }
 

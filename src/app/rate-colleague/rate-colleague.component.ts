@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RateService } from '../Service/Rate/rate.service';
 
 @Component({
@@ -7,6 +9,11 @@ import { RateService } from '../Service/Rate/rate.service';
   styleUrls: ['./rate-colleague.component.css']
 })
 export class RateColleagueComponent implements OnInit {
+  isAddMode: boolean;
+  loading = false;
+  submitted = false;
+  closeResult = '';
+  
   imgage1!: string;
   imgage2!: string;
   imgage3!: string;
@@ -16,8 +23,30 @@ export class RateColleagueComponent implements OnInit {
   ratted = false;
   ratting = 0;
 
-  constructor(private service: RateService) {
+
+  constructor(private service: RateService, private modalService: NgbModal ,  private route: ActivatedRoute ,
+    private router: Router) {}
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
   }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  
+}
+
+
 
   ngOnInit(): void {
     this.imgage1 = "../../assets/img/brand/empty.png";

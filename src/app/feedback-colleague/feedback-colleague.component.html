@@ -1,20 +1,27 @@
-<div class="content">
-    <div class="container">
-        <div class="head">
-            <div class="heading"><h1>express your feelings towards this person anonymously</h1></div>
-            <div class="close" (click)="close()" >
-                <div class="s s1"></div>
-                <div class="s s2"></div>
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Give a feedback</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="content">
+            <div class="container">
+                <div class="head">
+                        <h3>Express your feelings towards this person anonymously</h3>
+
+
+                </div>
             </div>
-        </div>
-        <div class="textarea">
-            <textarea name="exp" id="exp" placeholder={{feedbackText}} [(ngModel)]="feedbackText" ></textarea>
-        </div>
-        <div class="end">
-            <div class="submission">
-                <button class="sub btn" (click)="sendFeedBack()">Send</button>
+            <div class="textarea">
+                <textarea name="exp" id="exp" placeholder={{feedbackText}} [(ngModel)]="feedbackText"></textarea>
             </div>
-          
+            <div class="end">
+                <div class="submission">
+                    <button class="sub btn" (click)="sendFeedBack()">Send</button>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
+</ng-template>
+<a href="javascript:void(0)" class="btn btn-sm btn-info mr-4" (click)="open(content)">feedback</a>

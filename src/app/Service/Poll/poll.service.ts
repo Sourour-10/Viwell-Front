@@ -14,8 +14,8 @@ export class PollService {
     return this.http.post(`${this.apiUrl}/create`,p);
    //return this.http.post(this.url,p);
   }
-showCurrentResult() {
-  return this.http.get(`${this.apiUrl}/showCurrentResult`);
+showCurrentResult(id:number) {
+  return this.http.get(`${this.apiUrl}/showCurrentResult/${id}`);
 }
 
 }

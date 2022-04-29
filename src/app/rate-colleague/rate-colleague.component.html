@@ -1,37 +1,11 @@
-<h1>Rate your colleague</h1>
-<!-- <table>
-    <thead>
-        <tr>
-            <th colspan="2">Rate Anas now</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <p> {{emptyImg}}</p>
-            <td> <img src={{emptyImg}} (blur)="changeImage(1)"></td>
-            <td> <img src='"{{emptyImg}}"' (blur)="changeImage(1)"></td>
-            <td> <img src="../../assets/img/brand/empty.png"></td>
 
-
-        
-        </tr>
-    </tbody>
-</table>
--->
-
-<!--<h2>Angular 11 Star Rating Example</h2>
-
-<ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating>
-
-<div class="star-rating-container star-rating-animation" fxLayout="row" fxLayoutAlign="start center">
-
-    <div *ngFor="let star of stars" [ngClass]="[star.class]" (click)="selectStar(star.id)">
-        <mat-icon>{{star.icon}}</mat-icon>
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Rate your colleague</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
-
-</div>
--->
-
+    <div class="modal-body">
+      
 <div *ngIf="ratted==false">
     <img width="30" height="30" src={{imgage1}} (mouseover)="changeImage1()" (mouseleave)="resetImage()"
         (click)="rate(1)">
@@ -51,3 +25,11 @@
 
     </ng-container>
 </div>
+        
+    </div>
+   
+  </ng-template>
+  
+  <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4" (click)="open(content)">Rate</a>
+  
+  

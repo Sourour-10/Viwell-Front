@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { filter, Subscription } from 'rxjs';
 import { AppService } from './Service/app.service';
 
+
+
 var didScroll;
 var lastScrollTop = 0;
 var delta = 5;
@@ -21,8 +23,12 @@ export class AppComponent implements OnInit {
     private _router: Subscription;
 
     constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location, private app: AppService, private http: HttpClient) {
-        this.app.authenticate(undefined, undefined);
+     this.app.authenticate(undefined, undefined);
+        
     }
+  
+   
+ 
     @HostListener('window:scroll', ['$event'])
     hasScrolled() {
 
