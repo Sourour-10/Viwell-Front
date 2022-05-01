@@ -12,4 +12,5 @@ export class jwtResponse {
   phoneNumber: number;
   birthdate: Date;
   Role:any;
+  idPhoto:any;
 }
