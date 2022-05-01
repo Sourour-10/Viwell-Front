@@ -18,6 +18,7 @@ userInfo: User = new User();
 name:string;
 user :User;
 currentUser: any;
+openC:boolean = false ;
 
     constructor(private service:AdduserService, private router: Router, private token :TokenStorageService) { }
 
@@ -31,5 +32,11 @@ currentUser: any;
         this.router.navigateByUrl('/login');
       }
     
+openChat() {
+  if (this.openC ==true)
+  this.openC=false ;
+  else
+  this.openC=true ;
+}
 
 }

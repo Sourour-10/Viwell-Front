@@ -1,0 +1,114 @@
+* {
+    font-family: 'Avenir';
+}
+
+.bubbleWrapper {
+    padding: 10px 10px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-self: flex-end;
+    color: #fff;
+    background-image: url("/src/assets/img/viwelllogo.png");
+
+}
+
+.inlineContainer {
+    display: inline-flex;
+}
+
+.inlineContainer.own {
+    flex-direction: row-reverse;
+}
+
+.inlineIcon {
+    width: 20px;
+    object-fit: contain;
+}
+
+.ownBubble {
+    min-width: 60px;
+    max-width: 700px;
+    padding: 14px 18px;
+    margin: 6px 8px;
+    background-color: #5b5377;
+    border-radius: 16px 16px 0 16px;
+    border: 1px solid #443f56;
+
+}
+
+.otherBubble {
+    min-width: 60px;
+    max-width: 700px;
+    padding: 14px 18px;
+    margin: 6px 8px;
+    background-color: #6C8EA4;
+    border-radius: 16px 16px 16px 0;
+    border: 1px solid #54788e;
+
+}
+
+.own {
+    align-self: flex-end;
+}
+
+.other {
+    align-self: flex-start;
+}
+
+span.own,
+span.other {
+    font-size: 14px;
+    color: grey;
+}
+
+.msger {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 867px;
+    margin: 25px 10px;
+    height: calc(100% - 50px);
+    border: var(--border);
+    border-radius: 5px;
+    background: var(--msger-bg);
+    box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+    background-image: url("/src/assets/img/viwelllogo.png");
+}
+
+.msger-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: var(--border);
+    background: #eee;
+    color: #666;
+}
+.msger-inputarea {
+    display: flex;
+    padding: 10px;
+    border-top: var(--border);
+    background: #eee;
+  }
+  .msger-inputarea * {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 1em;
+  }
+  .msger-input {
+    flex: 1;
+    background: #ddd;
+  }
+  .msger-send-btn {
+    margin-left: 10px;
+    background: rgb(0, 196, 65);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.23s;
+  }
+  .msger-send-btn:hover {
+    background: rgb(0, 180, 50);
+  }

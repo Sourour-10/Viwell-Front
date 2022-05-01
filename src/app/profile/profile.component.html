@@ -9,49 +9,51 @@
       <span></span>
       <span></span>
       <span></span>
+
     </div>
+
     <!-- SVG separator -->
     <div class="separator separator-bottom separator-skew">
-      <svg
-        x="0"
-        y="0"
-        viewBox="0 0 2560 100"
-        preserveAspectRatio="none"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+        xmlns="http://www.w3.org/2000/svg">
         <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
       </svg>
     </div>
   </section>
-  <section class="section">
+  <section *ngIf="openC==false" class="section">
+
     <div class="container">
+
+
       <div class="card card-profile shadow mt--300">
+
+
         <div class="px-4">
           <div class="row justify-content-center">
             <div class="col-lg-3 order-lg-2">
               <div class="card-profile-image">
                 <a href="javascript:void(0)">
-                  <img
-                    src="./assets/img/theme/team-4-800x800.jpg"
-                    class="rounded-circle"
-                  />
+                  <img src="./assets/img/theme/team-4-800x800.jpg" class="rounded-circle" />
                 </a>
+              </div>
+            </div>
+            <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+              <div class="card-profile-actions py-4 mt-lg-0">
+
+                <button (click)="openChat()">Chat </button>
               </div>
             </div>
             <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
               <div class="card-profile-actions py-4 mt-lg-0">
                 <app-complete-profile></app-complete-profile>
 
-                <a
-                  href="javascript:void(0)"
-                  class="btn btn-sm btn-default float-right"
-                  (click)="logout()"
-                  >Logout</a
-                >
+                <a href="javascript:void(0)" class="btn btn-sm btn-default float-right" (click)="logout()">Logout</a>
               </div>
             </div>
             <div class="col-lg-4 order-lg-1">
+
+
+
               <div class="card-profile-stats d-flex justify-content-center">
                 <div>
                   <span class="heading">22</span>
@@ -96,5 +98,22 @@
         </div>
       </div>
     </div>
+    <div>
+
+
+    </div>
   </section>
+
+  <section *ngIf="openC==true" class="section">
+    <div class="container">
+      <div class="card card-profile shadow mt--300">
+        <button (click)="openChat()">Chat </button>
+
+        <app-chat *ngIf="openC"></app-chat>
+      </div>
+    </div>
+
+  </section>
+
+
 </main>

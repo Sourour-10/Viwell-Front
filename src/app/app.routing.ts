@@ -8,6 +8,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
+import { NewsfeedComponent } from './newsfeed/newsfeed.component';
+import { DetailPostComponent } from './Post/detail-post/detail-post.component';
+import { PostComponent } from './post/post.component';
 import { ChatComponent } from './chat/Chat.component';
 import { RateColleagueComponent } from './rate-colleague/rate-colleague.component';
 import { RateEventComponent } from './rate-event/rate-event.component';
@@ -61,6 +64,12 @@ const routes: Routes = [
   { path: 'notification', component: NotificationComponent },
   { path: 'completeProfile', component: CompleteProfileComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+
+//Yossr
+  { path: 'newsfeed',          component: NewsfeedComponent },
+    { path: 'postdetail/:postId',          component: DetailPostComponent },
+    {path: 'posts' , component: PostComponent},
+    { path: '',  redirectTo: '/posts', pathMatch: 'full' },
 
 ];
 

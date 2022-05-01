@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
@@ -38,6 +38,7 @@ import { ProfileFriendComponent } from './profile-friend/profile-friend.componen
 import { MyFeedBacksComponent } from './my-feed-backs/my-feed-backs.component';
 
 
+
 export class XhrInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
@@ -47,6 +48,11 @@ export class XhrInterceptor implements HttpInterceptor {
     return next.handle(xhr);
   }
 }
+import { NewsfeedComponent } from './newsfeed/newsfeed.component';
+import { PostComponent } from './post/post.component';
+import { AddPostComponent } from './Post/add-post/add-post.component';
+import { DetailPostComponent } from './Post/detail-post/detail-post.component';
+
 
 @NgModule({
   declarations: [
@@ -74,15 +80,21 @@ export class XhrInterceptor implements HttpInterceptor {
     ProfileFriendComponent,
     MyFeedBacksComponent,
    
+    NewsfeedComponent,
+    PostComponent,
+    AddPostComponent,
+    DetailPostComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
     HomeModule,
     HttpClientModule,
+ 
 
 
   ],

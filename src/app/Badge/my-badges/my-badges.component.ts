@@ -3,7 +3,9 @@ import { Observable } from 'rxjs';
 import { Badge } from 'src/app/Model/Badge';
 import { DomSanitizer } from '@angular/platform-browser';
 import { BadgeService } from 'src/app/Service/badge.service';
+import{PhotoService} from 'src/app/Service/photo.service'
 import { TokenStorageService } from 'src/app/Service/User/token-storage.service';
+import { ReturnStatement } from '@angular/compiler';
 
 
 @Component({
@@ -22,7 +24,10 @@ export class MyBadgesComponent implements OnInit {
   imageSrc: any;
   badge: Badge;
 
-  constructor(private tokenStorage:TokenStorageService,private service: BadgeService,private sanitizer: DomSanitizer) { }
+  constructor(private tokenStorage:TokenStorageService,
+    private service: BadgeService,
+    private photoService : PhotoService,
+    private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     /*this.service.getAllMyBadges(1).subscribe((res: Badge[]) => {
@@ -36,17 +41,12 @@ export class MyBadgesComponent implements OnInit {
     }); 
   */
     this.service.getAllMyBadges(this.currentUser().id).subscribe(res => {
-      this.image = JSON.stringify(res['photo']);
-      let objectURL = 'data:image/png;base64,' + res['photo'];
-      this.image = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-
-
-      this.imageSrc = 'data:image/jpeg;base64,' + this.image;
-      (this.listBadges = res);
-      console.log("image : " + this.image) ;
+     
+      this.listBadges = res ;
       console.log("res : " + JSON.stringify(res) ) ;
     })
   }
+
 
 
   getAllBadges() {
@@ -55,9 +55,7 @@ export class MyBadgesComponent implements OnInit {
 
       let clientWithType = Object.assign(new Badge(), res)
 
-      console.log(clientWithType);
-      this.badge = JSON.parse(JSON.stringify(res));
-      console.log(JSON.stringify(res))
+     
 
     });
 
@@ -74,5 +72,9 @@ export class MyBadgesComponent implements OnInit {
 
   public get currentUser(): any{
     return this.tokenStorage.getUser;
+  }
+
+  public gPhoto():any {
+    return this.photoService.getImageById(1);
   }
 }
