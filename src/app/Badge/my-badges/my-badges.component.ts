@@ -6,6 +6,8 @@ import { BadgeService } from 'src/app/Service/badge.service';
 import{PhotoService} from 'src/app/Service/photo.service'
 import { TokenStorageService } from 'src/app/Service/User/token-storage.service';
 import { ReturnStatement } from '@angular/compiler';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -24,25 +26,31 @@ export class MyBadgesComponent implements OnInit {
   imageSrc: any;
   badge: Badge;
 
-  constructor(private tokenStorage:TokenStorageService,
+  selectedFile: File;
+  retrievedImage: any;
+  base64Data: any;
+  retrieveResonse: any;
+  message: string;
+  imageName: any;
+  imageUrl: string;
+idString : any
+resString:any
+
+  constructor(private http:HttpClient ,private tokenStorage:TokenStorageService,
     private service: BadgeService,
     private photoService : PhotoService,
     private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    /*this.service.getAllMyBadges(1).subscribe((res: Badge[]) => {
-       
-      this.listBadges =   JSON.parse(JSON.stringify(res))  
-          //this.listBadges = res;
-      console.log("res =" + );
-      console.log("list badges  =" + this.listBadges);
-
-
-    }); 
-  */
     this.service.getAllMyBadges(this.currentUser().id).subscribe(res => {
      
       this.listBadges = res ;
+    
+
+      this.idString = JSON.stringify(res).charAt(JSON.stringify(res).indexOf('"id"')+5)
+     // console.log("id String   : " + this.idString  ) ;
+
+
       console.log("res : " + JSON.stringify(res) ) ;
     })
   }
@@ -74,7 +82,20 @@ export class MyBadgesComponent implements OnInit {
     return this.tokenStorage.getUser;
   }
 
-  public gPhoto():any {
-    return this.photoService.getImageById(1);
+
+  getImage(id:any) {
+    //Make a call to Sprinf Boot to get the Image Bytes.
+    this.http.get('http://localhost:8089/Photo/getImageById/'+id,{ responseType: 'text' })
+      .subscribe(
+        res => {
+          this.retrieveResonse = res;
+          this.base64Data = this.retrieveResonse.picByte ;
+          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+          this.imageUrl= 'http://localhost:8089/Photo/getImageById/'+id;
+
+        }
+      );
   }
+
+  
 }

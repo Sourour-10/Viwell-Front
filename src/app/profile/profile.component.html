@@ -32,9 +32,12 @@
           <div class="row justify-content-center">
             <div class="col-lg-3 order-lg-2">
               <div class="card-profile-image">
-                <a href="javascript:void(0)">
-                  <img src="./assets/img/theme/team-4-800x800.jpg" class="rounded-circle" />
+                <a *ngIf=retrievedImage href="javascript:void(0)">
+                  <img [src]="imageUrl" class="rounded-circle" />
                 </a>
+               
+                
+               
               </div>
             </div>
             <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">

@@ -7,11 +7,11 @@ import { Photo } from '../Model/Photo';
   providedIn: 'root'
 })
 export class PhotoService {
-apiUrl="http://localhost:8089/Photo"  
+apiUrl="http://localhost:8089/Photo"   
 
   constructor(private http:HttpClient) { }
   getImageById(id:any){
-      return this.http.get(`${this.apiUrl}/getImageById/${id}`);
+      return this.http.get(`${this.apiUrl}/getImageById/${id}`,{responseType: 'json'});
     }
 
 }
