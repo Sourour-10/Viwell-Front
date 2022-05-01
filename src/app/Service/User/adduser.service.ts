@@ -7,6 +7,7 @@ import { SignupInfo } from 'src/app/Model/SignupInfo';
 import { jwtResponse } from 'src/app/Model/jwtResponse';
 import { TokenStorageService } from './token-storage.service';
 import { LoginInfo } from 'src/app/Model/LoginInfo';
+import { PasswordModel } from 'src/app/Model/PasswordModel';
 
 const httpOptions={
   headers: new HttpHeaders({'Content-Type':'application/json'})
@@ -26,6 +27,13 @@ private getUserByUserName='http://localhost:8089/User/getUserbyUserName/';
 
   public user: Observable<User>;
   public userSubject: BehaviorSubject<User>;
+  passwordModel:PasswordModel;
+  userModel:User;
+  uploadedImage: File;
+  dbImage: any;
+  postResponse: any;
+  successResponse: string;
+  image: any;
 
 
   //
@@ -92,8 +100,9 @@ public getCurrentUser(): User {
 
 //UPDATE USER
 public update(id, params) {
+  this.userModel=params
 console.log('azertyu'+this.currentUser().id)
-  return this.http.put(`http://localhost:8089/User/update/${ this.currentUser().id}`, params)
+  return this.http.put(`http://localhost:8089/User/update/${ this.currentUser().id}`, this.userModel)
       .pipe(map(x => {
         
       //  console.log('iddddddd',this.userValue.id)
@@ -146,9 +155,24 @@ updateUser(u:User){
   return this.http.post(`${this.apiUrl}/registration`,u);
   
 }
-  resetPassword(email):Observable<any>{
-   
-    return this.http.post(`${this.apiUrl}/resetPassword`, {email}).pipe(map(
+  public checkEmail(email: string):Observable<any>{
+   this.passwordModel=new PasswordModel();
+    this.passwordModel.mail=email;
+    console.log('hhehehheh',email, this.passwordModel)
+    return this.http.post(`${this.apiUrl}/resetPassword`,  this.passwordModel)
+    /*.pipe(map(
+      response=>{
+        return response;
+      }
+    ))*/
+
+  }
+ public ResetPassword(email:string,token :string , newPassword:string):Observable<any>{
+  this.passwordModel=new PasswordModel();
+  this.passwordModel.mail=email;
+  this.passwordModel.token=token;
+  this.passwordModel.newPassword=newPassword;
+    return this.http.post(`${this.apiUrl}/savePassword`, this.passwordModel).pipe(map(
       response=>{
         return response;
       }
@@ -159,10 +183,22 @@ updateUser(u:User){
   public logout(): void {
     window.sessionStorage.removeItem("auth-user");}
 //Uplodad photo
-    uploadProfileImage(formData: FormData): Observable<any> {
-      return this.http.post<FormData>('http://localhost:8089/Photo/upload/image', formData, {
-        reportProgress: true,
-        observe: 'events'
-      })
-    }
+public onImageUpload(event) {
+  this.uploadedImage = event.target.files[0];
+}
+uploadUserProfilePicture() {
+const imageFormData= new FormData();
+imageFormData.append('photo',this.uploadedImage)
+ 
+this.http.post(`http://localhost:8089/Photo/upload/photo/${this.currentUser().id}`, imageFormData)
+.subscribe((response) => {
+  if (response=== 200) {
+    this.postResponse = response;
+    this.successResponse = this.postResponse.body.message;
+  } else {
+    this.successResponse = 'Image not uploaded due to some error!';
+  }
+}
+);
+}
 }

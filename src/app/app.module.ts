@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
@@ -18,9 +18,11 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppService } from './Service/app.service';
 import { UserListComponent } from './Component/user-list/user-list.component';
-import { ResetpasswordComponent } from './Component/resetpassword/resetpassword.component';
+
 import { NotificationComponent } from './Component/notification/notification.component';
 import { CompleteProfileComponent } from './Component/complete-profile/complete-profile.component';
+import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
+
 
 
 export class XhrInterceptor implements HttpInterceptor {
@@ -43,9 +45,11 @@ export class XhrInterceptor implements HttpInterceptor {
     FooterComponent,
     LoginComponent,
     UserListComponent,
-    ResetpasswordComponent,
+
     NotificationComponent,
     CompleteProfileComponent,
+    ResetPasswordComponent,
+  
    
   ],
   imports: [
@@ -55,7 +59,8 @@ export class XhrInterceptor implements HttpInterceptor {
     RouterModule,
     AppRoutingModule,
     HomeModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
 
   ],
   providers:[AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
