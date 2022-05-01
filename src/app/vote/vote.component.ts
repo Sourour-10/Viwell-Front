@@ -9,7 +9,9 @@ import { AdduserService } from 'src/app/Service/User/adduser.service';
 })
 export class VoteComponent implements OnInit {
   users = null;
-  msg: string;
+  checked : any ;
+  msg: string ="";
+  vb: any = false ;
   constructor(private service:AdduserService ,private pollService: PollService) { }
 
   ngOnInit(): void {
@@ -26,6 +28,15 @@ export class VoteComponent implements OnInit {
       this.msg= this.msg + "  vote, never lose hope" ;
     })
   }
+vote(){
+  var radios = document.getElementsByTagName('input');
+  for (var i = 0; i < radios.length; i++) {
+    if (radios[i].type === 'radio' && radios[i].checked) {
+    this.service.voteTo(1,3).subscribe(res=> this.vb=res) ;
+    if(this.vb == false)
+    this.msg="Sorry you've already voted" ;
+    
+}}
 
-
+}
 }

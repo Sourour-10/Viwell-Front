@@ -35,6 +35,7 @@ import { ResetpasswordComponent } from './Component/resetpassword/resetpassword.
 import { NotificationComponent } from './Component/notification/notification.component';
 import { CompleteProfileComponent } from './Component/complete-profile/complete-profile.component';
 import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
+import { MyFeedBacksComponent } from './my-feed-backs/my-feed-backs.component';
 
 
 export class XhrInterceptor implements HttpInterceptor {
@@ -71,6 +72,7 @@ export class XhrInterceptor implements HttpInterceptor {
     NotificationComponent,
     CompleteProfileComponent,
     ProfileFriendComponent,
+    MyFeedBacksComponent,
    
   ],
   imports: [

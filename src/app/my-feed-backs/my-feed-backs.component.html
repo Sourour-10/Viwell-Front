@@ -1,0 +1,27 @@
+<div class="container">
+
+    <table class="table table-striped">
+        <h1>My feedbacks</h1>
+        <thead>
+            <tr>
+                <th style="width: 30%"></th>
+                <th style="width: 30%"></th>
+                <th style="width: 10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let feedback of listFeedBacks">
+                <td>{{feedback.text}}</td>
+                <td>{{feedback.date}}</td>
+                <td style="white-space: nowrap">
+                    <!--Debut Anas-->
+                    <!-- Fin Anas-->
+                    <button  class="btn btn-sm btn-danger btn-delete-user">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+          
+        </tbody>
+    </table>
+</div>

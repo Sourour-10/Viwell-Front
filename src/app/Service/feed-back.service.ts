@@ -7,6 +7,7 @@ import { FeedBack } from '../Model/FeedBack';
 })
 export class FeedBackService {
 apiUrl="http://localhost:8089/FeedBack"  
+
   constructor(private http:HttpClient) { }
 
   makeFeedBackToEvent(f:FeedBack){
@@ -20,4 +21,8 @@ apiUrl="http://localhost:8089/FeedBack"
 
   }
 
-}
+  listFeedBacks(id:any){
+      return this.http.get(`${this.apiUrl}/getMyFeedBacks/${id}`);
+    }
+  }
+

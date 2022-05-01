@@ -14,6 +14,8 @@ import { RateEventComponent } from './rate-event/rate-event.component';
 import { RateCollabComponent } from './rate-collab/rate-collab.component';
 
 import { FeedbackEventComponent } from './feedback-event/feedback-event.component';
+import { MyFeedBacksComponent } from './my-feed-backs/my-feed-backs.component'
+
 import { FeedbackColleagueComponent } from './feedback-colleague/feedback-colleague.component';
 import { MyBadgesComponent } from './Badge/my-badges/my-badges.component';
 
@@ -42,6 +44,8 @@ const routes: Routes = [
   { path: 'feedback-event', component: FeedbackEventComponent },
   { path: 'vote', component: VoteComponent },
   { path: 'my-badges', component: MyBadgesComponent },
+  { path: 'my-feedbacks', component: MyFeedBacksComponent },
+
   { path: 'friend-profile', component: ProfileFriendComponent },
   
   

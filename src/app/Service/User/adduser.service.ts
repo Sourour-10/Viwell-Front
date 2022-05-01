@@ -178,6 +178,12 @@ getFriend(id:any) :Observable<any> {
 
 }
 
+voteTo(idUserConnected:any,idCandidate:any) {
+
+  return this.http.put(`${this.apiUrl}/voteTo/${1}/${idCandidate}`,null) ;
+  
+}
+
 }
   
 
