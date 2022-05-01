@@ -5,6 +5,9 @@ export class SignupInfo {
   firstname: string;
   email: string;
  role: string[];
+cin:number;
+birthdate:Date;
+phoneNumber:number;
 
 
 
@@ -15,6 +18,10 @@ export class SignupInfo {
     lastname: string,
     firstname: string,
     email: string,
+    cin:number,
+birthdate:Date,
+phoneNumber:number,
+
     //role:string[]
     
   ) {
@@ -23,6 +30,9 @@ export class SignupInfo {
     this.lastname = lastname;
     this.firstname = firstname;
     this.email=email;
+    this.phoneNumber=phoneNumber;
+    this.cin=cin;
+    this.birthdate=birthdate;
    this.role=['EMPLOYEE'];
   }
 }

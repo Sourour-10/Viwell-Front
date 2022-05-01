@@ -140,7 +140,9 @@ deleteUser(idUser :any){
   //return User;
 //return this.http.get(this.getUserByUserName,)}
 
-
+LinkedinLogin(){
+  return this.http.get('http://localhost:8089/User/linkedInLogin');
+}
 
   addUser(u:User){
     return this.http.post(`${this.apiUrl}/registration`,u);

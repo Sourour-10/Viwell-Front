@@ -4,6 +4,7 @@ import {User} from '../Model/User';
 import { SignupInfo } from '../Model/SignupInfo';
 import { Router } from '@angular/router';
 import { first } from 'rxjs';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-signup',
@@ -11,6 +12,9 @@ import { first } from 'rxjs';
     styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+    emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+    textFormControl= new FormControl('', [Validators.required]);
+    passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(8)]);
     user : User;
     test : Date = new Date();
     form: any = {};
@@ -27,7 +31,9 @@ export class SignupComponent implements OnInit {
     }
 
     onsubmit(){
-        this.signupInfo= new SignupInfo(this.form.username, this.form.password, this.form.lastname, this.form.firstname,this.form.email )
+        this.signupInfo= new SignupInfo(this.form.username, this.form.password, this.form.lastname, this.form.firstname,this.form.email,this.form.cin,
+            this.form.birthdate,
+           this.form.phoneNumber)
     this.service.signUp(this.signupInfo).pipe(first()).subscribe(
         data=>{
             this.isSignUpFailed=false;

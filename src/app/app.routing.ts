@@ -12,6 +12,7 @@ import { UserListComponent } from './Component/user-list/user-list.component';
 import { NotificationComponent } from './Component/notification/notification.component';
 import { CompleteProfileComponent } from './Component/complete-profile/complete-profile.component';
 import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
+import { LinkedinLoginResponseComponent } from './login/linkedin/linkedin-login-response/linkedin-login-response.component';
 
 
 const routes: Routes =[
@@ -25,6 +26,8 @@ const routes: Routes =[
     {path:'completeProfile' , component:CompleteProfileComponent},
     {path:'reset', component:ResetPasswordComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: "linkedInLogin", component: LinkedinLoginResponseComponent }
+
     
 ];
 

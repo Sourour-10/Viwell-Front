@@ -22,6 +22,7 @@ import { UserListComponent } from './Component/user-list/user-list.component';
 import { NotificationComponent } from './Component/notification/notification.component';
 import { CompleteProfileComponent } from './Component/complete-profile/complete-profile.component';
 import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
+import { LinkedinLoginResponseComponent } from './login/linkedin/linkedin-login-response/linkedin-login-response.component';
 
 
 
@@ -49,6 +50,7 @@ export class XhrInterceptor implements HttpInterceptor {
     NotificationComponent,
     CompleteProfileComponent,
     ResetPasswordComponent,
+    LinkedinLoginResponseComponent,
   
    
   ],

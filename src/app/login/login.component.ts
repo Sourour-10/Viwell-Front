@@ -37,18 +37,29 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  onSubmit(){
-    this.app.login(new LoginInfo(this.form.username,this.form.password))
-    .pipe(first()).subscribe(data=>{
-      this.isLoginFailed=false;
-      this.router.navigateByUrl('/user-profile');
-    },
-    error=>{
-      this.errorMessage=error.error.message;
-      this.isLoginFailed=true;
-    })
+  ngOnInit() {}
+
+  onSubmit() {
+    this.app
+      .login(new LoginInfo(this.form.username, this.form.password))
+      .pipe(first())
+      .subscribe(
+        (data) => {
+          this.isLoginFailed = false;
+          this.router.navigateByUrl("/user-profile");
+        },
+        (error) => {
+          this.errorMessage = error.error.message;
+          this.isLoginFailed = true;
+        }
+      );
   }
-/*
+
+  Linkedin() {
+    window.location.href =
+      "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=789ampg7y98avo&redirect_uri=https://oauth.pstmn.io/v1/callback&state=foobar&scope=r_liteprofile%20r_emailaddress";
+  }
+  /*
   login() {
     this.app.authenticate(this.credentials, () => {
       this.router.navigateByUrl("/user-profile");
@@ -77,5 +88,4 @@ handleLogin() {
 }  
 
 */
-  ngOnInit() {}
 }
