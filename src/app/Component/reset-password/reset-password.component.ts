@@ -85,15 +85,9 @@ export class ResetPasswordComponent implements OnInit {
         this.checkoutParentGroupReset.controls["newUser"].value.code,
         this.checkoutParentGroupReset.controls["newUser"].value.password
       )
-      .subscribe({
-        next: (response) => {
-          if (response.result == 1) {
-            alert("Success Edit Password");
-            this.router.navigateByUrl("/login");
-          } else {
-            alert("Invalid Code");
-          }
-        },
-      });
+      .subscribe(() =>{ this.router.navigate(['login']);}
+         
+        
+      );
   }
 }
