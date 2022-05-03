@@ -98,7 +98,10 @@ public getCurrentUser(): User {
     return { userName , lastName,firstName ,mail, phoneNumber } as User;
   }
 }
-
+updateuser( value: any): Observable<Object> {
+  this.userModel=value
+  return this.http.put(`http://localhost:8089/User/userUpdate/${ this.currentUser().id}`, this.userModel);
+}
 //UPDATE USER
 public update(id, params) {
   this.userModel=params

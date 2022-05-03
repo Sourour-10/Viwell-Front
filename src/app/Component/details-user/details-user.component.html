@@ -10,8 +10,14 @@
       <p>Birthdate : {{user.birthdate}}</p>
       <p>Cin : {{user.cin}}</p>
       <p>Email : {{user.mail}}</p>
-    <p>Photo  {{user.idPhoto}} </p>
+      <a *ngIf=retrievedImage href="javascript:void(0)">
+        <img [src]="imageUrl" class="img-fluid rounded-circle shadow" />
+      </a>
+     
+      
+     
     </div>
+  
     <div class="modal-footer">
       <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
     </div>

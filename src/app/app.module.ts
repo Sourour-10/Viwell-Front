@@ -46,6 +46,7 @@ import { AddPostComponent } from './Post/add-post/add-post.component';
 import { DetailPostComponent } from './Post/detail-post/detail-post.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DetailsUserComponent } from './Component/details-user/details-user.component';
+import { AddPhotoComponent } from './Component/add-photo/add-photo.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -95,6 +96,7 @@ export class XhrInterceptor implements HttpInterceptor {
     AddPostComponent,
     DetailPostComponent,
     DetailsUserComponent,
+    AddPhotoComponent,
   ],
   imports: [
     BrowserModule,
