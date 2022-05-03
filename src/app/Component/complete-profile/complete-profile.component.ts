@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { catchError, first, map, of } from 'rxjs';
+import { User } from 'src/app/Model/User';
 import { AdduserService } from 'src/app/Service/User/adduser.service';
 import { TokenStorageService } from 'src/app/Service/User/token-storage.service';
 
@@ -13,7 +14,7 @@ import { TokenStorageService } from 'src/app/Service/User/token-storage.service'
   styleUrls: ['./complete-profile.component.css']
 })
 export class CompleteProfileComponent implements OnInit {
-  form: any ={};
+  form: any ;
   id: number;
   isAddMode: boolean;
   loading = false;
@@ -26,7 +27,7 @@ export class CompleteProfileComponent implements OnInit {
   successResponse: string;
   image: any;
   base64Data:any;
-
+user:User;
   
  // file: File = {
    // data: null,
@@ -57,16 +58,29 @@ export class CompleteProfileComponent implements OnInit {
 }
 
 
-  ngOnInit(): void {
+  ngOnInit() {
+   // this.user = new User()
  
+  }
+
+  updateuser() {
+    this.service.updateuser( this.user)
+      .subscribe(data => {
+        console.log("heloooo",data);
+        this.user = new User();
+        this.router.navigateByUrl("/user-profile");
+      }, error => console.log(error));
   }
  // get f() { return this.form.controls; }
 
   public updateUser() {
-    this.service.update(this.id, this.form.value)
+    this.service.updateuser( this.user)
         .pipe(first())
         .subscribe({
+         
             next: () => {
+
+              console.log("helooooooo",this.user)
              //   this.alertService.success('Update successful', { keepAfterRouteChange: true });
              console.log("updated");
                 this.router.navigate(['/user-profile'], { relativeTo: this.route });

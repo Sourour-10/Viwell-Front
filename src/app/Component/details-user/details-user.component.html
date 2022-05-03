@@ -1,0 +1,25 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <p>UserName : {{user.userName}}</p>
+      <p>FirstName : {{user.firstName}}</p>
+      <p>LastName : {{user.lastName}}</p>
+      <p>Birthdate : {{user.birthdate}}</p>
+      <p>Cin : {{user.cin}}</p>
+      <p>Email : {{user.mail}}</p>
+      <a *ngIf=retrievedImage href="javascript:void(0)">
+        <img [src]="imageUrl" class="img-fluid rounded-circle shadow" />
+      </a>
+     
+      
+     
+    </div>
+  
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+  <button class="btn btn-sm btn-primary mr-1" (click)="openVerticallyCentered(content)">Details</button>

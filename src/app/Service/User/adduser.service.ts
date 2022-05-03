@@ -99,11 +99,16 @@ export class AdduserService {
     }
   }
 
-  //UPDATE USER
-  public update(id, params) {
-    this.userModel = params
-    console.log('azertyu' + this.currentUser().id)
-    return this.http.put(`http://localhost:8089/User/update/${this.currentUser().id}`, this.userModel)
+ 
+updateuser( value: any): Observable<Object> {
+  this.userModel=value
+  return this.http.put(`http://localhost:8089/User/userUpdate/${ this.currentUser().id}`, this.userModel);
+}
+//UPDATE USER
+public update(id, params) {
+  this.userModel=params
+console.log('azertyu'+this.currentUser().id)
+  return this.http.put(`http://localhost:8089/User/update/${ this.currentUser().id}`, this.userModel)
       .pipe(map(x => {
 
         //  console.log('iddddddd',this.userValue.id)
@@ -150,19 +155,20 @@ export class AdduserService {
   }
 
 
+ListUser(){
+  return this.http.get(`${this.apiUrl}/getAllUsers`);
+}
+updateUser(u:User){
+  return this.http.post(`${this.apiUrl}/registration`,u);
+  
+}
 
-  ListUser() {
-    return this.http.get(`${this.apiUrl}/getAllUsers`);
-  }
-  updateUser(u: User) {
-    return this.http.post(`${this.apiUrl}/registration`, u);
 
-  }
-  public checkEmail(email: string): Observable<any> {
-    this.passwordModel = new PasswordModel();
-    this.passwordModel.mail = email;
-    console.log('hhehehheh', email, this.passwordModel)
-    return this.http.post(`${this.apiUrl}/resetPassword`, this.passwordModel)
+  public checkEmail(email: string):Observable<any>{
+   this.passwordModel=new PasswordModel();
+    this.passwordModel.mail=email;
+    console.log('hhehehheh',email, this.passwordModel)
+    return this.http.post(`${this.apiUrl}/resetPassword`,  this.passwordModel)
     /*.pipe(map(
       response=>{
         return response;
@@ -185,27 +191,35 @@ export class AdduserService {
 
   //LOGOUT
   public logout(): void {
-    window.sessionStorage.removeItem("auth-user");
+    window.sessionStorage.removeItem("auth-user");}
+//Uplodad photo
+public onImageUpload(event) {
+  this.uploadedImage = event.target.files[0];
+}
+uploadUserProfilePicture() {
+const imageFormData= new FormData();
+imageFormData.append('photo',this.uploadedImage)
+ 
+this.http.post(`http://localhost:8089/Photo/upload/photo/${this.currentUser().id}`, imageFormData)
+.subscribe((response) => {
+  if (response=== 200) {
+    this.postResponse = response;
+    this.successResponse = this.postResponse.body.message;
+  } else {
+    this.successResponse = 'Image not uploaded due to some error!';
   }
-  //Uplodad photo
-  public onImageUpload(event) {
-    this.uploadedImage = event.target.files[0];
-  }
-  uploadUserProfilePicture() {
-    const imageFormData = new FormData();
-    imageFormData.append('photo', this.uploadedImage)
+}
+);
+}
+    uploadProfileImage(formData: FormData): Observable<any> {
+      return this.http.post<FormData>('http://localhost:8089/Photo/upload/image', formData, {
+        reportProgress: true,
+        observe: 'events'
+      })
+    }
 
-    this.http.post(`http://localhost:8089/Photo/upload/photo/${this.currentUser().id}`, imageFormData)
-      .subscribe((response) => {
-        if (response === 200) {
-          this.postResponse = response;
-          this.successResponse = this.postResponse.body.message;
-        } else {
-          this.successResponse = 'Image not uploaded due to some error!';
-        }
-      }
-      );
-  }
+// Anas
+
 
 
 voteTo(idUserConnected: any, idCandidate: any) {

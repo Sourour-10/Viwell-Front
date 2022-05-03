@@ -30,6 +30,7 @@
     "moment": "^2.29.1",
     "ng2-date-picker": "^13.1.1",
     "ng2-nouislider": "1.8.3",
+    "ng2-search-filter": "^0.5.1",
     "nouislider": "14.6.3",
     "popper.js": "^1.16.1",
     "rxjs": "^7.5.5",

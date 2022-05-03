@@ -28,18 +28,26 @@ import { MyBadgesComponent } from './Badge/my-badges/my-badges.component';
 import { ChatComponent } from './chat/chat.component';
 import { GetPhotoComponent } from './get-photo/get-photo.component';
 import { VoteComponent } from './vote/vote.component';
-import * as dayjs from 'dayjs';
+//import * as dayjs from 'dayjs';
 
 import { UserListComponent } from './Component/user-list/user-list.component';
 
 import { NotificationComponent } from './Component/notification/notification.component';
 import { CompleteProfileComponent } from './Component/complete-profile/complete-profile.component';
-import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
-import { MyFeedBacksComponent } from './my-feed-backs/my-feed-backs.component';
+
 import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
 import { LinkedinLoginResponseComponent } from './login/linkedin/linkedin-login-response/linkedin-login-response.component';
 
+import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
+import { MyFeedBacksComponent } from './my-feed-backs/my-feed-backs.component';
 
+import { NewsfeedComponent } from './newsfeed/newsfeed.component';
+import { PostComponent } from './post/post.component';
+import { AddPostComponent } from './Post/add-post/add-post.component';
+import { DetailPostComponent } from './Post/detail-post/detail-post.component';
+import { DetailsUserComponent } from './Component/details-user/details-user.component';
+import { AddPhotoComponent } from './Component/add-photo/add-photo.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -50,10 +58,6 @@ export class XhrInterceptor implements HttpInterceptor {
     return next.handle(xhr);
   }
 }
-import { NewsfeedComponent } from './newsfeed/newsfeed.component';
-import { PostComponent } from './post/post.component';
-import { AddPostComponent } from './Post/add-post/add-post.component';
-import { DetailPostComponent } from './Post/detail-post/detail-post.component';
 
 
 @NgModule({
@@ -75,23 +79,26 @@ import { DetailPostComponent } from './Post/detail-post/detail-post.component';
     ChatComponent,
     GetPhotoComponent,
     UserListComponent,
-    VoteComponent,
-    ResetPasswordComponent,
-    NotificationComponent,
-    CompleteProfileComponent,
-    ProfileFriendComponent,
-    MyFeedBacksComponent,
 
     NotificationComponent,
     CompleteProfileComponent,
     ResetPasswordComponent,
     LinkedinLoginResponseComponent,
-  
+    ProfileFriendComponent,
+    MyFeedBacksComponent,
+
+    VoteComponent,
+    NotificationComponent,
+    CompleteProfileComponent,
+    ProfileFriendComponent,
+    MyFeedBacksComponent,
    
     NewsfeedComponent,
     PostComponent,
     AddPostComponent,
     DetailPostComponent,
+    DetailsUserComponent,
+    AddPhotoComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,6 +110,9 @@ import { DetailPostComponent } from './Post/detail-post/detail-post.component';
     HomeModule,
     HttpClientModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule
+
+    
 
   ],
   providers:[AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],

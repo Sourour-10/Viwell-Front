@@ -62,10 +62,13 @@ const routes: Routes = [
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'userlist', component: UserListComponent },
-  { path: 'resetpassword', component: ResetPasswordComponent },
-  { path: 'notification', component: NotificationComponent },
-  { path: 'completeProfile', component: CompleteProfileComponent },
+  
+  {path:'notification' , component:NotificationComponent},
+  {path:'completeProfile' , component:CompleteProfileComponent},
+  {path:'reset', component:ResetPasswordComponent},
+  { path: "linkedInLogin", component: LinkedinLoginResponseComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+
 
 //Yossr
   { path: 'newsfeed',          component: NewsfeedComponent },

@@ -31,12 +31,18 @@
                       class="form-control"
                       placeholder="UserName"
                       type="text"
+                      id="userName"
+                      name="username"
                       (focus)="focus = true"
                       (blur)="focus = false"
                       [(ngModel)]="form.username"
+                      [formControl]="textFormControl"
                     />
+                    
                   </div>
                 </div>
+              <!--  <div [hidden]="!z.pristine" class="alert alert-danger">Name is required</div>-->
+                  
                 <div class="form-group" [ngClass]="{ focused: focus === true }">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
@@ -167,28 +173,7 @@
                     <span class="text-success font-weight-700">strong</span>
                   </small>
                 </div>
-                <div class="row my-4">
-                  <div class="col-12">
-                    <div
-                      class="custom-control custom-control-alternative custom-checkbox"
-                    >
-                      <input
-                        class="custom-control-input"
-                        id="customCheckRegister"
-                        type="checkbox"
-                      />
-                      <label
-                        class="custom-control-label"
-                        for="customCheckRegister"
-                      >
-                        <span
-                          >I agree with the
-                          <a href="javascript:void(0)">Privacy Policy</a>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
+               
                 <div class="text-center">
                   <button class="btn btn-primary mt-4">Create account</button>
                 </div>

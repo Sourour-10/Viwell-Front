@@ -16,5 +16,6 @@ export class User {
     hasVoted!: any;
     active !: any;
     role!: any;
+    idPhoto:any;
 
 }

@@ -60,7 +60,7 @@ getImage(id:any) {
         this.base64Data = this.retrieveResonse.picByte ;
 
         this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-        this.imageUrl= 'http://localhost:8089/Photo/getImageById/1';
+        this.imageUrl= 'http://localhost:8089/Photo/getImageById/'+id;
 
       }
     );
