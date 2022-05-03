@@ -28,9 +28,11 @@ import { VoteComponent } from './vote/vote.component';
 
 
 import { UserListComponent } from './Component/user-list/user-list.component';
-import { ResetpasswordComponent } from './Component/resetpassword/resetpassword.component';
 import { NotificationComponent } from './Component/notification/notification.component';
 import { CompleteProfileComponent } from './Component/complete-profile/complete-profile.component';
+import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
+import { LinkedinLoginResponseComponent } from './login/linkedin/linkedin-login-response/linkedin-login-response.component';
+
 import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
 
 const routes: Routes = [
@@ -60,7 +62,7 @@ const routes: Routes = [
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'userlist', component: UserListComponent },
-  { path: 'resetpassword', component: ResetpasswordComponent },
+  { path: 'resetpassword', component: ResetPasswordComponent },
   { path: 'notification', component: NotificationComponent },
   { path: 'completeProfile', component: CompleteProfileComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -71,6 +73,16 @@ const routes: Routes = [
     {path: 'posts' , component: PostComponent},
     { path: '',  redirectTo: '/posts', pathMatch: 'full' },
 
+
+  
+    {path:'userlist', component: UserListComponent},
+    {path:'notification' , component:NotificationComponent},
+    {path:'completeProfile' , component:CompleteProfileComponent},
+    {path:'reset', component:ResetPasswordComponent},
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: "linkedInLogin", component: LinkedinLoginResponseComponent }
+
+    
 ];
 
 @NgModule({

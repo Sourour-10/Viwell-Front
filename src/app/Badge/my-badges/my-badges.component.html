@@ -37,15 +37,18 @@
                     </div>
                   </div>
                   <div class="card-body">
-
                     <h5 class="card-title">{{b.name }} </h5>
-                    <p class="card-text">{{b.points}}
-                    </p>
+                    <p class="card-text">{{b.points}}</p>
                     <p class="card-text"> {{b.photoId}}</p>
-                    <a class="btn btn-primary" (click)="getImage(idString)">Get Badge details</a>
+                    <a class="btn btn-primary" (click)="getImage(photoId)">Get Badge photo</a>
+                    
+                    <p>{{badge.name}} </p>
+                    <p>{{badge.points}} </p>
+                    <p>{{badge.badgeId}} </p>
+                    
+                    <a class="btn btn-primary" (click)="getBadgeDetails(b.name)">Get Badge details</a>
 
                     <div class="container row">
-
                     </div>
                   </div>
                 </div>

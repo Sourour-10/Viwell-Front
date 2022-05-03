@@ -1,10 +1,11 @@
-import { HttpErrorResponse, HttpEventType } from '@angular/common/http';
+import { HttpErrorResponse, HttpEventType , HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { catchError, first, map, of } from 'rxjs';
 import { AdduserService } from 'src/app/Service/User/adduser.service';
+import { TokenStorageService } from 'src/app/Service/User/token-storage.service';
 
 @Component({
   selector: 'app-complete-profile',
@@ -18,6 +19,13 @@ export class CompleteProfileComponent implements OnInit {
   loading = false;
   submitted = false;
   closeResult = '';
+  profilePicture:File
+  uploadedImage: File;
+  dbImage: any;
+  postResponse: any;
+  successResponse: string;
+  image: any;
+  base64Data:any;
 
   
  // file: File = {
@@ -27,7 +35,7 @@ export class CompleteProfileComponent implements OnInit {
   //};
 
   constructor(private modalService: NgbModal, private service:AdduserService ,  private route: ActivatedRoute,
-    private router: Router,) {}
+    private router: Router,private http:HttpClient, private tokenStorage:TokenStorageService) {}
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -94,4 +102,39 @@ export class CompleteProfileComponent implements OnInit {
       }
     })
 }*/
+public get currentUser(): any{
+  return this.tokenStorage.getUser;
+}
+//Uplodad photo
+public onImageUpload(event) {
+  this.uploadedImage = event.target.files[0];
+}
+uploadUserProfilePicture() {
+const imageFormData= new FormData();
+imageFormData.append('photo',this.uploadedImage)
+ 
+this.http.post(`http://localhost:8089/Photo/upload/photo/${this.currentUser().id}`, imageFormData)
+.subscribe((response) => {
+  if (response=== 200) {
+    this.postResponse = response;
+    this.successResponse = this.postResponse.body.message;
+  } else {
+    this.successResponse = 'Image not uploaded due to some error!';
+  }
+}
+);
+}
+
+viewImage() {
+  this.http.get(`http://localhost:8089/User/getPhotoUser/${this.currentUser().id}` )
+    .subscribe(
+      res => {
+        this.postResponse = res;
+        console.log("anaas"+res)
+
+        this.base64Data = this.postResponse.picByte
+        this.dbImage = 'data:image/jpeg;base64,' + this.base64Data;
+      }
+    );
+}
 }

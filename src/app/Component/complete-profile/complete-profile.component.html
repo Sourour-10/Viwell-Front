@@ -23,6 +23,34 @@
   <div class="modal-footer">
     <button  class="btn btn-outline-dark" (click)="updateUser()" >Save</button>
   </div>
+
+  <div class="form-group">
+    <input type="file" (change)="onImageUpload($event)">
+    <input type="button" (click)="uploadUserProfilePicture()" value="Upload Image" class="btn1">
+</div>
+
+<div class="col-md-6">
+
+          <input type="button" (click)="viewImage()" value="Get Image">
+      zdsxdxs    {{postResponse}}
+  
+      </div>
+            
+<div class="container row">
+  
+      <div class="col-md-12">
+  
+          <div *ngIf=dbImage>
+       
+              <img ng-src="{{dbImage}}">
+  
+          </div>
+  
+      </div>
+  
+  </div>
+  
+          
 </ng-template>
 
 <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4" (click)="open(content)">Update Profile</a>

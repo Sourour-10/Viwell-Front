@@ -31,11 +31,13 @@ import { VoteComponent } from './vote/vote.component';
 import * as dayjs from 'dayjs';
 
 import { UserListComponent } from './Component/user-list/user-list.component';
-import { ResetpasswordComponent } from './Component/resetpassword/resetpassword.component';
+
 import { NotificationComponent } from './Component/notification/notification.component';
 import { CompleteProfileComponent } from './Component/complete-profile/complete-profile.component';
 import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
 import { MyFeedBacksComponent } from './my-feed-backs/my-feed-backs.component';
+import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
+import { LinkedinLoginResponseComponent } from './login/linkedin/linkedin-login-response/linkedin-login-response.component';
 
 
 
@@ -74,11 +76,17 @@ import { DetailPostComponent } from './Post/detail-post/detail-post.component';
     GetPhotoComponent,
     UserListComponent,
     VoteComponent,
-    ResetpasswordComponent,
+    ResetPasswordComponent,
     NotificationComponent,
     CompleteProfileComponent,
     ProfileFriendComponent,
     MyFeedBacksComponent,
+
+    NotificationComponent,
+    CompleteProfileComponent,
+    ResetPasswordComponent,
+    LinkedinLoginResponseComponent,
+  
    
     NewsfeedComponent,
     PostComponent,
@@ -94,8 +102,7 @@ import { DetailPostComponent } from './Post/detail-post/detail-post.component';
     AppRoutingModule,
     HomeModule,
     HttpClientModule,
- 
-
+    ReactiveFormsModule,
 
   ],
   providers:[AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
