@@ -1,32 +1,50 @@
 ﻿<div class="container">
+   
 
-<table class="table table-striped">
-    <h1>Users</h1>
-    <thead>
-        <tr>
-            <th style="width: 30%">First Name</th>
-            <th style="width: 30%">Last Name</th>
-            <th style="width: 30%">Username</th>
-            <th style="width: 10%"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of users">
-            <td>{{user.firstName}}</td>
-            <td>{{user.lastName}}</td>
-            <td>{{user.userName}}</td>
-            <td style="white-space: nowrap">
-                <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Details</a>
-                <button (click)="deleteUser(user.userId)" class="btn btn-sm btn-danger btn-delete-user">
-                   Delete
-                </button>
-            </td>
-        </tr>
-        <tr *ngIf="!users">
-            <td colspan="4" class="text-center">
-                <span class="spinner-border spinner-border-lg align-center"></span>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div>
+    <div>
+     
+    </div>
+</div>
+    <table class="table table-striped">
+        <h1>Users</h1>
+
+        <input
+        type="text"
+        class="form-control"
+        placeholder="Search..."
+        [(ngModel)]="filterTerm"
+      />
+        <thead>
+            <tr>
+                <th style="width: 30%">First Name</th>
+                <th style="width: 30%">Last Name</th>
+                <th style="width: 30%">Username</th>
+                <th style="width: 10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users  | filter: filterTerm">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.userName}}</td>
+                <td style="white-space: nowrap">
+                    <!--Debut Anas-->
+                    <app-rate-colleague></app-rate-colleague>
+                    <app-feedback-colleague></app-feedback-colleague>
+                    <!-- Fin Anas-->
+                    <app-details-user [user]="user"></app-details-user>
+             <!--    <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Details</a>-->
+                    <button (click)="deleteUser(user.userId)" class="btn btn-sm btn-danger btn-delete-user">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            <tr *ngIf="!users">
+                <td colspan="4" class="text-center">
+                    <span class="spinner-border spinner-border-lg align-center"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

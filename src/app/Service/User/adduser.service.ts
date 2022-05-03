@@ -19,6 +19,7 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class AdduserService {
+
 private currentUserSubject:BehaviorSubject<any>;
 public CurrentUser:Observable<any>;
 private signupUrl='http://localhost:8089/Auth/Register';
@@ -157,6 +158,8 @@ updateUser(u:User){
   return this.http.post(`${this.apiUrl}/registration`,u);
   
 }
+
+
   public checkEmail(email: string):Observable<any>{
    this.passwordModel=new PasswordModel();
     this.passwordModel.mail=email;
@@ -181,6 +184,7 @@ updateUser(u:User){
     ))
 
   }
+
 //LOGOUT
   public logout(): void {
     window.sessionStorage.removeItem("auth-user");}
@@ -203,4 +207,29 @@ this.http.post(`http://localhost:8089/Photo/upload/photo/${this.currentUser().id
 }
 );
 }
+    uploadProfileImage(formData: FormData): Observable<any> {
+      return this.http.post<FormData>('http://localhost:8089/Photo/upload/image', formData, {
+        reportProgress: true,
+        observe: 'events'
+      })
+    }
+
+// Anas
+
+
+getFriend(id:any) :Observable<any> {
+
+
+  return this.http.get(`${this.apiUrl}/GetUserById/${id}`);
+
 }
+
+voteTo(idUserConnected:any,idCandidate:any) {
+
+  return this.http.put(`${this.apiUrl}/voteTo/${1}/${idCandidate}`,null) ;
+  
+}
+
+}
+  
+

@@ -1,0 +1,11 @@
+textarea {
+    border: none;
+    border-collapse:collapse;
+    border-right: #000 1px solid;
+    border-left: #000 1px solid;
+    resize: none;
+    margin: 0;
+    padding: 0;
+    width: 400px;
+    border-radius: 12%;
+}

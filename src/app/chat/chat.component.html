@@ -1,0 +1,93 @@
+<section class="msger">
+    <header class="msger-header">
+        <div class="msger-header-title">
+            <i class="fas fa-comment-alt"></i> SimpleChat
+        </div>
+        <div class="msger-header-options">
+            <span><i class="fas fa-cog"></i></span>
+        </div>
+    </header>
+
+
+    <div class="bubbleWrapper">
+        <div *ngFor="let chatMessage of webSocketService.chatMessages" class="inlineContainer">
+            <div class="otherBubble other">
+                <span>{{chatMessage.message}}</span>
+            </div>
+        </div>
+    </div>
+
+    <form  (ngSubmit)="sendMessage(sendForm)" class="msger-inputarea" #sendForm="ngForm" >
+        <strong  name="user" id="input-user" ngModel > 
+            {{currentUser.firstname }}
+        </strong>   
+             <input type="text" class="msger-input" placeholder=" Your message" name="message" id="input-message" ngModel>
+
+
+        <button type="submit" class="msger-send-btn">Send</button>
+    </form>
+</section>
+
+
+<!-- 
+
+
+<div class="main-div">
+    <div class="card">
+        <div *ngFor="let chatMessage of webSocketService.chatMessages" class="card-body">
+            <strong>{{chatMessage.user}}: </strong>
+            <span>{{chatMessage.message}}</span>
+
+        </div>
+    </div>
+    <div class="card-body">
+        <form class="form_Container" (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
+            <div class="chat-send row">
+                <div class="col-2">
+                    <input type="text" class="form-control" name="user" id="input-user" ngModel>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" name="message" id="input-message" ngModel>
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<main class="chat">
+
+    <div class="container">
+
+        <div class="chat-content">
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let chatMessage of webSocketService.chatMessages">
+                        <strong>{{chatMessage.user}}: </strong>
+                        <span>{{chatMessage.message}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
+        <div class="chat-send row">
+            <div class="col-2">
+                <input type="text" class="form-control" name="user" id="input-user" ngModel>
+            </div>
+            <div class="col-8">
+                <input type="text" class="form-control" name="message" id="input-message" ngModel>
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+
+    </form>
+
+
+</main>
+-->

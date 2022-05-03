@@ -11,12 +11,15 @@ export class NavbarComponent implements OnInit {
     public isCollapsed = true;
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
+    user:any;
+    showNavbar: boolean;
+    progressbar: number = 0;
 
     constructor(public location: Location, private router: Router) {
     }
 
     ngOnInit() {
-     /* this.router.events.subscribe((event) => {
+      this.router.events.subscribe((event) => {
         this.isCollapsed = true;
         if (event instanceof NavigationStart) {
            if (event.url != this.lastPoppedUrl)
@@ -31,7 +34,7 @@ export class NavbarComponent implements OnInit {
      });
      this.location.subscribe((ev:PopStateEvent) => {
          this.lastPoppedUrl = ev.url;
-     });*/
+     });
     }
 
     isHome() {

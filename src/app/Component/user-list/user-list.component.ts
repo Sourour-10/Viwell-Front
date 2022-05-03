@@ -9,7 +9,7 @@ import { AdduserService } from 'src/app/Service/User/adduser.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-
+  filterTerm!: string;
   users = null;
   page = 2;
   page1 = 3;
@@ -34,7 +34,8 @@ export class UserListComponent implements OnInit {
   
     this.service.deleteUser(id)
         .pipe(first() )
-        .subscribe(() => {this.users = this.users.filter(x => x.id !== id)
+        .subscribe(() => {this.users = this.users.filter(x => x.id !== id);
+          window.location.reload();
         }
         );
 }

@@ -1,0 +1,59 @@
+<main>
+  <section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="container pt-lg-md">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-header bg-white pb-5">
+              <div class="text-muted text-center mb-3">
+                <small>My badges</small>
+                <div class="container row">
+                  <div class="col-md-12">
+
+                  </div>
+                </div>
+              </div>
+              <!--<button (click)="getAllBadges()">click</button>   -->
+
+              <div *ngFor='let b of listBadges'>
+                <div class="card" style="width: 18rem;">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-3 order-lg-2">
+                      <div class="card-profile-image">
+                        <a *ngIf=retrievedImage href="javascript:void(0)">
+                          <img [src]="imageUrl" class="rounded-circle" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+
+                    <h5 class="card-title">{{b.name }} </h5>
+                    <p class="card-text">{{b.points}}
+                    </p>
+                    <p class="card-text"> {{b.photoId}}</p>
+                    <a class="btn btn-primary" (click)="getImage(idString)">Get Badge details</a>
+
+                    <div class="container row">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

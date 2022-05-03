@@ -1,4 +1,5 @@
 export class User {
+
     userId!:any ;
     userName!: any;
     password!: any;
@@ -15,4 +16,6 @@ export class User {
     hasVoted!: any;
     active !: any;
     role!: any;
+    idPhoto:any;
+
 }
