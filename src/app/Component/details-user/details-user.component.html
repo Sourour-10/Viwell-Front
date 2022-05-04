@@ -1,19 +1,19 @@
 <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title">Modal title</h4>
+      <h4 class="modal-title">{{user.firstName}} {{user.lastName}}</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-      <p>UserName : {{user.userName}}</p>
-      <p>FirstName : {{user.firstName}}</p>
-      <p>LastName : {{user.lastName}}</p>
-      <p>Birthdate : {{user.birthdate}}</p>
-      <p>Cin : {{user.cin}}</p>
-      <p>Email : {{user.mail}}</p>
       <a *ngIf=retrievedImage href="javascript:void(0)">
         <img [src]="imageUrl" class="img-fluid rounded-circle shadow" />
       </a>
-     
+      <p> <strong>UserName : </strong> {{user.userName}}</p>
+      <p> <strong>FirstName :</strong> {{user.firstName}}</p>
+      <p><strong>LastName :</strong> {{user.lastName}}</p>
+      <p><strong>Birthdate :</strong> {{user.birthdate}}</p>
+      <p><strong>Cin : </strong>{{user.cin}}</p>
+      <p><strong>Email : </strong> {{user.mail}}</p>
+      
       
      
     </div>
