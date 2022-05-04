@@ -1,1 +1,162 @@
-<p>detail-post works!</p>
+
+
+<main *ngIf="postItem" class="profile-page" >
+        <section class="section-profile-cover section-shaped my-0">
+          <!-- Circles background -->
+          <div class="shape shape-style-1 shape-primary alpha-4">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <!-- SVG separator -->
+          <div class="separator separator-bottom separator-skew">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+          </div>
+        </section>
+        <section class="section">
+          <div class="container">
+            <div class="card card-profile shadow mt--300">
+              <div class="px-4">
+                <div class="row justify-content-center">
+                  <div class="col-lg-3 order-lg-2">
+                    <div class="card-profile-image">
+                      <a href="javascript:void(0)">
+                        <img src="./assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+                    <div class="card-profile-actions py-4 mt-lg-0">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Connect</a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 order-lg-1">
+                    <div class="card-profile-stats d-flex justify-content-center">
+                      <div>
+                        <span *ngIf="post.Nlikes == 0 || post.Nlikes == null" class="heading">{{postItem.Nlikes}}</span>
+                        <span *ngIf="post.Nlikes > 0" class="heading"> {{postItem.Nlikes}}</span>
+                        <span class="description">Likes</span>
+                      </div>
+                      <div>
+                        <span class="heading">0</span>
+                        <span class="description">Comments</span>
+                      </div>
+                      <div>
+                        <span class="heading">0</span>
+                        <span class="description">Shares</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mt-5">
+                  <h3 > 
+                    <span class="font-weight-light">Yossr</span>
+                  </h3>
+                  <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>{{postItem.date}}</div>
+                  <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>{{postItem.text}}</div>
+                  
+                </div>
+    
+    
+                   <!-- Menu -->
+            <!-- Menu -->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary rounded">
+                  <div class="container">
+                    <div class="collapse navbar-collapse" id="nav-inner-primary">
+                      <div class="navbar-collapse-header">
+                        <div class="row">
+                          <div class="col-6 collapse-brand">
+                            <a href="javascript:void(0)">
+                              <img src="./assets/img/brand/blue.png">
+                            </a>
+                          </div>
+                          <div class="col-6 collapse-close">
+                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-inner-primary" aria-controls="nav-inner-primary" aria-expanded="false" aria-label="Toggle navigation">
+                              <span></span>
+                              <span></span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <ul class="navbar-nav ml-lg-auto">
+                        <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0)"  (click)="addReactPost(0,post.postId,1)">
+                                        <img height="30px" width="30px" src="./assets/img/icons/common/like.svg">
+                                         Like
+                                </a>
+                        </li>
+                        <li>
+                                <a class="nav-link" href="javascript:void(0)"  (click)="addReactPost(1,post.postId,1)">
+                                        <img height="30px" width="30px" src="./assets/img/icons/common/kiss.svg">
+                                         ADORE
+                                </a>
+                        </li>
+                        <li>
+                                
+                                <a class="nav-link" href="javascript:void(0)"  (click)="addReactPost(2,post.postId,1)">
+                                <img height="30px" width="30px" src="./assets/img/icons/common/haha.svg">
+                                 HAHA
+                                </a>
+                        </li>
+                        <li>
+                                
+                                <a class="nav-link" href="javascript:void(0)"  (click)="addReactPost(3,post.postId,1)">
+                                <img height="30px" width="30px" src="./assets/img/icons/common/wow.svg">
+                                 WOW
+                            </a>
+                        </li>
+                        <li>
+                                <a class="nav-link" href="javascript:void(0)"  (click)="addReactPost(4,post.postId,1)">
+                                        <img height="30px" width="30px" src="./assets/img/icons/common/cry.svg">
+                                         CRY
+                                </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="javascript:void(0)"  (click)="addReactPost(5,post.postId,1)">
+                                <img height="30px" width="30px" src="./assets/img/icons/common/angry.svg">
+                                 ANGRY
+                            </a>
+                        </li>
+                </ul>
+                <hr>
+                <ul class="navbar-nav ml-lg-auto">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)">
+                                <img height="30px" width="30px" src="./assets/img/icons/common/comment.svg">
+                                 Comment</a>
+                          </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)">  
+                                 <img height="30px" width="30px" src="./assets/img/icons/common/share.svg">
+                                  Share
+                             
+                            </a>
+                        </li>
+                 </ul>
+                    </div>
+                  </div>
+                </nav>
+                <!-- add comment -->
+                <app-add-post></app-add-post>
+    
+            <!--Menuend -->
+
+            </div>
+    
+          </div>
+    </div>
+     <!--Menuend -->
+          <P>adding something</P>
+        </section>
+      </main>
+      

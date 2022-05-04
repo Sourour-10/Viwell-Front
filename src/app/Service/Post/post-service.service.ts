@@ -11,6 +11,7 @@ export class PostServiceService {
   getpostUrl : string = "/api/Post/getAllPosts";
   addpostUrl : string = "/api/Post/create/1";
   getpostByIdUrl : string = "/api/Post/getPostById"
+  post: any ;
 
   constructor(private http:HttpClient) {
    }
@@ -23,9 +24,12 @@ export class PostServiceService {
 addPost(post: Post): Observable<Post>{
   return this.http.put<Post>(this.addpostUrl, post);
 }
-getPostById(postId: number){
-  return this.http.get<Post>(`${this.getpostByIdUrl}/${postId}`)
-                    .pipe();
+
+public  getPostById(id: number): Observable<Post> {
+
+  return this.http.get<Post>(this.getpostByIdUrl +"/"+id);
+
+    
 }
 
 

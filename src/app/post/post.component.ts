@@ -24,22 +24,40 @@ export class PostComponent implements OnInit {
     this.postService.getPosts().subscribe(
       (data: Post[]) => this.ListPost = data);
   }
-  addReactPost(i:number){
+  addReactPost(reactid:number,i:number,user:number){
     //i est lid de post
     this.react = new React();
-    this.react.reaction= Reaction.LIKE;
+    switch(reactid){
+      case 0:
+        this.react.reaction= Reaction.LIKE;
+        break;
+      case 1:
+        this.react.reaction= Reaction.ADORE;
+        break;
+      case 2:
+        this.react.reaction= Reaction.HAHA;
+        break;
+      case 3:
+        this.react.reaction= Reaction.WOW;
+        break;
+      case 4:
+        this.react.reaction= Reaction.CRY;
+        break;
+      case 5:  
+      this.react.reaction= Reaction.ANGRY;
+      break;
+    }
 
     this.react.PostLike=this.ListPost[i];
-this.pathReact="/"+1+"/"+this.ListPost[i]+"/"+1;
+    this.pathReact="/"+reactid+"/"+i+"/"+1;
+    console.log(reactid);
 
     this.save();
   }
   save(){                   
 
-    this.reactfeedService.addReactToPost("/0/1/1",this.react)
-                    .subscribe(react=> {console.log(React);
-                      
-                    }, error=>console.log(error))
+    this.reactfeedService.addReactToPost(this.pathReact,this.react)
+                    .subscribe();
   }
 
   }

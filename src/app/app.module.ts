@@ -20,6 +20,8 @@ import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { PostComponent } from './post/post.component';
 import { AddPostComponent } from './Post/add-post/add-post.component';
 import { DetailPostComponent } from './Post/detail-post/detail-post.component';
+import { AddCommentComponent } from './Comment/add-comment/add-comment.component';
+import { ListCommentComponent } from './Comment/list-comment/list-comment.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { DetailPostComponent } from './Post/detail-post/detail-post.component';
     NewsfeedComponent,
     PostComponent,
     AddPostComponent,
-    DetailPostComponent
+    DetailPostComponent,
+    AddCommentComponent,
+    ListCommentComponent
   ],
   imports: [
     BrowserModule,

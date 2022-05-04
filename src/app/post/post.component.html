@@ -84,7 +84,7 @@
                       </div>
                     </div>
                   </div>
-                  <a class="navbar-brand" href="javascript:void(0)" [routerLink]="['/postdetail',post.postId]">
+                  <a class="navbar-brand" href="javascript:void(0)" [routerLink]="['/postdetail/'+post.postId]">
                     <img height="30px" width="30px" src="./assets/img/icons/common/view-details.svg">
                       View Post</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-inner-primary" aria-controls="nav-inner-primary" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,26 +100,26 @@
                             <img height="30px" width="30px" src="./assets/img/icons/common/like.svg">
                              Like
                         </button>
-                        <a class="dropdown-item" href="javascript:void(0)">
+                        <button class="dropdown-item" href="javascript:void(0)"  (click)="addReactPost(1,post.postId,1)">
                             <img height="30px" width="30px" src="./assets/img/icons/common/kiss.svg">
                              ADORE
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)">
+                        </button>
+                        <button class="dropdown-item" href="javascript:void(0)"  (click)="addReactPost(2,post.postId,1)">
                             <img height="30px" width="30px" src="./assets/img/icons/common/haha.svg">
                              HAHA
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)">
+                        </button>
+                        <button class="dropdown-item" href="javascript:void(0)"  (click)="addReactPost(3,post.postId,1)">
                             <img height="30px" width="30px" src="./assets/img/icons/common/wow.svg">
                              WOW
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)">
+                        </button>
+                        <button class="dropdown-item" href="javascript:void(0)"  (click)="addReactPost(4,post.postId,1)">
                             <img height="30px" width="30px" src="./assets/img/icons/common/cry.svg">
                              CRY
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)">
+                        </button>
+                        <button class="dropdown-item" href="javascript:void(0)"  (click)="addReactPost(5,post.postId,1)">
                             <img height="30px" width="30px" src="./assets/img/icons/common/angry.svg">
                              ANGRY
-                        </a>
+                        </button>
                         </div>
                     </li>
                     <li class="nav-item">
