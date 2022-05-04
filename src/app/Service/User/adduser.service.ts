@@ -220,10 +220,17 @@ this.http.post(`http://localhost:8089/Photo/upload/photo/${this.currentUser().id
 // Anas
 
 
-getFriend(id:any) :Observable<any> {
+getFriend(id :any) :Observable<any> {
 
 
-  return this.http.get(`${this.apiUrl}/GetUserById/${id}`);
+  return this.http.get(`http://localhost:8089/User/GetUserById/${id}`);
+
+}
+
+getUser() :Observable<any> {
+
+
+  return this.http.get(`http://localhost:8089/User/GetUserById/${this.currentUser().id}`);
 
 }
 

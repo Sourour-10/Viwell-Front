@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
+import { AdduserService } from 'src/app/Service/User/adduser.service';
 
 @Component({
     selector: 'app-navbar',
@@ -15,7 +16,7 @@ export class NavbarComponent implements OnInit {
     showNavbar: boolean;
     progressbar: number = 0;
 
-    constructor(public location: Location, private router: Router) {
+    constructor(public location: Location, private router: Router, private service:AdduserService) {
     }
 
     ngOnInit() {
@@ -56,4 +57,9 @@ export class NavbarComponent implements OnInit {
             return false;
         }
     }
+
+    logout(): void {
+        this.service.logout();
+        this.router.navigateByUrl('/login');
+      }
 }

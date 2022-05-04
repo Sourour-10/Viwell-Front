@@ -36,6 +36,7 @@ import { LinkedinLoginResponseComponent } from './login/linkedin/linkedin-login-
 
 
 import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
+import { TeamComponent } from './Component/team/team.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -69,6 +70,7 @@ const routes: Routes = [
   {path:'completeProfile' , component:CompleteProfileComponent},
   {path:'reset', component:ResetPasswordComponent},
   { path: "linkedInLogin", component: LinkedinLoginResponseComponent },
+  { path: "team", component: TeamComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
 
