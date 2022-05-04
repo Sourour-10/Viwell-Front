@@ -23,8 +23,9 @@ import { FeedbackColleagueComponent } from './feedback-colleague/feedback-collea
 import { MyBadgesComponent } from './Badge/my-badges/my-badges.component';
 
 import { PollComponent } from './poll/poll.component';
-import { VoteComponent } from './vote/vote.component';
 
+import { VoteComponent } from './vote/vote.component';
+import { ListEventComponent } from './list-event/list-event.component';
 
 
 import { UserListComponent } from './Component/user-list/user-list.component';
@@ -57,6 +58,8 @@ const routes: Routes = [
   //Admin
   { path: 'create-poll', component: PollComponent },
   { path: 'rate-collaboration', component: RateCollabComponent },
+  { path: 'list-event', component: ListEventComponent },
+
   
   //End Anas Routing
 
