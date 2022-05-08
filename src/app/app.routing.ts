@@ -36,6 +36,10 @@ import { LinkedinLoginResponseComponent } from './login/linkedin/linkedin-login-
 
 import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
 import { TeamComponent } from './Component/team/team.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryCreateComponent } from './category-create/category-create.component';
+import { CategoryUpdateComponent } from './category-update/category-update.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -88,8 +92,16 @@ const routes: Routes = [
     {path:'completeProfile' , component:CompleteProfileComponent},
     {path:'reset', component:ResetPasswordComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: "linkedInLogin", component: LinkedinLoginResponseComponent }
+    { path: "linkedInLogin", component: LinkedinLoginResponseComponent },
 
+
+    //Aziz
+    {path: 'category', component: CategoryComponent},
+    {path: 'category/create', component: CategoryCreateComponent},
+    {path: 'category/update', component: CategoryUpdateComponent},
+    {path: 'category-details/:id', component: CategoryDetailsComponent}
+
+    //End Aziz
     
 ];
 

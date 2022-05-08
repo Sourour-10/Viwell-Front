@@ -54,6 +54,11 @@ import { DiscountComponent } from './discount/discount.component';
 
 import { TeamComponent } from './Component/team/team.component';
 import { MemberComponent } from './Component/member/member.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryCreateComponent } from './category-create/category-create.component';
+import { CategoryUpdateComponent } from './category-update/category-update.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { EventCreateComponent } from './event-create/event-create.component';
 
 
 export class XhrInterceptor implements HttpInterceptor {
@@ -112,6 +117,11 @@ export class XhrInterceptor implements HttpInterceptor {
 
     TeamComponent,
     MemberComponent,
+    CategoryComponent,
+    CategoryCreateComponent,
+    CategoryUpdateComponent,
+    CategoryDetailsComponent,
+    EventCreateComponent,
   ],
   imports: [
     BrowserModule,
