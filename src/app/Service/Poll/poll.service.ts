@@ -18,4 +18,9 @@ showCurrentResult(id:number) {
   return this.http.get(`${this.apiUrl}/showCurrentResult/${id}`);
 }
 
+getAllPoll(){
+  return this.http.get(`${this.apiUrl}/getAllPolls`) ;
+
+}
+
 }

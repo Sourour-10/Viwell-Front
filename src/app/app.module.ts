@@ -46,6 +46,7 @@ import { TeamComponent } from './Component/team/team.component';
 import { MemberComponent } from './Component/member/member.component';
 import { TopEmployeesComponent } from './top-employees/top-employees.component';
 import { TopPointsComponent } from './top-points/top-points.component';
+import { ListPollComponent } from './list-poll/list-poll.component';
 export class XhrInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
@@ -102,6 +103,7 @@ export class XhrInterceptor implements HttpInterceptor {
     MemberComponent,
     TopEmployeesComponent,
     TopPointsComponent,
+    ListPollComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,37 @@
+<div class="container">
+   
+
+    <div>
+        <div>
+         
+        </div>
+    </div>
+        <table class="table table-striped">
+            <h1>Users</h1>
+    
+         
+            <thead>
+                <tr>
+                    <th style="width: 30%">First Name</th>
+                    <th style="width: 30%">Last Name</th>
+                    <th style="width: 30%">Username</th>
+                    <th style="width: 10%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let poll of polls" >
+                    <td>{{poll.badgeName}}</td>
+                    <td>{{poll.description}}</td>
+                    <td style="white-space: nowrap">
+                        <!--Debut Anas-->
+                     
+                        <!-- Fin Anas-->
+                        <button (click)="deletePoll(pool.pollId)" class="btn btn-sm btn-danger btn-delete-user">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>

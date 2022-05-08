@@ -25,7 +25,7 @@ export class TopPointsComponent implements OnInit {
 
   //@Output() requested=new EventEmitter<String>();
   closeResult: string;
-  ratting = 5;
+  //ratting = 5;
   constructor(private service: AdduserService, private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -44,13 +44,10 @@ export class TopPointsComponent implements OnInit {
 
       .subscribe(
         res => {
-
           this.retrieveResonse = res;
           this.base64Data = this.retrieveResonse.picByte;
-
           this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
           this.imageUrl = 'http://localhost:8089/User/getPhotoByUser/' + this.user.userId;
-
         }
       );
   }
