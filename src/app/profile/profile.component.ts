@@ -27,6 +27,7 @@ selectedFile: File;
   message: string;
   imageName: any;
   imageUrl: string;
+  imageUrll: string;
 
 
 
@@ -35,10 +36,13 @@ selectedFile: File;
     ngOnInit() {
         this.currentUser = this.token.getUser();
        
-        this.getImage(this.currentUser.idPhoto ) ;
+        this.getImage(this.currentUser.idPhoto) ;
+        this.getUserImage();
         
       }
-        
+      public get currentuser(): any{
+        return this.token.getUser;
+      }
        logout(): void {
         this.service.logout();
         this.router.navigateByUrl('/login');
@@ -61,6 +65,22 @@ getImage(id:any) {
 
         this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
         this.imageUrl= 'http://localhost:8089/Photo/getImageById/'+id;
+
+      }
+    );
+}
+
+getUserImage() {
+  //Make a call to Sprinf Boot to get the Image Bytes.
+  this.http.get(`http://localhost:8089/User/getPhotoByUser/${ this.currentuser().id}`,{ responseType: 'text' })
+    .subscribe(
+      res => {
+
+        this.retrieveResonse = res;
+        this.base64Data = this.retrieveResonse.picByte ;
+
+        this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+        this.imageUrll= `http://localhost:8089/User/getPhotoByUser/${ this.currentuser().id}`;
 
       }
     );

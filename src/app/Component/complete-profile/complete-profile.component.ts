@@ -28,6 +28,8 @@ export class CompleteProfileComponent implements OnInit {
   image: any;
   base64Data:any;
 user:User;
+
+userDetails:User;
   
  // file: File = {
    // data: null,
@@ -60,6 +62,7 @@ user:User;
 
   ngOnInit() {
    // this.user = new User()
+   this.getUser();
  
   }
 
@@ -150,5 +153,12 @@ viewImage() {
         this.dbImage = 'data:image/jpeg;base64,' + this.base64Data;
       }
     );
+}
+
+
+getUser(){
+  this.service.getUser().subscribe(res=>{
+    this.userDetails=res;
+  })
 }
 }

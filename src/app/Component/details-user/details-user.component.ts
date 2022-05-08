@@ -69,7 +69,7 @@ selectedFile: File;
 
 getImage() {
   //Make a call to Sprinf Boot to get the Image Bytes.
-  this.http.get('http://localhost:8089/Photo/getImageById/'+  this.user.idPhoto,{ responseType: 'text' })
+  this.http.get('http://localhost:8089/User/getPhotoByUser/'+  this.user.userId,{ responseType: 'text' })
     .subscribe(
       res => {
 
@@ -77,7 +77,7 @@ getImage() {
         this.base64Data = this.retrieveResonse.picByte ;
 
         this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-        this.imageUrl= 'http://localhost:8089/Photo/getImageById/1';
+        this.imageUrl= 'http://localhost:8089/User/getPhotoByUser/'+this.user.userId;
 
       }
     );

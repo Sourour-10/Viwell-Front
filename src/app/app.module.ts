@@ -47,9 +47,14 @@ import { AddPostComponent } from './Post/add-post/add-post.component';
 import { DetailPostComponent } from './Post/detail-post/detail-post.component';
 import { DetailsUserComponent } from './Component/details-user/details-user.component';
 import { AddPhotoComponent } from './Component/add-photo/add-photo.component';
+
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ListEventComponent } from './list-event/list-event.component';
 import { DiscountComponent } from './discount/discount.component';
+
+import { TeamComponent } from './Component/team/team.component';
+import { MemberComponent } from './Component/member/member.component';
+
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -101,8 +106,12 @@ export class XhrInterceptor implements HttpInterceptor {
     DetailPostComponent,
     DetailsUserComponent,
     AddPhotoComponent,
+
     ListEventComponent,
     DiscountComponent,
+
+    TeamComponent,
+    MemberComponent,
   ],
   imports: [
     BrowserModule,
