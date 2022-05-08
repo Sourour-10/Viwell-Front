@@ -47,6 +47,11 @@ import { MemberComponent } from './Component/member/member.component';
 import { TopEmployeesComponent } from './top-employees/top-employees.component';
 import { TopPointsComponent } from './top-points/top-points.component';
 import { ListPollComponent } from './list-poll/list-poll.component';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { ListeBadgeComponent } from './Component/liste-badge/liste-badge.component';
+import { DetailBadgeComponent } from './Component/detail-badge/detail-badge.component';
+import { CommonModule } from '@angular/common';
+
 export class XhrInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
@@ -101,12 +106,13 @@ export class XhrInterceptor implements HttpInterceptor {
     DiscountComponent,
     TeamComponent,
     MemberComponent,
-    TopEmployeesComponent,
     TopPointsComponent,
     ListPollComponent,
+    ListeBadgeComponent,
+    DetailBadgeComponent
+
   ],
   imports: [
-    BrowserModule,
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
@@ -115,12 +121,29 @@ export class XhrInterceptor implements HttpInterceptor {
     HomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    SocialLoginModule,
+    CommonModule
 
     
 
   ],
-  providers:[AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
+  providers:[AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }, 
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '113757940963-bvpijvhjgep64ge3ajnmlepgnaopmvrf.apps.googleusercontent.com'
+            )
+          },
+         
+        ]
+      } as SocialAuthServiceConfig,
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -34,4 +34,11 @@ export class BadgeService {
 
   }
 
+  ListBadges(){
+    return this.http.get(`${this.apiUrl}/getAllBadges`);
+  }
+
+  deleteBadge(idBadge :any){
+    return this.http.delete(`${this.apiUrl}/delete/${idBadge}`);
+  }
 }

@@ -35,6 +35,7 @@ export class AdduserService {
   postResponse: any;
   successResponse: string;
   image: any;
+  isAuthenticated=false;
 
 
   //
@@ -79,9 +80,17 @@ export class AdduserService {
     this.tokenStorage.saveUser(data);
 
   }
-  //UserConnected
-  public isLoggedIn(): boolean {
-    const token: string = this.tokenStorage.getToken();
+  public Authenticated(){
+    if (this.tokenStorage.getUser){
+      return this.isAuthenticated=true;
+    }
+    else return this.isAuthenticated=false;
+  } 
+
+
+//UserConnected
+public isLoggedIn(): boolean {
+  const token: string = this.tokenStorage.getToken();
     if (token) {
       const payload = JSON.parse(atob(token.split('.')[1]));
       return payload.exp > (Date.now() / 1000);
@@ -91,23 +100,22 @@ export class AdduserService {
   }
 
 
-  public getCurrentUser(): User {
-    if (this.isLoggedIn()) {
-      const token: string = this.tokenStorage.getToken();
-      const { userName, lastName, firstName, mail, phoneNumber } = JSON.parse(atob(token.split('.')[1]));
-      return { userName, lastName, firstName, mail, phoneNumber } as User;
-    }
-  }
-
+public getCurrentUser(): User {
+  if (this.isLoggedIn()) {
+    const token: string = this.tokenStorage.getToken();
+    const {  userName,lastName,firstName ,mail, phoneNumber  } = JSON.parse(atob(token.split('.')[1]));
+    return { userName , lastName,firstName ,mail, phoneNumber } as User;
+  } 
+}
+updateuser( value: User) {
  
-updateuser( value: any): Observable<Object> {
-  this.userModel=value
-  return this.http.put(`http://localhost:8089/User/userUpdate/${ this.currentUser().id}`, this.userModel);
+  return this.http.put<User>(`http://localhost:8089/User/userUpdate/${ this.currentUser().id}`, value);
 }
 //UPDATE USER
-public update(id, params) {
+public update( params) {
   this.userModel=params
 console.log('azertyu'+this.currentUser().id)
+//console.log("elo",params);
   return this.http.put(`http://localhost:8089/User/update/${ this.currentUser().id}`, this.userModel)
       .pipe(map(x => {
 
@@ -158,10 +166,7 @@ console.log('azertyu'+this.currentUser().id)
 ListUser(){
   return this.http.get(`${this.apiUrl}/getAllUsers`);
 }
-updateUser(u:User){
-  return this.http.post(`${this.apiUrl}/registration`,u);
-  
-}
+
 
 Top3User(){
   return this.http.get(`${this.apiUrl}/getUsersByPoints`);

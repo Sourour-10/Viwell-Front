@@ -2,7 +2,6 @@ import { Component, NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
@@ -15,13 +14,10 @@ import { ChatComponent } from './chat/Chat.component';
 import { RateColleagueComponent } from './rate-colleague/rate-colleague.component';
 import { RateEventComponent } from './rate-event/rate-event.component';
 import { RateCollabComponent } from './rate-collab/rate-collab.component';
-
 import { FeedbackEventComponent } from './feedback-event/feedback-event.component';
 import { MyFeedBacksComponent } from './my-feed-backs/my-feed-backs.component'
-
 import { FeedbackColleagueComponent } from './feedback-colleague/feedback-colleague.component';
 import { MyBadgesComponent } from './Badge/my-badges/my-badges.component';
-
 import { PollComponent } from './poll/poll.component';
 
 import { VoteComponent } from './vote/vote.component';
@@ -37,6 +33,7 @@ import { LinkedinLoginResponseComponent } from './login/linkedin/linkedin-login-
 import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
 import { TeamComponent } from './Component/team/team.component';
 import { TopEmployeesComponent } from './top-employees/top-employees.component';
+import { ListeBadgeComponent } from './Component/liste-badge/liste-badge.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -55,7 +52,7 @@ const routes: Routes = [
   { path: 'my-feedbacks', component: MyFeedBacksComponent },
 
   { path: 'friend-profile', component: ProfileFriendComponent },
-  
+  {path:'listBadges', component:ListeBadgeComponent},
   
   //Admin
   { path: 'create-poll', component: PollComponent },
@@ -99,9 +96,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes, {
-      useHash: true
-    })
+    RouterModule.forRoot(routes)
   ],
   exports: [
   ],

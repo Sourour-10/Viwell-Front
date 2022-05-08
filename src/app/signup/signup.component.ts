@@ -21,9 +21,9 @@ export class SignupComponent implements OnInit {
     signupInfo!: SignupInfo;
     isSignUpFailed=false;
     errorMessage="";
-    focus;
-    focus1;
-    focus2;
+    focus:any;
+    focus1:any;
+    focus2:any;
     constructor(private service:AdduserService, private router:Router) { }
 
     ngOnInit() {
