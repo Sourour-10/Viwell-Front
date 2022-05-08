@@ -1,0 +1,16 @@
+.podium {
+    text-align: center;
+  }
+  .podium div {
+    width:100px;
+    height:100px;
+  }
+  .top {
+    margin:auto
+  }
+  .left {
+    display:inline-block;
+  }
+  .right {
+    display:inline-block;
+  }

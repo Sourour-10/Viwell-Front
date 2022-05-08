@@ -163,6 +163,10 @@ updateUser(u:User){
   
 }
 
+Top3User(){
+  return this.http.get(`${this.apiUrl}/getUsersByPoints`);
+}
+
 
   public checkEmail(email: string):Observable<any>{
    this.passwordModel=new PasswordModel();
@@ -221,10 +225,21 @@ this.http.post(`http://localhost:8089/Photo/upload/photo/${this.currentUser().id
 // Anas
 
 
+getFriend(id :any) :Observable<any> {
+  return this.http.get(`http://localhost:8089/User/GetUserById/${id}`);
+
+}
 
 voteTo(idUserConnected: any, idCandidate: any) {
 
   return this.http.put(`${this.apiUrl}/voteTo/${idUserConnected}/${idCandidate}`, null);
+
+}
+
+getUser() :Observable<any> {
+
+
+  return this.http.get(`http://localhost:8089/User/GetUserById/${this.currentUser().id}`);
 
 }
 

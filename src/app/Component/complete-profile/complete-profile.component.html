@@ -9,14 +9,24 @@
     <form>
       <div class="mb-3">
         <label >FirstName</label>
-        <input class="form-control" placeholder="First Name" type="text" (focus)="focus=true" (blur)="focus=false" ([ngModel])="user.firstName">
-     <!--   <label for="dateOfBirth">Date of birth</label>
+        <input class="form-control" [placeholder]="userDetails.firstName" type="text" (focus)="focus=true" (blur)="focus=false" ([ngModel])="user.firstName">
+        <label >LastName</label>
+        <input class="form-control" [placeholder]="userDetails.lastName" type="text" (focus)="focus=true" (blur)="focus=false" ([ngModel])="user.lastName">
+        <label >Email</label>
+        <input class="form-control" [placeholder]="userDetails.mail" type="text" (focus)="focus=true" (blur)="focus=false" ([ngModel])="user.mail">
+     <label for="dateOfBirth">Date of birth</label>
        <div class="input-group">
           
 
-          <input id="dateOfBirth" class="form-control" type="date" placeholder="yyyy-mm-dd" name="birthdate" ngbDatepicker #dp="ngbDatepicker"  ([ngModel])="user.birthdate">
+          <input id="dateOfBirth" class="form-control" type="date" [placeholder]="userDetails.birthdate" name="birthdate" ngbDatepicker #dp="ngbDatepicker"  ([ngModel])="user.birthdate">
           <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-        </div>-->
+        </div>
+
+        <label >Phone Number</label>
+        <input class="form-control" [placeholder]="userDetails.phoneNumber" type="text" (focus)="focus=true" (blur)="focus=false" ([ngModel])="user.phoneNumber">
+
+        <label >Cin</label>
+        <input class="form-control" [placeholder]="userDetails.cin" type="text" (focus)="focus=true" (blur)="focus=false" ([ngModel])="user.cin">
       </div>
     </form>
   </div>

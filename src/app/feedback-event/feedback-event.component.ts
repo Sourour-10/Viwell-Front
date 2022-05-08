@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { FeedBack } from '../Model/FeedBack';
 import { FeedBackService } from '../Service/feed-back.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Event } from '../Model/Event';
 
 @Component({
   selector: 'app-feedback-event',
@@ -71,7 +72,7 @@ export class FeedbackEventComponent implements OnInit {
     this.feedBack.date = new Date();
     console.log("feed"+this.feedBack);
 
-    this.service.makeFeedBackToEvent(this.feedBack).subscribe();
+    this.service.makeFeedBackToEvent(this.event.eventId ,this.feedBack).subscribe();
   }
 
   close(){

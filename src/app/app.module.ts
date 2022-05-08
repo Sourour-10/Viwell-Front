@@ -4,8 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
-
-
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
@@ -13,7 +11,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { PollComponent } from './poll/poll.component';
@@ -29,18 +26,13 @@ import { ChatComponent } from './chat/chat.component';
 import { GetPhotoComponent } from './get-photo/get-photo.component';
 import { VoteComponent } from './vote/vote.component';
 //import * as dayjs from 'dayjs';
-
 import { UserListComponent } from './Component/user-list/user-list.component';
-
 import { NotificationComponent } from './Component/notification/notification.component';
 import { CompleteProfileComponent } from './Component/complete-profile/complete-profile.component';
-
 import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
 import { LinkedinLoginResponseComponent } from './login/linkedin/linkedin-login-response/linkedin-login-response.component';
-
 import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
 import { MyFeedBacksComponent } from './my-feed-backs/my-feed-backs.component';
-
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { PostComponent } from './post/post.component';
 import { AddPostComponent } from './Post/add-post/add-post.component';
@@ -50,7 +42,10 @@ import { AddPhotoComponent } from './Component/add-photo/add-photo.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ListEventComponent } from './list-event/list-event.component';
 import { DiscountComponent } from './discount/discount.component';
-
+import { TeamComponent } from './Component/team/team.component';
+import { MemberComponent } from './Component/member/member.component';
+import { TopEmployeesComponent } from './top-employees/top-employees.component';
+import { TopPointsComponent } from './top-points/top-points.component';
 export class XhrInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
@@ -103,6 +98,10 @@ export class XhrInterceptor implements HttpInterceptor {
     AddPhotoComponent,
     ListEventComponent,
     DiscountComponent,
+    TeamComponent,
+    MemberComponent,
+    TopEmployeesComponent,
+    TopPointsComponent,
   ],
   imports: [
     BrowserModule,
