@@ -28,6 +28,7 @@ export class CompleteProfileComponent implements OnInit {
   image: any;
   base64Data:any;
 user:User;
+users:Array<User>=[];
 
 userDetails:User;
   
@@ -68,12 +69,9 @@ userDetails:User;
 
   updateuser() {
     this.service.updateuser( this.user)
-      .subscribe(data => {
-        console.log("heloooo",data);
-        this.user = new User();
-        this.router.navigateByUrl("/user-profile");
-      }, error => console.log(error));
-  }
+      .subscribe(user=>this.user=user)
+    }
+  
  // get f() { return this.form.controls; }
 
   public updateUser() {

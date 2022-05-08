@@ -35,6 +35,7 @@ private getUserByUserName='http://localhost:8089/User/getUserbyUserName/';
   postResponse: any;
   successResponse: string;
   image: any;
+  isAuthenticated=false;
 
 
   //
@@ -79,6 +80,14 @@ return this.userSubject.value;
     this.tokenStorage.saveUser(data);
     
   }
+  public Authenticated(){
+    if (this.tokenStorage.getUser){
+      return this.isAuthenticated=true;
+    }
+    else return this.isAuthenticated=false;
+  } 
+
+
 //UserConnected
 public isLoggedIn(): boolean {
   const token: string = this.tokenStorage.getToken();
@@ -96,16 +105,17 @@ public getCurrentUser(): User {
     const token: string = this.tokenStorage.getToken();
     const {  userName,lastName,firstName ,mail, phoneNumber  } = JSON.parse(atob(token.split('.')[1]));
     return { userName , lastName,firstName ,mail, phoneNumber } as User;
-  }
+  } 
 }
-updateuser( value: any): Observable<Object> {
-  this.userModel=value
-  return this.http.put(`http://localhost:8089/User/userUpdate/${ this.currentUser().id}`, this.userModel);
+updateuser( value: User) {
+ 
+  return this.http.put<User>(`http://localhost:8089/User/userUpdate/${ this.currentUser().id}`, value);
 }
 //UPDATE USER
-public update(id, params) {
+public update( params) {
   this.userModel=params
 console.log('azertyu'+this.currentUser().id)
+//console.log("elo",params);
   return this.http.put(`http://localhost:8089/User/update/${ this.currentUser().id}`, this.userModel)
       .pipe(map(x => {
         
@@ -157,10 +167,7 @@ LinkedinLogin(){
 ListUser(){
   return this.http.get(`${this.apiUrl}/getAllUsers`);
 }
-updateUser(u:User){
-  return this.http.post(`${this.apiUrl}/registration`,u);
-  
-}
+
 
 
   public checkEmail(email: string):Observable<any>{

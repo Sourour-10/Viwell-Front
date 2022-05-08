@@ -49,6 +49,9 @@ import { DetailsUserComponent } from './Component/details-user/details-user.comp
 import { AddPhotoComponent } from './Component/add-photo/add-photo.component';
 import { TeamComponent } from './Component/team/team.component';
 import { MemberComponent } from './Component/member/member.component';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { ListeBadgeComponent } from './Component/liste-badge/liste-badge.component';
+import { DetailBadgeComponent } from './Component/detail-badge/detail-badge.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -101,6 +104,8 @@ export class XhrInterceptor implements HttpInterceptor {
     AddPhotoComponent,
     TeamComponent,
     MemberComponent,
+    ListeBadgeComponent,
+    DetailBadgeComponent,
   ],
   imports: [
     BrowserModule,
@@ -112,10 +117,26 @@ export class XhrInterceptor implements HttpInterceptor {
     HomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    SocialLoginModule
 
   ],
-  providers:[AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
+  providers:[AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }, 
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '113757940963-bvpijvhjgep64ge3ajnmlepgnaopmvrf.apps.googleusercontent.com'
+            )
+          },
+         
+        ]
+      } as SocialAuthServiceConfig,
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

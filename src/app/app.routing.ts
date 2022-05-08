@@ -37,6 +37,7 @@ import { LinkedinLoginResponseComponent } from './login/linkedin/linkedin-login-
 
 import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
 import { TeamComponent } from './Component/team/team.component';
+import { ListeBadgeComponent } from './Component/liste-badge/liste-badge.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -55,7 +56,7 @@ const routes: Routes = [
   { path: 'my-feedbacks', component: MyFeedBacksComponent },
 
   { path: 'friend-profile', component: ProfileFriendComponent },
-  
+  {path:'listBadges', component:ListeBadgeComponent},
   
   //Admin
   { path: 'create-poll', component: PollComponent },
@@ -87,9 +88,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes, {
-      useHash: true
-    })
+    RouterModule.forRoot(routes)
   ],
   exports: [
   ],
