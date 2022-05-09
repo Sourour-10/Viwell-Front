@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { first } from 'rxjs';
 import { PollService } from '../Service/Poll/poll.service';
 
 @Component({
@@ -11,10 +12,25 @@ export class ListPollComponent implements OnInit {
   constructor(private service:PollService ) { }
 
   ngOnInit(): void {
+    this.getAllPolls();
   }
 
   getAllPolls(){
+    this.service.getAllPoll().subscribe(res =>this.polls=res)
 
   }
+
+
+ 
+  deletePoll(id: any) {
+    const poll = this.polls.find(x => x.id === id);
+  
+    this.service.deletePoll(id)
+        .pipe(first() )
+        .subscribe(() => {this.polls = this.polls.filter(x => x.id !== id);
+          window.location.reload();
+        }
+        );
+}
 
 }

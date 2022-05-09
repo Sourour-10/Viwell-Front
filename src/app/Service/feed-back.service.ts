@@ -26,5 +26,9 @@ apiUrl="http://localhost:8089/FeedBack"
   listFeedBacks(id:any){
       return this.http.get(`${this.apiUrl}/getMyFeedBacks/${id}`);
     }
+
+    listFeedBacksEvent(id:any){
+      return this.http.get(`${this.apiUrl}/getEventFeedBacks/${id}`);
+    }  
   }
 

@@ -34,6 +34,7 @@ import { ProfileFriendComponent } from './profile-friend/profile-friend.componen
 import { TeamComponent } from './Component/team/team.component';
 import { TopEmployeesComponent } from './top-employees/top-employees.component';
 import { ListeBadgeComponent } from './Component/liste-badge/liste-badge.component';
+import { ListPollComponent } from './list-poll/list-poll.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -53,6 +54,8 @@ const routes: Routes = [
 
   { path: 'friend-profile', component: ProfileFriendComponent },
   {path:'listBadges', component:ListeBadgeComponent},
+  {path:'listPoll', component:ListPollComponent},
+
   
   //Admin
   { path: 'create-poll', component: PollComponent },
@@ -65,7 +68,6 @@ const routes: Routes = [
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'userlist', component: UserListComponent },
-  
   {path:'notification' , component:NotificationComponent},
   {path:'completeProfile' , component:CompleteProfileComponent},
   {path:'reset', component:ResetPasswordComponent},

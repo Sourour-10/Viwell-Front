@@ -51,6 +51,8 @@ import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 
 import { ListeBadgeComponent } from './Component/liste-badge/liste-badge.component';
 import { DetailBadgeComponent } from './Component/detail-badge/detail-badge.component';
 import { CommonModule } from '@angular/common';
+import { PollWinnerComponent } from './Component/poll-winner/poll-winner.component';
+import { EventFeedBacksComponent } from './Component/event-feed-backs/event-feed-backs.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -89,13 +91,11 @@ export class XhrInterceptor implements HttpInterceptor {
     LinkedinLoginResponseComponent,
     ProfileFriendComponent,
     MyFeedBacksComponent,
-
     VoteComponent,
     NotificationComponent,
     CompleteProfileComponent,
     ProfileFriendComponent,
     MyFeedBacksComponent,
-   
     NewsfeedComponent,
     PostComponent,
     AddPostComponent,
@@ -109,7 +109,9 @@ export class XhrInterceptor implements HttpInterceptor {
     TopPointsComponent,
     ListPollComponent,
     ListeBadgeComponent,
-    DetailBadgeComponent
+    DetailBadgeComponent,
+    PollWinnerComponent,
+    EventFeedBacksComponent
 
   ],
   imports: [

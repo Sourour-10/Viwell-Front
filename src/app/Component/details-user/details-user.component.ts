@@ -26,9 +26,8 @@ import { AdduserService } from 'src/app/Service/User/adduser.service';
 export class DetailsUserComponent implements OnInit {
   @Input()user : User;
   users=null;
-
   openC:boolean = false ;
-selectedFile: File;
+  selectedFile: File;
   retrievedImage: any;
   base64Data: any;
   retrieveResonse: any;

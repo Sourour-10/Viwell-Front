@@ -7,7 +7,6 @@ import { Poll } from 'src/app/Model/Poll';
 })
 export class PollService {
   apiUrl="http://localhost:8089/Poll";
-  url="http://localhost:8089/Poll/create";
   constructor(private http:HttpClient ) { }
 
   createPoll(p:Poll){
@@ -22,5 +21,16 @@ getAllPoll(){
   return this.http.get(`${this.apiUrl}/getAllPolls`) ;
 
 }
+deletePoll(id: any) {
+  return this.http.delete(`${this.apiUrl}/delete/${id}`);
+}
+
+//Admin 
+winner(id:any){
+  return this.http.get(`${this.apiUrl}/getWinner/${id}`);
+
+
+}
+
 
 }
