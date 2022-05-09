@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../Model/category';
 import { CategoryService } from '../Service/Activity/category-service.service';
 
@@ -12,7 +12,8 @@ import { CategoryService } from '../Service/Activity/category-service.service';
 export class CategoryDetailsComponent implements OnInit {
   id: number
   category: Category
-  constructor(private route: ActivatedRoute, private employeService: CategoryService) { }
+  constructor(private route: ActivatedRoute, private employeService: CategoryService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -22,5 +23,10 @@ export class CategoryDetailsComponent implements OnInit {
       this.category = data;
     });
   }
+
+  goToCategoryList(){
+    this.router.navigate(['category']);
+  }
+
 
 }

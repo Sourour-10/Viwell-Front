@@ -37,7 +37,8 @@ export class EventBacklistComponent implements OnInit {
   
   approveEventByAdmin(event: Event){
 
-    this.eventService.approveEventByAdmin(event).subscribe();
+    this.eventService.approveEventByAdmin(event).subscribe(()=> {window.location.reload();});
+    
   }
 
   deleteEvent(id: number){
