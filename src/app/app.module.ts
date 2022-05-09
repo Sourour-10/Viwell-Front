@@ -63,6 +63,9 @@ import { EventProposeComponent } from './event-propose/event-propose.component';
 import { EventBacklistComponent } from './event-backlist/event-backlist.component';
 import { EventBackdetailsComponent } from './event-backdetails/event-backdetails.component';
 import { EventFrontdetailsComponent } from './event-frontdetails/event-frontdetails.component';
+import { ListActivityComponent } from './list-activity/list-activity.component';
+import { ActivityCreateComponent } from './activity-create/activity-create.component';
+import { ActivityBackdetailsComponent } from './activity-backdetails/activity-backdetails.component';
 
 
 export class XhrInterceptor implements HttpInterceptor {
@@ -130,6 +133,9 @@ export class XhrInterceptor implements HttpInterceptor {
     EventBacklistComponent,
     EventBackdetailsComponent,
     EventFrontdetailsComponent,
+    ListActivityComponent,
+    ActivityCreateComponent,
+    ActivityBackdetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<div class="container">
+    <h2> Activity List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Description</th>
+            <th> Date </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let act of activitys" >
+            <td> {{ act.description }} </td>
+            <td> {{ act.date }} </td>
+            <td>
+                <button (click) = "editActivity(act)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteActivity(act.activityId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "getActivityById(act.activityId)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>

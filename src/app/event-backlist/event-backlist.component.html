@@ -3,17 +3,15 @@
 <table class = "table table-striped">
     <thead>
         <tr>
-            <th> name</th>
-            <th> dictionary </th>
+            <th> title</th>
+            <th> Start Date </th>
             <th> Actions </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor = "let eve of events" >
             <td> {{ eve.title }} </td>
-            <td> {{ eve.place }} </td>
             <td> {{ eve.startDate }} </td>
-            <td> {{ eve.endDate }} </td>
             <td>
                 <button (click) = "getEventById(eve.eventId)" class = "btn btn-info" style="margin-left: 10px"> View</button>
                 <button (click) = "approveEventByAdmin(eve)" class = "btn btn-info" style="margin-left: 10px"> Approve</button>
