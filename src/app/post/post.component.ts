@@ -14,34 +14,34 @@ import { ReactfeedService } from '../Service/React/reactfeed.service';
 export class PostComponent implements OnInit {
   ListPost: Post[];
   DateAujourdhui:  Date = new Date() ;
-  react : React ;
+  react: React ;
   pathReact: string;
-  post : any ;
+  post: any ;
 
-  constructor(private postService: PostServiceService,private router: Router,private reactfeedService:ReactfeedService) { }
+  constructor(private postService: PostServiceService, private router: Router, private reactfeedService: ReactfeedService) { }
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe(
       (data: Post[]) => this.ListPost = data);
   }
-  addReactPost(i:number){
-    //i est lid de post
+  addReactPost(i: number) {
+    // i est lid de post
     this.react = new React();
-    this.react.reaction= Reaction.LIKE;
+    this.react.reaction = Reaction.LIKE;
 
-    this.react.PostLike=this.ListPost[i];
-this.pathReact="/"+1+"/"+this.ListPost[i]+"/"+1;
+    this.react.PostLike = this.ListPost[i];
+this.pathReact = '/' + 1 + '/' + this.ListPost[i] + '/' + 1;
 
     this.save();
   }
-  save(){                   
+  save() {
 
-    this.reactfeedService.addReactToPost("/0/1/1",this.react)
-                    .subscribe(react=> {console.log(React);
-                      
-                    }, error=>console.log(error))
+    this.reactfeedService.addReactToPost('/0/1/1', this.react)
+                    .subscribe(react => {console.log(React);
+
+                    }, error => console.log(error));
   }
 
   }
 
-  
+

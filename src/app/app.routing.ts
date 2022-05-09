@@ -17,7 +17,7 @@ import { RateEventComponent } from './rate-event/rate-event.component';
 import { RateCollabComponent } from './rate-collab/rate-collab.component';
 
 import { FeedbackEventComponent } from './feedback-event/feedback-event.component';
-import { MyFeedBacksComponent } from './my-feed-backs/my-feed-backs.component'
+import { MyFeedBacksComponent } from './my-feed-backs/my-feed-backs.component';
 
 import { FeedbackColleagueComponent } from './feedback-colleague/feedback-colleague.component';
 import { MyBadgesComponent } from './Badge/my-badges/my-badges.component';
@@ -37,6 +37,11 @@ import { LinkedinLoginResponseComponent } from './login/linkedin/linkedin-login-
 
 import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
 import { TeamComponent } from './Component/team/team.component';
+import {CoachComponent} from './coach/coach.component';
+import {TrainingComponent} from './training/training.component';
+import {QuizComponent} from './quiz/quiz.component';
+import {QuestionFrontComponent} from './question-front/question-front.component';
+import {WelcomeQuizComponent} from './welcome-quiz/welcome-quiz.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -44,7 +49,7 @@ const routes: Routes = [
   { path: 'register', component: SignupComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'login', component: LoginComponent },
-  //Anas Routing
+  // Anas Routing
   { path: 'Chat', component: ChatComponent },
   { path: 'rate-colleague', component: RateColleagueComponent },
   { path: 'rate-event', component: RateEventComponent },
@@ -55,26 +60,30 @@ const routes: Routes = [
   { path: 'my-feedbacks', component: MyFeedBacksComponent },
 
   { path: 'friend-profile', component: ProfileFriendComponent },
-  
-  
-  //Admin
+
+
+  // Admin
   { path: 'create-poll', component: PollComponent },
   { path: 'rate-collaboration', component: RateCollabComponent },
-  
-  //End Anas Routing
+
+  // End Anas Routing
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'userlist', component: UserListComponent },
-  
-  {path:'notification' , component:NotificationComponent},
-  {path:'completeProfile' , component:CompleteProfileComponent},
-  {path:'reset', component:ResetPasswordComponent},
-  { path: "linkedInLogin", component: LinkedinLoginResponseComponent },
-  { path: "team", component: TeamComponent },
+  { path: 'coach', component: CoachComponent },
+  { path: 'training', component: TrainingComponent },
+  { path: 'quiz', component: QuizComponent },
+  { path: 'questions', component: QuestionFrontComponent },
+  { path: 'quizn', component: WelcomeQuizComponent },
+  {path: 'notification' , component: NotificationComponent},
+  {path: 'completeProfile' , component: CompleteProfileComponent},
+  {path: 'reset', component: ResetPasswordComponent},
+  { path: 'linkedInLogin', component: LinkedinLoginResponseComponent },
+  { path: 'team', component: TeamComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
 
-//Yossr
+// Yossr
   { path: 'newsfeed',          component: NewsfeedComponent },
     { path: 'postdetail/:postId',          component: DetailPostComponent },
     {path: 'posts' , component: PostComponent},

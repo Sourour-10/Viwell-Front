@@ -1,0 +1,80 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="d-flex justify-content-between p-3">
+            <div class="image">
+
+                <img src="favicon.ico" width="90" alt="logo">
+            </div>
+            <div class="quiz-header">
+                <h4 style="font-family: cursive;"> Name of the QUIZ</h4>
+                <span style="font-style: italic;">Welcome User </span>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-around py-3">
+            <div class="score">
+                <h5>{{points}} points</h5>
+            </div>
+            <div class="question-remain">
+                <span style="font-style: italic;">Question {{currentQuestion+1}} of {{questionList.length}} </span>
+            </div>
+            <div class="timer">
+                60 sec
+            </div>
+        </div>
+        <div class="progress mb-3">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+<table>
+    <tbody>
+    <tr *ngFor="let c of questionList">
+        <td>{{c.question}}</td>
+        <td>{{c.option1}}</td>
+
+        <td>{{c.option2}}</td>
+        <td>{{c.option3}}</td>
+        <td>{{c.option4}}</td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+
+        <div class="question">
+{{ questionList[currentQuestion]?.question }}
+        </div>
+        <div class="options">
+            <ol>
+                <li>
+                    <div class="card">
+                        {{questionList[currentQuestion]?.option1}}
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        {{questionList[currentQuestion]?.option2}}
+                    </div>
+                </li><li>
+                <div class="card">
+                    {{questionList[currentQuestion]?.option3}}
+                </div>
+            </li><li>
+                <div class="card">
+                    {{questionList[currentQuestion]?.option4}}
+                </div>
+            </li>
+            </ol>
+
+        </div>
+        <div class="d-flex justify-content-between">
+            <button  [disabled]="currentQuestion===0"  (click)="previousQuestion()" class=""><i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i> </button>
+            <button><i class="fa text-primary fa-refresh fa-3x" aria-hidden="true"></i></button>
+            <button (click)="nextQuestion()" class=""><i  class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i> </button>
+        </div>
+
+
+
+    </div>
+</div>

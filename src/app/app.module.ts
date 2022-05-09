@@ -49,6 +49,12 @@ import { DetailsUserComponent } from './Component/details-user/details-user.comp
 import { AddPhotoComponent } from './Component/add-photo/add-photo.component';
 import { TeamComponent } from './Component/team/team.component';
 import { MemberComponent } from './Component/member/member.component';
+import { CoachComponent } from './coach/coach.component';
+import { TrainingComponent } from './training/training.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { QuestionComponent } from './question/question.component';
+import { QuestionFrontComponent } from './question-front/question-front.component';
+import { WelcomeQuizComponent } from './welcome-quiz/welcome-quiz.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -101,6 +107,12 @@ export class XhrInterceptor implements HttpInterceptor {
     AddPhotoComponent,
     TeamComponent,
     MemberComponent,
+    CoachComponent,
+    TrainingComponent,
+    QuizComponent,
+    QuestionComponent,
+    QuestionFrontComponent,
+    WelcomeQuizComponent,
   ],
   imports: [
     BrowserModule,
