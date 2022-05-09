@@ -19,7 +19,7 @@
                 <small>Sign in with</small>
               </div>
               <div class="btn-wrapper text-center">
-                <a (click)="Linkedin()" class="btn btn-neutral btn-icon">
+                <a (click)="SignInWithGoogle()" class="btn btn-neutral btn-icon">
                   <span class="btn-inner--icon">
                     <img src="./assets/img/brand/linkedin.png">
                   </span>
@@ -32,31 +32,35 @@
               <div class="text-center text-muted mb-4">
                 <small>Or sign in with credentials</small>
               </div>
-              <form role="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+              <form role="form" *ngIf="!isLoggedIn" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                 <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="UserName" type="text" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="form.username">
-                  </div>
+                  
+                    <input class="form-control" placeholder="UserName" name ="username" type="text" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="form.username" required  #username="ngModel" >
+                  <div  class="alert alert-danger" role="alert" *ngIf="f.submitted && username.invalid"> Username invalid !!</div>
+                </div>
                 </div>
                 <div class="form-group" [ngClass]="{'focused':focus1===true}">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" type="password" (focus)="focus1=true" (blur)="focus1=false" [(ngModel)]="form.password">
+                    <input class="form-control" placeholder="Password" type="password" name="password" (focus)="focus1=true" (blur)="focus1=false" [(ngModel)]="form.password" 	#password="ngModel">
+                    <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid">
+                      <div *ngIf="password.errors.required">Password is required</div>
+                      <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
                   </div>
                 </div>
-                <div class="custom-control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                  <label class="custom-control-label" for=" customCheckLogin">
-                    <span>Remember me</span>
-                  </label>
-                </div>
+           
                 <div class="text-center">
                   <button  class="btn btn-primary my-4">Sign in</button>
+                </div>
+                <div class="form-group">
+                  <div class="alert alert-danger" role="alert" *ngIf="isLoginFailed">Login failed: {{ errorMessage }}</div>
                 </div>
               </form>
             </div>

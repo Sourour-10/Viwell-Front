@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FeedBack } from '../Model/FeedBack';
+import { User } from '../Model/User';
 import { FeedBackService } from '../Service/feed-back.service';
 
 @Component({
@@ -16,6 +17,8 @@ export class FeedbackColleagueComponent implements OnInit {
   closeResult = '';
   feedBack: FeedBack;
   feedbackText: string;
+  @Input()user : User;
+users=null;
 
   constructor(private service: FeedBackService, private modalService: NgbModal, private route: ActivatedRoute,
     private router: Router) { }
@@ -39,7 +42,7 @@ export class FeedbackColleagueComponent implements OnInit {
     this.feedBack.text = this.feedbackText;
     this.feedBack.date = new Date();
     console.log("feed" + this.feedBack);
-    this.service.makeFeedBackTocolleague(this.feedBack).subscribe();
+    this.service.makeFeedBackTocolleague(this.user.userId,this.feedBack).subscribe();
   }
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {

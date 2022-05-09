@@ -36,6 +36,7 @@ selectedFile: File;
     ngOnInit() {
         this.currentUser = this.token.getUser();
        
+
         this.getImage(this.currentUser.idPhoto) ;
         this.getUserImage();
         

@@ -106,7 +106,7 @@ export class ResetPasswordComponent implements OnInit {
       )
       .subscribe(() =>{ 
         
-        this.router.navigateByUrl("/login");
+        window.location.reload();
        }
          
         

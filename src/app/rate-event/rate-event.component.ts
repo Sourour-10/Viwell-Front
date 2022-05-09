@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { RateService } from '../Service/Rate/rate.service';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -9,6 +10,8 @@ import { RateService } from '../Service/Rate/rate.service';
 })
 export class RateEventComponent implements OnInit {
 
+
+
   imgage1!: string;
   imgage2!: string;
   imgage3!: string;
@@ -17,8 +20,34 @@ export class RateEventComponent implements OnInit {
 
   ratted = false;
   ratting = 0; 
-  constructor(private service: RateService) {
+
+  @Input()event : Event;
+
+  isAddMode: boolean;
+  loading = false;
+  submitted = false;
+  closeResult = '';
+
+  constructor( private modalService: NgbModal,private service: RateService) {
   }
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  
+}
+
 
   ngOnInit(): void {
     this.imgage1 = "../../assets/img/brand/empty.png";

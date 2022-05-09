@@ -1,0 +1,15 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Rate this event</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+        <h1> You have a discount  for {{event.title}} by </h1>
+        <h1>{{message}}</h1>
+        <h1> {{setIdUser(event.eventId)}}</h1>
+
+    </div>
+</ng-template>
+
+<a href="javascript:void(0)" class="btn btn-sm btn-info mr-4" (click)="open(content)">Discount</a>

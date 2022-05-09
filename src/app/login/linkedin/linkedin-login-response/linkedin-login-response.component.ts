@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-linkedin-login-response',
@@ -9,10 +9,12 @@ import { ActivatedRoute } from '@angular/router';
 export class LinkedinLoginResponseComponent implements OnInit {
   linkedInToken = "";
   
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,   private router: Router) {}
   
   ngOnInit() {
+    console.log("Tokeen",this.route.snapshot.queryParams["code"])
     this.linkedInToken = this.route.snapshot.queryParams["code"];
+ 
   }
 
 }

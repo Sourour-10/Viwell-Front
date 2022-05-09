@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Poll } from '../Model/Poll';
 import { User } from '../Model/User';
 import { PollService } from '../Service/Poll/poll.service';
@@ -16,7 +17,7 @@ export class PollComponent implements OnInit {
   focus;
   focus1;
   focus2;
-  constructor(private servicePoll:PollService,private service: AdduserService) { }
+  constructor(private servicePoll: PollService, private service: AdduserService, private router:Router) { }
 
   ngOnInit() {
     this.user = new User();
@@ -26,7 +27,8 @@ export class PollComponent implements OnInit {
     this.service.addUser(this.user).subscribe();
   }
   savePoll() {
-this.servicePoll.createPoll(this.poll).subscribe();
+    this.servicePoll.createPoll(this.poll).subscribe();
+    this.router.navigateByUrl('/listPoll');
   }
 
 }

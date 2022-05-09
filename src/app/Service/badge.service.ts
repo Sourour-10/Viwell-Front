@@ -15,6 +15,8 @@ export class BadgeService {
   }
 
   getAllMyBadges(id: number) {
+    console.log( this.http.get(`${this.apiUrl}/getBadgesByIdUser/${id}`))
+
     return this.http.get(`${this.apiUrl}/getBadgesByIdUser/${id}`)
   }
 
@@ -26,4 +28,17 @@ export class BadgeService {
 
   }
 
+  getIdPhotoByBadge(id:number){
+    console.log (this.http.get(`${this.apiUrl}/getIdPhotoByBadge/${id}`)) ;
+    return (this.http.get(`${this.apiUrl}/getIdPhotoByBadge/${id}`)) ;
+
+  }
+
+  ListBadges(){
+    return this.http.get(`${this.apiUrl}/getAllBadges`);
+  }
+
+  deleteBadge(idBadge :any){
+    return this.http.delete(`${this.apiUrl}/delete/${idBadge}`);
+  }
 }
