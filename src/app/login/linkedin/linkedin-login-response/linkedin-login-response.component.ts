@@ -13,14 +13,17 @@ export class LinkedinLoginResponseComponent implements OnInit {
   constructor(private route: ActivatedRoute,   private router: Router, private http:HttpClient) {}
   
   ngOnInit() {
-  //  this.http.get(`http://localhost:8089/User/getToken`,this.route.snapshot.queryParams["code"])
+    //console.log("Tokeen",this.route.snapshot.queryParams["code"])
+    this.linkedInToken = this.route.snapshot.queryParams["code"];
  
   }
-token: any;
+  token: any;
   getToken(){
     console.log("Tokeen",this.route.snapshot.queryParams["code"]);
-    this.http.get(`http://localhost:8089/User/getToken`,this.route.snapshot.queryParams["code"]).subscribe(res=>{this.token=res}
+    this.http.get(`http://localhost:8089/User/getToken`,this.route.snapshot.queryParams["code"]
+    ).subscribe(res=>{this.token=res}
     )
   }
+
 
 }
