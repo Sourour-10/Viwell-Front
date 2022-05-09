@@ -1,0 +1,16 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Change your photo</h4>
+      <button type="button" class="ni ni-fat-remove" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="form-group">
+        <input type="file" (change)="onImageUpload($event)">
+        <input type="button" (click)="uploadPostPicture()" value="Upload Image" class="btn1">
+    </div>
+    <div class="modal-footer">
+   
+    </div>
+  </ng-template>
+
+
+<a style="cursor:pointer" (click)="openVerticallyCentered(content)">add a photo to your post</a>

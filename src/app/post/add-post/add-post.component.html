@@ -1,56 +1,57 @@
 <section class="section-profile-cover section-shaped my-0">
-    <!-- Circles background -->
-    <div class="shape shape-style-1 shape-primary alpha-4">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <!-- SVG separator -->
-    <div class="separator separator-bottom separator-skew">
-      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-      </svg>
-    </div>
-  </section>
+  <!-- Circles background -->
+  <div class="shape shape-style-1 shape-primary alpha-4">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <!-- SVG separator -->
+  <div class="separator separator-bottom separator-skew">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</section>
 <section class="section section-lg pt-lg-0 section-contact-us">
-    <div class="container">
-      <div class="row justify-content-center mt--300">
-        <div class="col-lg-8">
-          <div class="card bg-gradient-secondary shadow">
-            <div class="card-body p-lg-5">
-              <h4 class="mb-1">Want to post something?</h4>
-            <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-              <div class="form-group mb-4">
-                <textarea class="form-control form-control-alternative" id="text" rows="4" cols="80" formControlName="text" placeholder="Type here..."></textarea>
+  <div class="container">
+    <div class="row justify-content-center mt--300">
+      <div class="col-lg-8">
+        <div class="card bg-gradient-secondary shadow">
+          <div class="card-body p-lg-5">
+            <h4 class="mb-1">Want to post something?</h4>
+            
+          <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-4">
+              <textarea class="form-control form-control-alternative" id="text" rows="4" cols="80" formControlName="text" placeholder="Type here..."></textarea>
 
-                
-                <div class="alert alert-danger" *ngIf="postForm.get('text').invalid 
-                && postForm.get('text').touched">
-                <div *ngIf="postForm.get('text').errors.required">
-                  text is required
-                </div>
-                <div *ngIf="postForm.get('text').errors.minlength">
-                  text must be at least 5 characters long.
-                </div>
-              </div> 
+              
+              <div class="alert alert-danger" *ngIf="postForm.get('text').invalid 
+              && postForm.get('text').touched">
+              <div *ngIf="postForm.get('text').errors.required">
+                text is required
+              </div>
+              <div *ngIf="postForm.get('text').errors.minlength">
+                text must be at least 5 characters long.
+              </div>
+            </div> 
 
-              </div>
-              <div>
-                <button type="submit" [disabled]="postForm.invalid" class="btn btn-default btn-round btn-block btn-lg">Post</button>
-              </div>
-            </form>
-            <div class="row"> 
-                <div  *ngIf=isAdded>
-                    <p class="mb-1">Post Added SuccessFully!</p> 
-                </div>
             </div>
+            <div>
+              <button type="submit" [disabled]="postForm.invalid" class="btn btn-default btn-round btn-block btn-lg">Post</button>
             </div>
+          </form>
+          <div class="row"> 
+              <div  *ngIf=isAdded>
+                  <p class="mb-1">Post Added SuccessFully!</p> 
+              </div>
+          </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

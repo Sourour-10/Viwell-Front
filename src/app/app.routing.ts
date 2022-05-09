@@ -11,6 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { DetailPostComponent } from './Post/detail-post/detail-post.component';
 import { PostComponent } from './post/post.component';
+import { AddCollaborationComponent } from './CollabOffre/add-collaboration/add-collaboration.component';
+import { DeletecollaborationComponent } from './CollabOffre/deletecollaboration/deletecollaboration.component';
+import { CollaborationsComponent } from './CollabOffre/collaborations/collaborations.component';
 
 
 const routes: Routes =[
@@ -23,7 +26,10 @@ const routes: Routes =[
     { path: 'newsfeed',          component: NewsfeedComponent },
     { path: 'postdetail/:postId',          component: DetailPostComponent },
     {path: 'posts' , component: PostComponent},
-    { path: '',  redirectTo: '/posts', pathMatch: 'full' },
+    { path: 'addCollab',             component: AddCollaborationComponent },
+    { path: 'deleteCollab',             component: DeletecollaborationComponent },
+    { path: 'collabs',             component: CollaborationsComponent }
+
 
 ];
 
