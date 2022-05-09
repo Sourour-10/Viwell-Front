@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card" class="text-center">
+            <table class="table">
+                <thead class="table-dark">
+                  <th>Article Id</th>
+                  <th>Article Text</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let a of listArticles'>
+                      <td> {{a.articleId }}</td>
+                      <td>{{a.text}}</td>
+                      <td><button type="button" class="btn btn-outline-primary" (click)="open(mymodal)">edit</button>
+                        <ng-template #mymodal let-modal>
+                        </ng-template>
+                        <button type="button" class="btn btn-outline-danger" (click)="deleteArticle(a.articleId)">delete</button>
+                      </td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 
+<div class="row">
+    <form >
+        <div class="row" class="col-md-6">
+            <input type="text" placeholder="Article text" [(ngModel)]="article.text" [ngModelOptions]="{standalone: true}">
+            <br>
+            <button type="button" class="btn btn-success" (click)="addArticle(article)">Add</button>
+        </div>
+    </form>
+    
+    
+</div>

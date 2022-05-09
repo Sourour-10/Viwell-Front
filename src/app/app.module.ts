@@ -16,6 +16,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ArticleComponent } from './article/article.component';
+import { SubjectComponent } from './subject/subject.component';
+import { ResponseComponent } from './response/response.component';
+import { ArticleFrontComponent } from './article-front/article-front.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { HttpClientModule } from '@angular/common/http';
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    ArticleComponent,
+    SubjectComponent,
+    ResponseComponent,
+    ArticleFrontComponent
   ],
   imports: [
     BrowserModule,
