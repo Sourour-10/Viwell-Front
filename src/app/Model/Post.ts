@@ -4,6 +4,8 @@ export class Post{
      postId!: number;
      text!: string;
      date!: Date;
-     Nlikes: number;
+     nlikes!: number;
+     idPhoto:any;
+     parent:Post;
 
 }

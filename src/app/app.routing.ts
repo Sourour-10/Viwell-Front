@@ -39,6 +39,10 @@ import { ProfileFriendComponent } from './profile-friend/profile-friend.componen
 import { TeamComponent } from './Component/team/team.component';
 import { ListeBadgeComponent } from './Component/liste-badge/liste-badge.component';
 
+import { AddCollaborationComponent } from './CollabOffre/add-collaboration/add-collaboration.component';
+import { DeletecollaborationComponent } from './CollabOffre/deletecollaboration/deletecollaboration.component';
+import { CollaborationsComponent } from './CollabOffre/collaborations/collaborations.component';
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'user-profile', component: ProfileComponent },
@@ -80,8 +84,24 @@ const routes: Routes = [
     { path: 'postdetail/:postId',          component: DetailPostComponent },
     {path: 'posts' , component: PostComponent},
     { path: '',  redirectTo: '/posts', pathMatch: 'full' },
+    { path: 'home',             component: HomeComponent },
+    { path: 'user-profile',     component: ProfileComponent },
+    { path: 'register',           component: SignupComponent },
+    { path: 'landing',          component: LandingComponent },
+    { path: 'login',          component: LoginComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'newsfeed',          component: NewsfeedComponent },
+    { path: 'postdetail/:postId',          component: DetailPostComponent },
+    {path: 'posts' , component: PostComponent},
+    { path: 'addCollab',             component: AddCollaborationComponent },
+    { path: 'deleteCollab',             component: DeletecollaborationComponent },
+    { path: 'collabs',             component: CollaborationsComponent }
 
 
+
+
+
+  
 ];
 
 @NgModule({

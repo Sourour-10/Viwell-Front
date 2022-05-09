@@ -1,0 +1,25 @@
+
+<a *ngIf="reaction === 'Like'" class="dropdown-item" href="javascript:void(0)" >
+    <img height="30px" width="30px" src="./assets/img/icons/common/like.svg">
+     Like
+</a>
+<a *ngIf="reaction === 'ADORE'" class="dropdown-item" href="javascript:void(0)"  (click)="addReactPost(1,1)">
+    <img height="30px" width="30px" src="./assets/img/icons/common/kiss.svg">
+     ADORE
+</a>
+<a *ngIf="reaction === 'HAHA'" class="dropdown-item" href="javascript:void(0)"  (click)="addReactPost(2,1)">
+    <img height="30px" width="30px" src="./assets/img/icons/common/haha.svg">
+     HAHA
+</a>
+<a *ngIf="reaction === 'WOW'" class="dropdown-item" href="javascript:void(0)"  (click)="addReactPost(3,1)">
+    <img height="30px" width="30px" src="./assets/img/icons/common/wow.svg">
+     WOW
+</a>
+<a *ngIf="reaction === 'CRY'" class="dropdown-item" href="javascript:void(0)"  >
+    <img height="30px" width="30px" src="./assets/img/icons/common/cry.svg">
+     CRY
+</a>
+<a *ngIf="reaction === 'ANGRY'" class="dropdown-item" href="javascript:void(0)"  (click)="addReactPost(5,1)">
+    <img height="30px" width="30px" src="./assets/img/icons/common/angry.svg">
+     ANGRY
+</a>

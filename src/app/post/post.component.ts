@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '../Model/Post';
@@ -13,34 +14,31 @@ import { ReactfeedService } from '../Service/React/reactfeed.service';
 })
 export class PostComponent implements OnInit {
   ListPost: Post[];
+  ListPost2: Post[];
+  ListReact : string[];
   DateAujourdhui:  Date = new Date() ;
   react : React ;
   pathReact: string;
   post : any ;
+  reaction : any;
 
-  constructor(private postService: PostServiceService,private router: Router,private reactfeedService:ReactfeedService) { }
+
+  constructor(private postService: PostServiceService,private router: Router,private reactfeedService:ReactfeedService) {
+    
+
+
+   }
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe(
       (data: Post[]) => this.ListPost = data);
-  }
-  addReactPost(i:number){
-    //i est lid de post
-    this.react = new React();
-    this.react.reaction= Reaction.LIKE;
+    //get react of the user connected
 
-    this.react.PostLike=this.ListPost[i];
-this.pathReact="/"+1+"/"+this.ListPost[i]+"/"+1;
-
-    this.save();
   }
-  save(){                   
 
-    this.reactfeedService.addReactToPost("/0/1/1",this.react)
-                    .subscribe(react=> {console.log(React);
-                      
-                    }, error=>console.log(error))
-  }
+ 
+
+
 
   }
 

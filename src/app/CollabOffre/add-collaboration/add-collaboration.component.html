@@ -1,0 +1,81 @@
+
+<app-navbar></app-navbar>
+
+<router-outlet></router-outlet>
+<div class="row">
+    <div class="col-sm-6, col-md-6">
+    <h2>Accomplish More Together </h2>
+    <h3>New Convention </h3>
+    <form [formGroup]="collabForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" class="form-control" id="companyName"
+              formControlName="companyName">       
+            <div class="alert alert-danger" *ngIf="collabForm.get('companyName').invalid 
+              && collabForm.get('companyName').touched">
+              <div *ngIf="collabForm.get('companyName').errors.required">
+                Company Name is required.
+              </div>
+              <div *ngIf="collabForm.get('companyName').errors.minlength">
+                Company Name must be at least 3 characters long.
+              </div>
+            </div>                      
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description </label>
+            <input type="text" class="form-control" id="description"
+              formControlName="description">       
+            <div class="alert alert-danger" *ngIf="collabForm.get('description').invalid 
+              && collabForm.get('description').touched">
+              <div *ngIf="collabForm.get('firstName').errors.required">
+                The description is required.
+              </div>
+              <div *ngIf="collabForm.get('description').errors.minlength">
+                description must be at least 5 characters long.
+              </div>
+            </div>                      
+          </div>
+
+          <div class="form-group">
+            <label for="mailCompany">Company Mail </label>
+            <input type="text" class="form-control" id="mailCompany"
+              formControlName="mailCompany">       
+            <div class="alert alert-danger" *ngIf="collabForm.get('mailCompany').invalid 
+              && collabForm.get('mailCompany').touched">
+              <div *ngIf="collabForm.get('mailCompany').errors.required">
+                The mail is required.
+              </div>
+              <div *ngIf="collabForm.get('mailCompany').errors.email">
+                company mail must  matches a valid email.
+              </div>
+            </div>                      
+          </div>
+
+          <div class="form-group">
+            <label for="activity">Activity</label>
+            <select class="form-control" id="activity"                    
+            formControlName="activity">
+              <option *ngFor="let type of colabActivities" [value]="type">{{type}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Start Date of the convention</label>
+            <input type="date" class="form-control" id="date"
+            formControlName="date">                        
+          </div>
+
+          <button type="submit" [disabled]="collabForm.invalid" class="btn btn-success">Colaborate</button>
+        </form>
+        <div class="row"> 
+          <div class="col-sm-6, col-md-6">
+            <div class="alert alert-info" *ngIf=isAdded>
+              <p>Collaboration Added SuccessFully!</p>
+              <button class="btn btn-primary" (click)="resetColabForm()">Add another collaboration</button>
+            </div>
+          </div>  
+        </div>
+    </div>
+</div>
