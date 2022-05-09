@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventService } from '../Service/event.service';
 import { Event } from '../Model/event';
-
+import { EventService } from '../Service/event.service';
 
 @Component({
-  selector: 'app-event-create',
-  templateUrl: './event-create.component.html',
-  styleUrls: ['./event-create.component.css']
+  selector: 'app-event-propose',
+  templateUrl: './event-propose.component.html',
+  styleUrls: ['./event-propose.component.css']
 })
-export class EventCreateComponent implements OnInit {
+export class EventProposeComponent implements OnInit {
 
   event: Event = new Event();
   constructor(private eventService: EventService,
@@ -18,14 +17,14 @@ export class EventCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addEvent(){
-    this.event.isApprooved=true;
+  propose(){
+    //this.event.isApprooved=false;
     //this.event.privateEvent=true;
     this.event.rating =0;  
     this.event.ratingNumber=0;
     this.event.endDate=new Date();
     console.log("event"+this.event);
-    this.eventService.addEvent(this.event).subscribe( data =>{
+    this.eventService.propose(this.event).subscribe( data =>{
       console.log(data);
       this.goToEventList();
     },
@@ -38,7 +37,7 @@ export class EventCreateComponent implements OnInit {
   
   onSubmit(){
     console.log(this.event);
-    this.addEvent();
+    this.propose();
   }
 
 }

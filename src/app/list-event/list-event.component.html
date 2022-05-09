@@ -13,7 +13,7 @@
         <span></span>
         <span></span>
       </div>
-      <section  class="section section-lg pt-lg-0 mt--200">
+      <section class="section section-lg pt-lg-0 mt--200">
         <div *ngFor="let event of listEvents" class="container">
           <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -34,6 +34,7 @@
                           <span class="badge badge-pill badge-primary">{{event.endDate}}</span>
                           <span class="badge badge-pill badge-primary">{{event.tarif}} dt</span>
                           <span class="badge badge-pill badge-primary"> Event ratting : {{event.ratting}} </span>
+                          <button (click) = "getEventById(event.eventId)" class = "btn btn-info" style="margin-left: 10px"> Details</button>
 
                           <div >
                            

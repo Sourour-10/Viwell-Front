@@ -1,0 +1,70 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { EventService } from '../Service/event.service';
+import { Event } from '../Model/event';
+
+@Component({
+  selector: 'app-event-backlist',
+  templateUrl: './event-backlist.component.html',
+  styleUrls: ['./event-backlist.component.css']
+})
+export class EventBacklistComponent implements OnInit {
+
+  console = console;
+  listEvents: any;
+  events: Event[];
+  closeResult!: string;
+  form: boolean = false;
+
+  constructor(private eventService: EventService,
+    private router: Router , private modalService: NgbModal) { }
+
+  ngOnInit(): void {
+    this.getNonAproovedEvents();   
+  }
+
+  private getNonAproovedEvents(){
+    this.eventService.getNonAproovedEvents().subscribe(data => {
+      this.events = data;
+    });
+  }
+
+  getEventById(eventId: number){
+    this.router.navigate(['event-details', eventId]);
+  }
+
+  
+  approveEventByAdmin(event: Event){
+
+    this.eventService.approveEventByAdmin(event).subscribe();
+  }
+
+  deleteEvent(id: number){
+    this.eventService.deleteEvent(id).subscribe( data => {
+      console.log(data);
+      this.getNonAproovedEvents();
+    })
+  }
+
+
+  }
+  /**
+  addEvent(a : any){
+    this.eventService.addEvent(a).subscribe(()=>{
+      this.getAllEvents();                                                                                                                                 
+      this.form = false ; 
+    });
+  }
+
+  editArticle(a: any){
+
+    this.eventService.editEvent(a).subscribe();
+  }
+
+  deleteEvent(eventId: any){
+
+    this.eventService.deleteEvent(eventId).subscribe(()=> this.getAllEvents());
+  }
+   */
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {EventService} from '../Service/event.service' ;
 
 
@@ -9,7 +10,7 @@ import {EventService} from '../Service/event.service' ;
 })
 export class ListEventComponent implements OnInit {
   listEvents : any
-  constructor(private service : EventService) { }
+  constructor(private service : EventService,private router: Router) { }
 
   ngOnInit(): void {
     this.getEvents() ;
@@ -21,6 +22,10 @@ export class ListEventComponent implements OnInit {
     console.log("res :"+res)
 
     })
+  }
+
+  getEventById(eventId: number){
+    this.router.navigate(['event/details', eventId]);
   }
 
 

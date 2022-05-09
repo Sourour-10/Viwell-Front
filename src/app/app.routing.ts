@@ -40,6 +40,11 @@ import { CategoryComponent } from './category/category.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { CategoryUpdateComponent } from './category-update/category-update.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { EventCreateComponent } from './event-create/event-create.component';
+import { EventBacklistComponent } from './event-backlist/event-backlist.component';
+import { EventBackdetailsComponent } from './event-backdetails/event-backdetails.component';
+import { EventProposeComponent } from './event-propose/event-propose.component';
+import { EventFrontdetailsComponent } from './event-frontdetails/event-frontdetails.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -96,10 +101,20 @@ const routes: Routes = [
 
 
     //Aziz
-    {path: 'category', component: CategoryComponent},
+    
     {path: 'category/create', component: CategoryCreateComponent},
     {path: 'category/update', component: CategoryUpdateComponent},
-    {path: 'category-details/:id', component: CategoryDetailsComponent}
+    {path: 'category-details/:id', component: CategoryDetailsComponent},
+
+    {path: 'event/create', component: EventCreateComponent},
+    {path: 'event/propose', component: EventProposeComponent},
+    {path: 'event/update', component: CategoryUpdateComponent},
+    {path: 'event-details/:id', component: EventBackdetailsComponent},
+    {path: 'back/event', component: EventBacklistComponent},
+    {path: 'event/details/:id', component: EventFrontdetailsComponent}
+    
+
+    
 
     //End Aziz
     

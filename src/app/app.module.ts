@@ -59,6 +59,10 @@ import { CategoryCreateComponent } from './category-create/category-create.compo
 import { CategoryUpdateComponent } from './category-update/category-update.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
 import { EventCreateComponent } from './event-create/event-create.component';
+import { EventProposeComponent } from './event-propose/event-propose.component';
+import { EventBacklistComponent } from './event-backlist/event-backlist.component';
+import { EventBackdetailsComponent } from './event-backdetails/event-backdetails.component';
+import { EventFrontdetailsComponent } from './event-frontdetails/event-frontdetails.component';
 
 
 export class XhrInterceptor implements HttpInterceptor {
@@ -122,6 +126,10 @@ export class XhrInterceptor implements HttpInterceptor {
     CategoryUpdateComponent,
     CategoryDetailsComponent,
     EventCreateComponent,
+    EventProposeComponent,
+    EventBacklistComponent,
+    EventBackdetailsComponent,
+    EventFrontdetailsComponent,
   ],
   imports: [
     BrowserModule,
