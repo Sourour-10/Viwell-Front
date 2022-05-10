@@ -1,6 +1,7 @@
+import { DatePipe } from '@angular/common';
 import { HttpErrorResponse, HttpEventType , HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { catchError, first, map, of } from 'rxjs';
@@ -11,7 +12,8 @@ import { TokenStorageService } from 'src/app/Service/User/token-storage.service'
 @Component({
   selector: 'app-complete-profile',
   templateUrl: './complete-profile.component.html',
-  styleUrls: ['./complete-profile.component.css']
+  styleUrls: ['./complete-profile.component.css'],
+  providers: [DatePipe]
 })
 export class CompleteProfileComponent implements OnInit {
   form: any ;
@@ -28,9 +30,11 @@ export class CompleteProfileComponent implements OnInit {
   image: any;
   base64Data:any;
 user:User;
-users:Array<User>=[];
+users:User[];
 
 userDetails:User;
+
+
   
  // file: File = {
    // data: null,
@@ -39,7 +43,7 @@ userDetails:User;
   //};
 
   constructor(private modalService: NgbModal, private service:AdduserService ,  private route: ActivatedRoute,
-    private router: Router,private http:HttpClient, private tokenStorage:TokenStorageService) {}
+    private router: Router,private http:HttpClient, private tokenStorage:TokenStorageService, private datePipe: DatePipe) {}
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -66,6 +70,45 @@ userDetails:User;
    this.getUser();
  
   }
+
+  userUpdateForm = new FormGroup({
+    
+    userName: new FormControl(''),  
+    mail: new FormControl('',  Validators.email),   
+    lastName: new FormControl(''), 
+    firstName: new FormControl(''),   
+    birthdate: new FormControl(''),
+    cin: new FormControl(''),
+    phoneNumber: new FormControl(''),
+
+  });
+
+  prepareUpdateForm(){
+    this.userUpdateForm.setValue({
+      userName: this.user.userName,
+      mail: this.user.mail,
+      lastName: this.user.lastName,
+      firstName: this.user.firstName,
+      birthdate: this.datePipe.transform(this.user.birthdate, 'yyyy-MM-dd'),
+      cin: this.user.cin,
+      phoneNumber: this.user.phoneNumber,
+    });
+  }
+
+  onSubmit(){
+   
+    // To get data from a disabled input element
+   // this.user.collaborationId = this.userUpdateForm.getRawValue().id;
+    this.user.userName = this.userUpdateForm.value.userName;
+    this.user.mail = this.userUpdateForm.value.mail;
+    this.user.firstName = this.userUpdateForm.value.firstName; 
+    this.user.lastName = this.userUpdateForm.value.lastName;
+    this.user.birthdate = this.userUpdateForm.value.birthdate;
+    this.user.phoneNumber = this.userUpdateForm.value.phoneNumber;
+    this.user.cin = this.userUpdateForm.value.cin;
+    //console.log("USER for update"+ user.userId);
+    this.service.updateuser(this.user)
+}
 
  // updateuser() {
   //  this.service.updateuser( this.user)

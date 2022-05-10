@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/Model/User';
-const TOKEN_KEY='AuthToken';
-//const USERNAME_KEY='AuthUserName';
-//const AUTHORITIES_KEY='AuthAutorities';
+const TOKEN_KEY = 'AuthToken';
+// const USERNAME_KEY='AuthUserName';
+// const AUTHORITIES_KEY='AuthAutorities';
 const USER_KEY = 'auth-user';
 
 
@@ -10,19 +10,19 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class TokenStorageService {
-private roles : Array<string>=[];
+private roles: Array<string> = [];
   constructor() { }
-  public saveToken(token :string){
+  public saveToken(token: string) {
     window.sessionStorage.removeItem(TOKEN_KEY);
-    window.sessionStorage.setItem(TOKEN_KEY,token);
+    window.sessionStorage.setItem(TOKEN_KEY, token);
 
-  } 
+  }
 
-  public getToken():string{
+  public getToken(): string {
     return sessionStorage.getItem(TOKEN_KEY);
   }
 
- 
+
   public saveUser(user): void {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));

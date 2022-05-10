@@ -68,6 +68,13 @@ return this.userSubject.value;
       return data;
     }))
   }
+  Top3User(){
+    return this.http.get(`${this.apiUrl}/getUsersByPoints`);
+  }
+  
+  
+  
+  
   signUp(signupInfo: SignupInfo) {
     return this.http.post<jwtResponse>(this.signupUrl, signupInfo, httpOptions)
     .pipe(map(data=>{

@@ -1,0 +1,45 @@
+<ng-template #content let-modal>
+
+    <h1>FeedBacks about {{event.title}}</h1>
+
+    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="filterTerm" />
+    
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Give us a feedback </h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">x</button>
+    </div>
+    <div class="modal-body">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 30%">FeedBack </th>
+                    <th style="width: 30%">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let feedback of feedbacks  | filter: filterTerm">
+                    <td>{{feedback.text}}</td>
+                    <td>{{feedback.date}}</td>
+
+                </tr>
+                <tr *ngIf="!polls">
+                    <td colspan="4" class="text-center">
+                        <span class="spinner-border spinner-border-lg align-center"></span>
+                    </td>
+                </tr>
+            </tbody>
+            <app-feedback-event [event]="event"></app-feedback-event>
+
+        </table>
+
+        <div class="end">
+            <div class="submission">
+                <button class="sub btn" (click)="sendFeedBack()">Send</button>
+            </div>
+
+        </div>
+    </div>
+</ng-template>
+<button class="btn btn-sm btn-primary mr-1" (click)="openVerticallyCentered(content)">Feedbacks</button>

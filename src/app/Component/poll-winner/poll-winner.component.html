@@ -1,0 +1,28 @@
+
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4>  The winner </h4>
+      <h4 class="modal-title">{{user.firstName}} {{user.lastName}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+
+
+    <div class="modal-body">
+      
+      <p> <strong>UserName : </strong> {{user.userName}}</p>
+      <p> <strong>FirstName :</strong> {{user.firstName}}</p>
+      <p><strong>LastName :</strong> {{user.lastName}}</p>
+      <p><strong>Birthdate :</strong> {{user.birthdate}}</p>
+      <p><strong>Email : </strong> {{user.mail}}</p>
+      <p><strong>Points : </strong> {{user.points}}</p>
+     
+    </div>
+  
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+  <button class="btn btn-sm btn-primary mr-1" (click)="openVerticallyCentered(content)">The winner</button>

@@ -26,9 +26,8 @@ import { AdduserService } from 'src/app/Service/User/adduser.service';
 export class DetailsUserComponent implements OnInit {
   @Input()user : User;
   users=null;
-
   openC:boolean = false ;
-selectedFile: File;
+  selectedFile: File;
   retrievedImage: any;
   base64Data: any;
   retrieveResonse: any;
@@ -57,13 +56,15 @@ selectedFile: File;
   UserDetails(id: any) {
     const user = this.users.find(x => x.id === id);
   
-    this.service.getFriend(id)
+  /*  this.service.getFriend(id)
         .pipe(first() )
         .subscribe(() => {this.users = this.users.filter(x => x.id !== id);
           window.location.reload();
         }
         );
-}
+*/
+      }
+
 
 getImage() {
   //Make a call to Sprinf Boot to get the Image Bytes.

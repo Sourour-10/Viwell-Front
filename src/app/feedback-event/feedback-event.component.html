@@ -1,12 +1,10 @@
-<div class="content">
-    <div class="container">
-        <div class="head">
-            <div class="heading"><h1>Share your experience about this event</h1></div>
-            <div class="close" (click)="close()" >
-                <div class="s s1"></div>
-                <div class="s s2"></div>
-            </div>
-        </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Give us a feedback </h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">x</button>
+      </div>  
+       <div class="modal-body">
         <div class="mid">
             <div class="media"><img src="../../assets/img/icons/angry.png" alt="angry" (click)="Click1()"></div>
             <div class="media"><img src="../../assets/img/icons/unhappy.png" alt="moderate"(click)="Click2()"></div>
@@ -25,4 +23,5 @@
           
         </div>
     </div>
-</div>
+</ng-template>
+<div ><img width="5" height="5" src="../../assets/img/icons/feedback.png" alt="angry" (click)="open(content)"></div>

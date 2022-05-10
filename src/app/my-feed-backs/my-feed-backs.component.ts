@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {FeedBackService} from '../Service/feed-back.service' ;
 import {FeedBack} from '../Model/FeedBack' ;
+import { User } from '../Model/User';
 
 
 
@@ -14,7 +15,8 @@ import {FeedBack} from '../Model/FeedBack' ;
 export class MyFeedBacksComponent implements OnInit {
   listFeedBacks: any;
   
-
+  @Input()user : User;
+  users=null;
   constructor(private service:FeedBackService ) { }
 
   ngOnInit(): void {
@@ -23,7 +25,7 @@ export class MyFeedBacksComponent implements OnInit {
   }
 
   getFeedbacks(){
-    this.service.listFeedBacks(1).subscribe(res =>{this.listFeedBacks=res
+    this.service.listFeedBacks(5/*this.user.userId*/).subscribe(res =>{this.listFeedBacks=res
     console.log("listFeed backs :"+this.listFeedBacks)
     console.log("res :"+res)
 

@@ -17,7 +17,7 @@ export class PostComponent implements OnInit {
   ListPost2: Post[];
   ListReact : string[];
   DateAujourdhui:  Date = new Date() ;
-  react : React ;
+  react: React ;
   pathReact: string;
   post : any ;
   reaction : any;
@@ -42,4 +42,4 @@ export class PostComponent implements OnInit {
 
   }
 
-  
+
