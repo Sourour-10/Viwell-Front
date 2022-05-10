@@ -1,5 +1,6 @@
 import { Post } from "./Post";
 import { User } from "./User";
+import { Comment } from "./Comment";
 
 export enum Reaction {
     LIKE,
@@ -14,5 +15,6 @@ export class React{
     reactId: number;
     reaction : Reaction;
     PostLike : Post;
+    commentLike : Comment;
 
 }

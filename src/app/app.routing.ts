@@ -43,6 +43,10 @@ import { TopEmployeesComponent } from './top-employees/top-employees.component';
 import { ListeBadgeComponent } from './Component/liste-badge/liste-badge.component';
 import { ListPollComponent } from './list-poll/list-poll.component';
 
+import { AddCollaborationComponent } from './CollabOffre/add-collaboration/add-collaboration.component';
+import { DeletecollaborationComponent } from './CollabOffre/deletecollaboration/deletecollaboration.component';
+import { CollaborationsComponent } from './CollabOffre/collaborations/collaborations.component';
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'user-profile', component: ProfileComponent },
@@ -94,8 +98,18 @@ const routes: Routes = [
     { path: 'postdetail/:postId',          component: DetailPostComponent },
     {path: 'posts' , component: PostComponent},
     { path: '',  redirectTo: '/posts', pathMatch: 'full' },
-
-
+    { path: 'home',             component: HomeComponent },
+    { path: 'user-profile',     component: ProfileComponent },
+    { path: 'register',           component: SignupComponent },
+    { path: 'landing',          component: LandingComponent },
+    { path: 'login',          component: LoginComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'newsfeed',          component: NewsfeedComponent },
+    { path: 'postdetail/:postId',          component: DetailPostComponent },
+    {path: 'posts' , component: PostComponent},
+    { path: 'addCollab',             component: AddCollaborationComponent },
+    { path: 'deleteCollab',             component: DeletecollaborationComponent },
+    { path: 'collabs',             component: CollaborationsComponent },
 
     {path: 'userlist', component: UserListComponent},
     {path: 'notification' , component: NotificationComponent},
@@ -103,6 +117,7 @@ const routes: Routes = [
     {path: 'reset', component: ResetPasswordComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'linkedInLogin', component: LinkedinLoginResponseComponent }
+
 
 
 ];

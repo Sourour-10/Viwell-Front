@@ -67,10 +67,10 @@ userDetails:User;
  
   }
 
-  updateuser() {
-    this.service.updateuser( this.user)
-      .subscribe(user=>this.user=user)
-    }
+ // updateuser() {
+  //  this.service.updateuser( this.user)
+    //  .subscribe(user=>this.user=user)
+    //}
   
  // get f() { return this.form.controls; }
 

@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     private _router: Subscription;
 
     constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location, private app: AppService, private http: HttpClient) {
-     this.app.authenticate(undefined, undefined);
+     /*this.app.authenticate(undefined, undefined)*/;
         
     }
   

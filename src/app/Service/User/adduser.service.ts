@@ -109,7 +109,7 @@ public getCurrentUser(): User {
 }
 updateuser( value: User) {
  
-  return this.http.put<User>(`http://localhost:8089/User/userUpdate/${ this.currentUser().id}`, value);
+  return this.http.put(`http://localhost:8089/User/userUpdate/${ this.currentUser().id}`, value);
 }
 //UPDATE USER
 public update( params) {

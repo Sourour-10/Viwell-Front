@@ -1,0 +1,30 @@
+<div class="card bg-gradient-secondary shadow">
+    <div class="card-body p-lg-5">
+        <form [formGroup]="shareForm" (ngSubmit)="onSubmitSharing()">
+      <div class="form-group mb-4">
+        <textarea class="form-control form-control-alternative" id="text" rows="4" cols="80" formControlName="text" placeholder="Type here..."></textarea>
+        
+        <div class="alert alert-danger" *ngIf="shareForm.get('text').invalid 
+        && shareForm.get('text').touched">
+        <div *ngIf="shareForm.get('text').errors.required">
+          description is required
+        </div>
+        <div *ngIf="shareForm.get('text').errors.minlength">
+          description must be at least 5 characters long.
+        </div>
+      </div>
+
+
+      <div>
+       <button type="submit" [disabled]="shareForm.invalid" class="btn btn-default btn-round btn-block btn-lg">Share</button>
+      </div>
+      </div>
+        </form>
+
+        <div class="row"> 
+        <div  *ngIf=isShared>
+            <p class="mb-1">post shared SuccessFully!</p> 
+        </div>
+        </div>
+    </div>
+  </div>
