@@ -48,6 +48,7 @@ userDetails:User;
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
+      this.prepareUpdateForm();
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
@@ -99,8 +100,9 @@ userDetails:User;
    
     // To get data from a disabled input element
    // this.user.collaborationId = this.userUpdateForm.getRawValue().id;
-    this.user.userName = this.userUpdateForm.value.userName;
+  
     this.user.mail = this.userUpdateForm.value.mail;
+    this.user.userName = this.userUpdateForm.value.userName;
     this.user.firstName = this.userUpdateForm.value.firstName; 
     this.user.lastName = this.userUpdateForm.value.lastName;
     this.user.birthdate = this.userUpdateForm.value.birthdate;

@@ -1,40 +1,164 @@
-
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
   </div>
   <div class="modal-body">
-    
-    <form>
+    <form [formGroup]="userUpdateForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
-        <label >FirstName</label>
-        <input class="form-control" [placeholder]="userDetails.firstName" type="text" (focus)="focus=true" (blur)="focus=false" ([ngModel])="user.firstName">
-        <label >LastName</label>
-        <input class="form-control" [placeholder]="userDetails.lastName" type="text" (focus)="focus=true" (blur)="focus=false" ([ngModel])="user.lastName">
-        <label >Email</label>
-        <input class="form-control" [placeholder]="userDetails.mail" type="text" (focus)="focus=true" (blur)="focus=false" ([ngModel])="user.mail">
-     <label for="dateOfBirth">Date of birth</label>
-       <div class="input-group">
-          
-
-          <input id="dateOfBirth" class="form-control" type="date" [placeholder]="userDetails.birthdate" name="birthdate" ngbDatepicker #dp="ngbDatepicker"  ([ngModel])="user.birthdate">
-          <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+        <div class="form-group">
+          <label for="userName">User Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userName"
+            formControlName="userName"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              userUpdateForm.get('userName').invalid &&
+              userUpdateForm.get('userName').touched
+            "
+          >
+            <div *ngIf="userUpdateForm.get('userName').errors.required">
+              Company Name is required.
+            </div>
+            <div *ngIf="userUpdateForm.get('userName').errors.minlength">
+              Company Name must be at least 3 characters long.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            formControlName="firstName"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              userUpdateForm.get('firstName').invalid &&
+              userUpdateForm.get('firstName').touched
+            "
+          >
+            <div *ngIf="userUpdateForm.get('firstName').errors.required">
+              Company Name is required.
+            </div>
+            <div *ngIf="userUpdateForm.get('firstName').errors.minlength">
+              Company Name must be at least 3 characters long.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            formControlName="lastName"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              userUpdateForm.get('lastName').invalid &&
+              userUpdateForm.get('lastName').touched
+            "
+          >
+            <div *ngIf="userUpdateForm.get('lastName').errors.required">
+              Company Name is required.
+            </div>
+            <div *ngIf="userUpdateForm.get('lastName').errors.minlength">
+              Company Name must be at least 3 characters long.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mail">mail </label>
+          <input
+            type="text"
+            class="form-control"
+            id="mail"
+            formControlName="mail"
+          />
+        </div>
+        <div class="form-group">
+          <label for="date"> date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="date"
+            formControlName="date"
+          />
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phoneNumber"
+            formControlName="phoneNumber"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              userUpdateForm.get('phoneNumber').invalid &&
+              userUpdateForm.get('phoneNumber').touched
+            "
+          >
+            <div *ngIf="userUpdateForm.get('phoneNumber').errors.required">
+              Company Name is required.
+            </div>
+            <div *ngIf="userUpdateForm.get('phoneNumber').errors.minlength">
+              Company Name must be at least 3 characters long.
+            </div>
+          </div>
         </div>
 
-        <label >Phone Number</label>
-        <input class="form-control" [placeholder]="userDetails.phoneNumber" type="text" (focus)="focus=true" (blur)="focus=false" ([ngModel])="user.phoneNumber">
+        <div class="form-group">
+          <label for="cin">Cin </label>
+          <input
+            type="text"
+            class="form-control"
+            id="cin"
+            formControlName="cin"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              userUpdateForm.get('cin').invalid &&
+              userUpdateForm.get('cin').touched
+            "
+          >
+            <div *ngIf="userUpdateForm.get('cin').errors.required">
+              Company Name is required.
+            </div>
+            <div *ngIf="userUpdateForm.get('cin').errors.minlength">
+              Company Name must be at least 3 characters long.
+            </div>
+          </div>
+        </div>
 
-        <label >Cin</label>
-        <input class="form-control" [placeholder]="userDetails.cin" type="text" (focus)="focus=true" (blur)="focus=false" ([ngModel])="user.cin">
+        
+
+  
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </form>
   </div>
-  <div class="modal-footer">
-    <button  class="btn btn-outline-dark" (click)="updateuser()" >Save</button>
-  </div>
+ 
 
- <!-- <div class="form-group">
+  <!-- <div class="form-group">
     <input type="file" (change)="onImageUpload($event)">
     <input type="button" (click)="uploadUserProfilePicture()" value="Upload Image" class="btn1">
 </div>
@@ -59,9 +183,11 @@
       </div>
   
   </div>-->
-  
-          
 </ng-template>
 
-<a href="javascript:void(0)" class="btn btn-sm btn-info mr-4" (click)="open(content)">Update Profile</a>
-
+<a
+  href="javascript:void(0)"
+  class="btn btn-sm btn-info mr-4"
+  (click)="open(content)"
+  >Update Profile</a
+>
