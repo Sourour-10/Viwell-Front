@@ -10,6 +10,7 @@ import {EventService} from '../Service/event.service' ;
 })
 export class ListEventComponent implements OnInit {
   listEvents : any
+  eventService: EventService;
   constructor(private service : EventService,private router: Router) { }
 
   ngOnInit(): void {
@@ -27,6 +28,13 @@ export class ListEventComponent implements OnInit {
   getEventById(eventId: number){
     this.router.navigate(['event/details', eventId]);
   }
+
+  particiapteToEvent(eventId: number,type: number){
+    this.eventService.particiapteToEvent(eventId,type).subscribe(()=> {window.location.reload();});
+    
+  }
+
+  
 
 
 }

@@ -47,6 +47,7 @@ import { EventProposeComponent } from './event-propose/event-propose.component';
 import { EventFrontdetailsComponent } from './event-frontdetails/event-frontdetails.component';
 import { ListActivityComponent } from './list-activity/list-activity.component';
 import { ActivityBackdetailsComponent } from './activity-backdetails/activity-backdetails.component';
+import { ActivityCreateComponent } from './activity-create/activity-create.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -117,7 +118,7 @@ const routes: Routes = [
     {path: 'event/details/:id', component: EventFrontdetailsComponent},
 
     {path: 'activity', component: ListActivityComponent},
-    {path: 'activity/create', component: EventCreateComponent},
+    {path: 'activity/create', component: ActivityCreateComponent},
     {path: 'activity/update', component: CategoryUpdateComponent},
     {path: 'activity-details/:id', component: ActivityBackdetailsComponent}
 

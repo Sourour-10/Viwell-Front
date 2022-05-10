@@ -4,14 +4,14 @@
     <thead>
         <tr>
             <th> Description</th>
-            <th> Date </th>
+
             <th> Actions </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor = "let act of activitys" >
             <td> {{ act.description }} </td>
-            <td> {{ act.date }} </td>
+
             <td>
                 <button (click) = "editActivity(act)" class = "btn btn-info"> Update</button>
                 <button (click) = "deleteActivity(act.activityId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>

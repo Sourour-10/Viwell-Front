@@ -6,7 +6,7 @@ export class Activity {
     image: string;
     place: string;
     date: Date;
-    rating: Float64Array;
+    rating: number;
     nbrLikes: number;
     category: Category;
 }
