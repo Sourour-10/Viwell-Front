@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,8 @@ export class EventService {
       return this.http.get(`${this.apiUrl}/getAllEvents`);
     }
 
-    discount(idUser,id:any){
-      console.log(this.http.get(`${this.apiUrl}/discountBypoints/${idUser}/${id}`));
-      return this.http.get(`${this.apiUrl}/discountBypoints/${idUser}/${id}`)
+    discount(idUser,id:any):Observable<string>  {
+      return this.http.get(`${this.apiUrl}/discountBypoints/${idUser}/${id}`,{ responseType: 'text' })
 
 
     }

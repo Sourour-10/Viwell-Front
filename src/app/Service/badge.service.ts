@@ -41,4 +41,7 @@ export class BadgeService {
   deleteBadge(idBadge :any){
     return this.http.delete(`${this.apiUrl}/delete/${idBadge}`);
   }
+  assignBadgeToUser(idUser:any,idBadge :any){
+    return this.http.put(`${this.apiUrl}assignBadgeToUser/${idBadge}/${idUser}`,null) ;
+  }
 }

@@ -59,6 +59,7 @@ import { DetailBadgeComponent } from './Component/detail-badge/detail-badge.comp
 import { CommonModule } from '@angular/common';
 import { PollWinnerComponent } from './Component/poll-winner/poll-winner.component';
 import { EventFeedBacksComponent } from './Component/event-feed-backs/event-feed-backs.component';
+import { AssignBadgeToUserComponent } from './Component/assign-badge-to-user/assign-badge-to-user.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -90,6 +91,7 @@ export class XhrInterceptor implements HttpInterceptor {
     ChatComponent,
     GetPhotoComponent,
     UserListComponent,
+    TopEmployeesComponent,
 
     NotificationComponent,
     CompleteProfileComponent,
@@ -123,7 +125,8 @@ export class XhrInterceptor implements HttpInterceptor {
     ListeBadgeComponent,
     DetailBadgeComponent,
     PollWinnerComponent,
-    EventFeedBacksComponent
+    EventFeedBacksComponent,
+    AssignBadgeToUserComponent
 
   ],
   imports: [

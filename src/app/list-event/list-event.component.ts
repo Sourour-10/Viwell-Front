@@ -23,5 +23,8 @@ export class ListEventComponent implements OnInit {
     })
   }
 
+  counter(i: number) {
+    return new Array(i);
+  }
 
 }

@@ -30,9 +30,7 @@
                 <td>{{user.userName}}</td>
                 <td style="white-space: nowrap">
                     <!--Debut Anas-->
-                    <app-rate-colleague></app-rate-colleague>
-                    <app-feedback-colleague [user]="user" ></app-feedback-colleague>
-                    <!-- Fin Anas-->
+                    <app-assign-badge-to-user [user]="user" ></app-assign-badge-to-user>                    <!-- Fin Anas-->
                     <app-details-user [user]="user"></app-details-user>
              <!--    <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Details</a>-->
                     <button (click)="deleteUser(user.userId)" class="btn btn-sm btn-danger btn-delete-user">

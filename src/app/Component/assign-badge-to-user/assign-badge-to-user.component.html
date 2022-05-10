@@ -1,0 +1,21 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Assign to {{user.firstName}} {{user.lastName}} One of thease badges</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <tr *ngFor="let badge of badges  | filter: filterTerm">
+        <p> <strong>Name : </strong> {{badge.name}}</p>
+      <p> <strong>Points :</strong> {{badge.points}}</p>
+      <button (click)="assignBadge(badge.badgeId)">Assign Badge </button>
+     
+      
+      
+     
+    </div>
+  
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+  <button class="btn btn-sm btn-primary mr-1" (click)="openVerticallyCentered(content)">Assign badge</button>
