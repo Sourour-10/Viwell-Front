@@ -1,5 +1,10 @@
-<h1>Rate This Collaboration</h1>
-
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Rate This Collaboration</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      
 <div *ngIf="ratted==false">
     <img width="30" height="30" src={{imgage1}} (mouseover)="changeImage1()" (mouseleave)="resetImage()"
         (click)="rate(1)">
@@ -13,9 +18,17 @@
         (click)="rate(5)">
 </div>
 <div *ngIf="ratted==true">
-    <h1> You ratted X {{ratting}} stars </h1>
+    <h1> You ratted {{collab.companyName}}   </h1>
     <ng-container *ngFor='let in of counter(ratting) ;let i = index'>
-        <img width="30" height="30" src="./../assets/img/brand/filled.png">
+        <img width="30" height="30" src="./../assets/img/brand/filled.png"> 
 
     </ng-container>
+   <h1> stars</h1>
 </div>
+        
+    </div>
+   
+  </ng-template>
+  
+  <button href="javascript:void(0)" class="btn btn-warning btn-icon-only rounded-circle" (click)="open(content)"> Rate
+  </button>

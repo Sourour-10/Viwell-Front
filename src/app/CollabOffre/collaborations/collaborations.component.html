@@ -31,6 +31,7 @@
             <td>{{colab.activity}}</td>
             <td>{{colab.date | date:'dd/MM/yyyy'}}</td>
             <td>
+              <app-rate-collab [colab]="colab" ></app-rate-collab>
                 <button class="btn btn-success btn-sm" (click)="openVerticallyCentered(content,colab.collaborationId)" 
                      type="button"  style="cursor:pointer">Update</button>
                      
