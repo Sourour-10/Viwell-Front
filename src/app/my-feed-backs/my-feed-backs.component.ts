@@ -15,7 +15,6 @@ import { User } from '../Model/User';
 export class MyFeedBacksComponent implements OnInit {
   listFeedBacks: any;
   
-  @Input()user : User;
   users=null;
   constructor(private service:FeedBackService ) { }
 
@@ -25,7 +24,7 @@ export class MyFeedBacksComponent implements OnInit {
   }
 
   getFeedbacks(){
-    this.service.listFeedBacks(5/*this.user.userId*/).subscribe(res =>{this.listFeedBacks=res
+    this.service.listFeedBacks(5).subscribe(res =>{this.listFeedBacks=res
     console.log("listFeed backs :"+this.listFeedBacks)
     console.log("res :"+res)
 

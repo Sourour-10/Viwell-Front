@@ -36,6 +36,7 @@ users=null;
   }
   ngOnInit(): void {
     this.feedBack = new FeedBack()
+    
   } sendFeedBack() {
     console.log(this.feedbackText);
 
