@@ -1,7 +1,18 @@
 <nav *ngIf="isEmployee==false && isLoggedIn==true">
-    <app-nav-bar-backoffice></app-nav-bar-backoffice>
+    <app-nav-bar-backoffice> </app-nav-bar-backoffice>
 </nav>
 
-<app-side-bar-back *ngIf="isLoggedIn==true" ></app-side-bar-back>
+<app-side-bar-back *ngIf="isLoggedIn==true"> </app-side-bar-back>
 
 <router-outlet></router-outlet>
+
+
+
+<!--
+
+<router-outlet></router-outlet>
+<app-article></app-article>
+<app-subject></app-subject>
+<app-response></app-response>
+<app-article-front></app-article-front>
+-->

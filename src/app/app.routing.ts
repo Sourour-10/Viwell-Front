@@ -47,6 +47,10 @@ import { AddCollaborationComponent } from './CollabOffre/add-collaboration/add-c
 import { DeletecollaborationComponent } from './CollabOffre/deletecollaboration/deletecollaboration.component';
 import { CollaborationsComponent } from './CollabOffre/collaborations/collaborations.component';
 import { ListPollFrontComponent } from './Component/list-poll-front/list-poll-front.component';
+import { SubjectComponent } from './subject/subject.component';
+import { ArticleComponent } from './article/article.component';
+import { ResponseComponent } from './response/response.component';
+import { ArticleFrontComponent } from './article-front/article-front.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -120,9 +124,13 @@ const routes: Routes = [
     {path: 'completeProfile' , component: CompleteProfileComponent},
     {path: 'reset', component: ResetPasswordComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'linkedInLogin', component: LinkedinLoginResponseComponent }
-
-
+    { path: 'linkedInLogin', component: LinkedinLoginResponseComponent },
+//Ramzi 
+ //Admin
+{path:"Subjects", component:SubjectComponent},
+{path:"Articles", component:ArticleComponent},
+{path:"Responses",component:ResponseComponent},
+{path:"ArticleFront",component:ArticleFrontComponent},
 
 ];
 

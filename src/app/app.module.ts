@@ -80,6 +80,11 @@ import { SwitchsubjectRecComponent } from './Reclamation/switchsubject-rec/switc
 import { NavBarBackofficeComponent } from './Component/nav-bar-backoffice/nav-bar-backoffice.component';
 import { SideBarBackComponent } from './Component/side-bar-back/side-bar-back.component';
 import { ListPollFrontComponent } from './Component/list-poll-front/list-poll-front.component';
+import { ArticleComponent } from './article/article.component';
+import { SubjectComponent } from './subject/subject.component';
+import { ResponseComponent } from './response/response.component';
+import { ArticleFrontComponent } from './article-front/article-front.component';
+
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -99,6 +104,7 @@ export class XhrInterceptor implements HttpInterceptor {
     NavbarComponent,
     FooterComponent,
     LoginComponent,
+
     PollComponent,
     RateColleagueComponent,
     RateCollabComponent,
@@ -165,7 +171,12 @@ export class XhrInterceptor implements HttpInterceptor {
     EventFeedBacksComponent,
     NavBarBackofficeComponent,
     SideBarBackComponent,
-    ListPollFrontComponent
+    ListPollFrontComponent,
+
+    ArticleComponent,
+    SubjectComponent,
+    ResponseComponent,
+    ArticleFrontComponent,
   ],
   imports: [
     NgbModule,
