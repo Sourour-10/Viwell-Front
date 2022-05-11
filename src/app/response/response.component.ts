@@ -25,13 +25,14 @@ export class ResponseComponent implements OnInit {
       responseId: null,
       text: null,
       Nlikes:null,
-      dateCreation:null
+      dateCreation:null,
+      article:null
     }
   }
 
   getAllResponses(){
     this.responseService.getAllResponses().subscribe(res => {this.listResponses = res;
-      console.log("liste des sujets",this.listResponses) ;
+      console.log("liste des reponses",this.listResponses) ;
     })
   }
 

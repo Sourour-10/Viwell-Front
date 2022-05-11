@@ -15,12 +15,7 @@ import { SubjectComponent } from '../subject/subject.component';
 })
 export class ArticleComponent implements OnInit {
 
-  page = 2;
-  page1 = 3;
-  active = 1;
-  active1 = 1;
-  active2 = 1;
-
+  
   
   listSubjects: any;
   listArticles: any;

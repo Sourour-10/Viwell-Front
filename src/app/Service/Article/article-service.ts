@@ -26,4 +26,8 @@ export class ArticleService {
     deleteArticle(articleId: any){
         return this.httpClient.delete(`${this.API_URL}/delete/${articleId}`)
     }
+    getAllArticlesSubject(subjectId:any){
+        return this.httpClient.get(`${this.API_URL}/getAllArticlesBySubjects/${subjectId}`)
+
+    }
 }
