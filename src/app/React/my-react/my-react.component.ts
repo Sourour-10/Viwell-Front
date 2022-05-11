@@ -15,7 +15,7 @@ public reaction : string="";
 
   ngOnInit(): void {
      //get MyREACT
- this.reactfeedService.getMyEmoji(this.postReacted.postId,1).subscribe((data) => {
+ this.reactfeedService.getMyEmoji(this.postReacted.postId).subscribe((data) => {
   this.reaction = data;
 });
 console.log("my react"+this.postReacted.postId+this.reaction);

@@ -1,7 +1,11 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Post } from 'src/app/Model/Post';
 import { Reclamation,ComplaintSubjects } from 'src/app/Model/Reclamation';
+import { CommentService } from 'src/app/Service/Comment/comment.service';
+import { PostServiceService } from 'src/app/Service/Post/post-service.service';
 import { ReclamationService } from 'src/app/Service/Reclamation/reclamation.service';
 
 @Component({
@@ -12,37 +16,26 @@ import { ReclamationService } from 'src/app/Service/Reclamation/reclamation.serv
 })
 export class AddRreclamationComponent implements OnInit {
 
-  /**
-   * 
-   * @param reclamationService      reclamationId:number;
-
-	 ComplaintSubject:ComplaintSubjects;
-
-	 date:Date;
-	 Content:string;
-	 state:Boolean;
-
-	 num:number;
-   
-	  user:User ;
-
-   */
     currentDate = new Date();
-  reclamationForm: FormGroup;
   reclamation: Reclamation = new Reclamation();
   isAdded = false;
-  recSubject  = ['ReportPost', 'ReportComment', 'ReportEvent','ReportProfile'];
+  
+  @Input() ReportpostId : number;
+  Reportpost : Post;
 
-  constructor(private reclamationService: ReclamationService,private datePipe: DatePipe) { }
+  constructor(private reclamationService: ReclamationService,private datePipe: DatePipe,private modalService: NgbModal,private postService: PostServiceService,private commentService :CommentService) { }
 
   ngOnInit(): void {
-    this.reclamationForm = new FormGroup({
-      complaintSubject: new FormControl('', [Validators.required]), 
-      date: new FormControl(this.datePipe.transform(this.currentDate, 'yyyy-MM-dd')),
-      content: new FormControl('', [Validators.required, Validators.minLength(5)]),  
-
-    });
   }
+
+  
+
+
+
+
+
+
+
 /**
   onSubmit(){
     switch(this.reclamationForm.value.complaintSubject){

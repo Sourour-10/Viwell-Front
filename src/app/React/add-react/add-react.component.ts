@@ -17,7 +17,7 @@ export class AddReactComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addReactPost(reactid:number,user:number){
+  addReactPost(reactid:number){
     //i est lid de post
     this.react = new React();
     switch(reactid){
@@ -42,7 +42,7 @@ export class AddReactComponent implements OnInit {
     }
 
     this.react.PostLike=this.postReacted;
-    this.pathReact="/"+reactid+"/"+this.postReacted.postId+"/"+1;
+    this.pathReact="/"+reactid+"/"+this.postReacted.postId+"/";
     console.log(reactid);
 this.saveReactToPost();
   this.refresh();

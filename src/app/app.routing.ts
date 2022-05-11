@@ -42,6 +42,8 @@ import { ListeBadgeComponent } from './Component/liste-badge/liste-badge.compone
 import { AddCollaborationComponent } from './CollabOffre/add-collaboration/add-collaboration.component';
 import { DeletecollaborationComponent } from './CollabOffre/deletecollaboration/deletecollaboration.component';
 import { CollaborationsComponent } from './CollabOffre/collaborations/collaborations.component';
+import { ReclamationsComponent } from './Reclamation/reclamations/reclamations.component';
+import { OffresEmployeesComponent } from './CollabOffre/offres-employees/offres-employees.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -95,8 +97,9 @@ const routes: Routes = [
     {path: 'posts' , component: PostComponent},
     { path: 'addCollab',             component: AddCollaborationComponent },
     { path: 'deleteCollab',             component: DeletecollaborationComponent },
-    { path: 'collabs',             component: CollaborationsComponent }
-
+    { path: 'collabs',             component: CollaborationsComponent },
+    { path: 'reclamations',             component: ReclamationsComponent },
+    { path: 'OffresEmployees',             component: OffresEmployeesComponent }
 
 
 

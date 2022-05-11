@@ -69,6 +69,8 @@ import { DeletecollaborationComponent } from './CollabOffre/deletecollaboration/
 import { AddOfferComponent } from './CollabOffre/add-offer/add-offer.component';
 import { AddRreclamationComponent } from './Reclamation/add-rreclamation/add-rreclamation.component';
 import { SwitchsubjectRecComponent } from './Reclamation/switchsubject-rec/switchsubject-rec.component';
+import { ReclamationsComponent } from './Reclamation/reclamations/reclamations.component';
+import { OffresEmployeesComponent } from './CollabOffre/offres-employees/offres-employees.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -135,7 +137,9 @@ export class XhrInterceptor implements HttpInterceptor {
     DeletecollaborationComponent,
     AddOfferComponent,
     AddRreclamationComponent,
-    SwitchsubjectRecComponent
+    SwitchsubjectRecComponent,
+    ReclamationsComponent,
+    OffresEmployeesComponent
   ],
   imports: [
     BrowserModule,
