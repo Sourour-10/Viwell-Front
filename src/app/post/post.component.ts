@@ -42,6 +42,7 @@ export class PostComponent implements OnInit {
     this.postService.getPosts().subscribe(
       (data: Post[]) => this.ListPost = data);
     //get react of the user connected
+    
 
   }
   reclamationForm = new FormGroup({
