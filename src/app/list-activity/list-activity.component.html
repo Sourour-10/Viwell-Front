@@ -3,17 +3,18 @@
 <table class = "table table-striped">
     <thead>
         <tr>
-            <th> Description</th>
+            <th> Image</th>
 
             <th> Actions </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor = "let act of activitys" >
-            <td> {{ act.description }} </td>
+            <td> {{ act.image }} </td>
 
             <td>
                 <button (click) = "editActivity(act)" class = "btn btn-info"> Update</button>
+                <button (click) = "UserLikesActivity(act.activityId)" class = "btn btn-info"> Like {{ act.nbrLikes }}</button>
                 <button (click) = "deleteActivity(act.activityId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
                 <button (click) = "getActivityById(act.activityId)" class = "btn btn-info" style="margin-left: 10px"> View</button>
             </td>

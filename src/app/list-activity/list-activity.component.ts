@@ -30,6 +30,11 @@ export class ListActivityComponent implements OnInit {
     });
   }
 
+  UserLikesActivity(activityId: number){
+    this.activityService.UserLikesActivity(activityId).subscribe(()=> {window.location.reload();});
+    
+  }
+
   getActivityById(activityId: number){
     this.router.navigate(['activity-details', activityId]);
   }

@@ -56,7 +56,7 @@ approveEventByAdmin(event: Event){
 
 }
 
-particiapteToEvent(eventId: number , type : number){
+particiapteToEvent(eventId: any , type : any){
   return this.http.put(`${this.API_URL}/particiapteToEvent/${eventId}/${this.currentUser().id}/${type}`,null);
 
 }

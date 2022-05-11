@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { EventService } from '../Service/event.service';
 import { Event } from '../Model/event';
+import { EventService } from '../Service/event.service';
 
 @Component({
-  selector: 'app-event-backlist',
-  templateUrl: './event-backlist.component.html',
-  styleUrls: ['./event-backlist.component.css']
+  selector: 'app-event-frontlist',
+  templateUrl: './event-frontlist.component.html',
+  styleUrls: ['./event-frontlist.component.css']
 })
-export class EventBacklistComponent implements OnInit {
+export class EventFrontlistComponent implements OnInit {
+
 
   console = console;
   listEvents: any;
@@ -21,17 +22,17 @@ export class EventBacklistComponent implements OnInit {
     private router: Router , private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.getNonAproovedEvents();   
+    this.getAllEvents();   
   }
 
-  private getNonAproovedEvents(){
-    this.eventService.getNonAproovedEvents().subscribe(data => {
+  private getAllEvents(){
+    this.eventService.getAllEvents().subscribe(data => {
       this.events = data;
     });
   }
 
   getEventById(eventId: number){
-    this.router.navigate(['event-details', eventId]);
+    this.router.navigate(['event/details', eventId]);
   }
 
   
@@ -48,11 +49,8 @@ export class EventBacklistComponent implements OnInit {
   deleteEvent(id: number){
     this.eventService.deleteEvent(id).subscribe( data => {
       console.log(data);
-      this.getNonAproovedEvents();
+      this.getAllEvents();
     })
   }
 
-
-  }
-
-
+}

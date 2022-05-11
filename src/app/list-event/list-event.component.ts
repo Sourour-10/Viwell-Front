@@ -34,7 +34,4 @@ export class ListEventComponent implements OnInit {
     
   }
 
-  
-
-
 }

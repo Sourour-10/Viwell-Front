@@ -14,8 +14,8 @@
             <td> {{ eve.startDate }} </td>
             <td>
                 <button (click) = "getEventById(eve.eventId)" class = "btn btn-info" style="margin-left: 10px"> View</button>
-                <button (click) = "approveEventByAdmin(eve)" class = "btn btn-info" style="margin-left: 10px"> Approve</button>
-                <button (click) = "deleteEvent(eve.eventId)" class = "btn btn-info" style="margin-left: 10px"> Delete</button>                
+                <button (click) = "particiapteToEvent(eve.eventId,0)" class = "btn btn-info" style="margin-left: 10px"> Participate</button>
+                <button (click) = "particiapteToEvent(eve.eventId,1)" class = "btn btn-info" style="margin-left: 10px"> Interested</button>
             </td>
         </tr>
     </tbody>

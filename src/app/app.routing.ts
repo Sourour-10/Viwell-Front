@@ -48,6 +48,7 @@ import { EventFrontdetailsComponent } from './event-frontdetails/event-frontdeta
 import { ListActivityComponent } from './list-activity/list-activity.component';
 import { ActivityBackdetailsComponent } from './activity-backdetails/activity-backdetails.component';
 import { ActivityCreateComponent } from './activity-create/activity-create.component';
+import { EventFrontlistComponent } from './event-frontlist/event-frontlist.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -71,7 +72,7 @@ const routes: Routes = [
   //Admin
   { path: 'create-poll', component: PollComponent },
   { path: 'rate-collaboration', component: RateCollabComponent },
-  { path: 'list-event', component: ListEventComponent },
+  { path: 'list-event', component: EventFrontlistComponent },
 
   
   //End Anas Routing
@@ -116,6 +117,7 @@ const routes: Routes = [
     {path: 'event-details/:id', component: EventBackdetailsComponent},
     {path: 'back/event', component: EventBacklistComponent},
     {path: 'event/details/:id', component: EventFrontdetailsComponent},
+
 
     {path: 'activity', component: ListActivityComponent},
     {path: 'activity/create', component: ActivityCreateComponent},
