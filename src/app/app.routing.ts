@@ -54,6 +54,7 @@ const routes: Routes = [
   { path: 'landing', component: LandingComponent },
   { path: 'login', component: LoginComponent },
   // Anas Routing
+  {path: 'topEmployee', component: TopEmployeesComponent },
   { path: 'Chat', component: ChatComponent },
   { path: 'rate-colleague', component: RateColleagueComponent },
   { path: 'rate-event', component: RateEventComponent },
@@ -78,7 +79,6 @@ const routes: Routes = [
   { path: 'create-poll', component: PollComponent },
   { path: 'rate-collaboration', component: RateCollabComponent },
   { path: 'list-event', component: ListEventComponent },
-  {path: 'topEmployee', component: TopEmployeesComponent },
 
 
   // End Anas Routing
@@ -118,6 +118,8 @@ const routes: Routes = [
     {path: 'reset', component: ResetPasswordComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'linkedInLogin', component: LinkedinLoginResponseComponent }
+
+
 
 ];
 

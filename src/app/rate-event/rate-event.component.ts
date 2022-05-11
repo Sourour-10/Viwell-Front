@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { RateService } from '../Service/Rate/rate.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Event } from '../Model/Event';
 
 
 @Component({
@@ -64,7 +65,7 @@ export class RateEventComponent implements OnInit {
   }
 
   rate(i: number) {
-    this.service.rateEvent(1, i).subscribe();
+    this.service.rateEvent(this.event.eventId,i).subscribe();
     this.ratted = true;
     this.ratting = i;
 

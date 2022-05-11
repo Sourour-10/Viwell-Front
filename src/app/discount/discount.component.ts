@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Event } from '../Model/Event';
 import { EventService } from '../Service/event.service';
 import { TokenStorageService } from '../Service/User/token-storage.service';
 
@@ -15,7 +16,7 @@ export class DiscountComponent implements OnInit {
   loading = false;
   submitted = false;
   closeResult = '';
-  message :any;
+  message = "%";
   setIdEvent: any;
 
   constructor(private service: EventService, private tokenStorage: TokenStorageService, private modalService: NgbModal) {
@@ -38,13 +39,10 @@ export class DiscountComponent implements OnInit {
 
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     //var id = this.event.eventId ; 
-    this.service.discount(this.currentUser().id,1).subscribe(res=>{
-      console.log("res"+res);
+    this.discount() ;
 
-      this.message=res ;
-    console.log(JSON.stringify(res));}  )
   }
 
   public get currentUser(): any {
@@ -55,4 +53,14 @@ export class DiscountComponent implements OnInit {
     this.setIdEvent = id;
   }
 
-}
+  discount() {
+    
+     this.service.discount(this.currentUser().id,this.event.eventId).subscribe(res => {
+       console.log("res" + JSON.stringify(res));
+       this.message = res;
+       ;
+     })
+   }
+   
+  }
+

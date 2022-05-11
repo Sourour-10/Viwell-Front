@@ -33,8 +33,13 @@
                           <span class="badge badge-pill badge-primary">{{event.startDate}}</span>
                           <span class="badge badge-pill badge-primary">{{event.endDate}}</span>
                           <span class="badge badge-pill badge-primary">{{event.tarif}} dt</span>
-                          <span class="badge badge-pill badge-primary"> Event ratting : {{event.ratting}} </span>
-
+                          <span class="badge badge-pill badge-primary"> Event ratting  </span>
+                          
+                          <ng-container *ngFor='let in of counter(event.rating) ;let i = index'>
+                            <img width="15" height="15" src="../../assets/img/brand/filled.png">
+            
+                        </ng-container>
+            
                         <div>
 
                         </div>

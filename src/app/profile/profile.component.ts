@@ -29,16 +29,20 @@ selectedFile: File;
   imageUrl: string;
   imageUrll: string;
 
+  isEmployee = true ;
+
 
 
     constructor(private http: HttpClient, private service:AdduserService, private router: Router, private token :TokenStorageService) { }
 
     ngOnInit() {
         this.currentUser = this.token.getUser();
-       
-
         this.getImage(this.currentUser.idPhoto) ;
         this.getUserImage();
+        if (this.currentUser.idPhoto==8 )
+        {
+          this.isEmployee=false ;
+        }
         
       }
       public get currentuser(): any{

@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { filter, Subscription } from 'rxjs';
 import { AppService } from './Service/app.service';
+import { TokenStorageService } from './Service/User/token-storage.service';
 
 
 
@@ -21,12 +22,14 @@ var navbarHeight = 0;
 })
 export class AppComponent implements OnInit {
     private _router: Subscription;
-
-    constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location, private app: AppService, private http: HttpClient) {
+isEmployee= false ;
+    constructor(private tokenStorage: TokenStorageService, private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location, private app: AppService, private http: HttpClient) {
      /*this.app.authenticate(undefined, undefined)*/;
         
     }
-  
+    public get currentUser(): any {
+        return this.tokenStorage.getUser;
+      }
    
  
     @HostListener('window:scroll', ['$event'])
@@ -63,6 +66,15 @@ export class AppComponent implements OnInit {
         lastScrollTop = st;
     };
     ngOnInit() {
+        console.log (" ROLE EST 1  :" + this.currentUser.id) ;
+
+         console.log (" ROLE EST  :" + this.currentUser.authorities) ;
+        if (this.currentUser.authorities.contains("EMPLOYEE"))
+          this.isEmployee= true ; 
+          else
+          this.isEmployee=false ;
+
+
       var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
       this._router = this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
           if (window.outerWidth > 991) {

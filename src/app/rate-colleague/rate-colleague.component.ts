@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { User } from '../Model/User';
 import { RateService } from '../Service/Rate/rate.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { RateService } from '../Service/Rate/rate.service';
   styleUrls: ['./rate-colleague.component.css']
 })
 export class RateColleagueComponent implements OnInit {
+  @Input()user:User ;
   isAddMode: boolean;
   loading = false;
   submitted = false;
@@ -63,7 +65,7 @@ export class RateColleagueComponent implements OnInit {
   }
 
   rate(i: number) {
-    this.service.rateColleague(1, i).subscribe();
+    this.service.rateColleague(this.user.userId, i).subscribe();
     this.ratted = true;
     this.ratting = i;
 

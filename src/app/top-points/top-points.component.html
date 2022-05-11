@@ -14,11 +14,10 @@
                     <i> {{user.points}} </i>
                 </a> <strong> points</strong>
             </div>
+            <ng-container *ngFor='let in of counter(user.rating) ;let i = index'>
+                <img width="15" height="15" src="../../assets/img/brand/filled.png">
 
-                <ng-container *ngFor='let in of counter(user.rating) ;let i = index'>
-                    <img width="15" height="15" src="./../assets/img/brand/filled.png">
-
-                </ng-container>
+            </ng-container>
 
         </div>
     </div>
