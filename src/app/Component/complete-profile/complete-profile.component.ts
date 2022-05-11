@@ -77,6 +77,7 @@ userDetails:User;
     this.service.getUser().subscribe(res=>{
       this.user=res;
       console.log("oooooooo",+this.user)
+      console.log("photooo",this.currentUser().idPhoto );
       this.prepareUpdateForm();})
  
   }
@@ -107,8 +108,12 @@ userDetails:User;
       birthdate: this.datePipe.transform(this.user.birthdate, 'yyyy-MM-dd'),
       cin: this.user.cin,
       phoneNumber: this.user.phoneNumber,
-      idPhoto:this.user.idPhoto,
+      idPhoto:this.currentUser().idPhoto,
+     
       password:this.user.password
+
+   
+      
     });
   }
 
@@ -125,13 +130,14 @@ userDetails:User;
     this.user.birthdate = this.userUpdateForm.value.birthdate;
     this.user.phoneNumber = this.userUpdateForm.value.phoneNumber;
     this.user.cin = this.userUpdateForm.value.cin;
-    this.user.idPhoto=this.userUpdateForm.value.idPhoto;
+ this.user.idPhoto=this.currentUser.idPhoto,
     
     //console.log("USER for update"+ user.userId);
     this.service.updateU(this.user).subscribe(rep=>{
       this.getUser();
       window.location.reload();
     })
+ 
     console.log("useeeeeeer",this.user);
 }
 

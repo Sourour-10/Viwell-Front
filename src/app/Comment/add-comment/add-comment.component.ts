@@ -26,7 +26,7 @@ export class AddCommentComponent implements OnInit {
     });
   }
   save(){
-    this.commentService.addComment(this.comment,this.postCommentedId,1)
+    this.commentService.addComment(this.comment,this.postCommentedId)
                     .subscribe(comment=> {console.log(comment);
                       this.isAdded = true;
                     }, error=>console.log(error))

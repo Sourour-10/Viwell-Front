@@ -36,7 +36,7 @@ export class SharePostComponent implements OnInit {
     this.sharepost();
   }
   sharepost(){
-    this.postService.sharepost(this.postToshareId,1,this.share).subscribe(post=> {console.log(post);
+    this.postService.sharepost(this.postToshareId,this.share).subscribe(post=> {console.log(post);
       this.isShared = true;
     }, error=>console.log(error));
 

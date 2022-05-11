@@ -36,7 +36,7 @@ export class OffreService {
   }
 
   createOfferByConvention(){
-    return this.http.get(`/api/Offer/createOfferByConvention`)
+    return this.http.put(`/api/Offer/createOfferByConvention`,null)
     .pipe(catchError(this.handleError)); 
   }
 

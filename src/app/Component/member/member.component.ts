@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Reclamation } from 'src/app/Model/Reclamation';
 import { User } from 'src/app/Model/User';
+import { ReclamationService } from 'src/app/Service/Reclamation/reclamation.service';
 import { AdduserService } from 'src/app/Service/User/adduser.service';
 
 @Component({
@@ -24,7 +28,15 @@ selectedFile: File;
 
   //@Output() requested=new EventEmitter<String>();
   closeResult: string;
-  constructor(private service:AdduserService,  private http: HttpClient) { }
+
+  //yossr rec
+  recSubject  = ['ReportPost', 'ReportComment', 'ReportEvent','ReportProfile'];
+  contentReportList  = ['Nudity', 'Violence', 'Harassment','Suicide or self-harm','False information', 'Undesirable content', 'Unauthorized sales','hate speech', 'Terrorism', 'Other'];
+  report: Reclamation = new Reclamation();
+  @ViewChild('closebutton') closebutton;
+  ReportUser: User;
+  
+  constructor(private service:AdduserService,  private http: HttpClient,private reclamationService: ReclamationService,private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.getImage();
@@ -59,6 +71,44 @@ getImage() {
       }
     );
 }
+
+
+//yossr Reclamation
+reclamationForm = new FormGroup({
+  commentId: new FormControl({value:'', disabled:true}),
+  complaintSubject: new FormControl({value:'', disabled:true}),
+  contentReport: new FormControl(''),  
+});
+openVerticallyCenteredReportProfile(content,userId:number) {
+  this.modalService.open(content, { centered: true });
+      // Get user data for the selected user
+      this.service.getFriend(userId)
+      .subscribe(responseData=> {
+        this.ReportUser = responseData;
+        
+        this.prepareUpdateForm();
+      });
+}
+
+  prepareUpdateForm(){
+    this.reclamationForm.setValue({
+      userId: this.ReportUser.userId,
+      complaintSubject: 'ReportProfile',
+      contentReport: 'Please select a reason',
+    });
+  }
+
+  onSubmit(){
+    this.report.complaintSubject = this.reclamationForm.value.complaintSubject;
+    this.report.content = this.reclamationForm.value.contentReport;
+      this.reclamationService.addReclamation(this.ReportUser.userId,'ReportProfile', this.report.content).subscribe(responseDate=>{
+        // to close the modal
+        this.closebutton.nativeElement.click();
+        // Get the updated list
+      }, 
+      error=> console.log(error));
+
+  }
 
 
 }

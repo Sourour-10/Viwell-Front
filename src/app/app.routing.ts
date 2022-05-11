@@ -65,6 +65,8 @@ import { SubjectComponent } from './subject/subject.component';
 import { ArticleComponent } from './article/article.component';
 import { ResponseComponent } from './response/response.component';
 import { ArticleFrontComponent } from './article-front/article-front.component';
+import { ReclamationsComponent } from './Reclamation/reclamations/reclamations.component';
+import { OffresEmployeesComponent } from './CollabOffre/offres-employees/offres-employees.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -135,6 +137,8 @@ const routes: Routes = [
     { path: 'deleteCollab',             component: DeletecollaborationComponent },
     { path: 'collabs',             component: CollaborationsComponent },
 
+    { path: 'reclamations',             component: ReclamationsComponent },
+    { path: 'OffresEmployees',             component: OffresEmployeesComponent },
 
     {path: 'userlist', component: UserListComponent},
     {path: 'notification' , component: NotificationComponent},

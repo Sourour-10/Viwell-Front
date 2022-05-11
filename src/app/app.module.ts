@@ -98,6 +98,8 @@ import { ListActivityComponent } from './list-activity/list-activity.component';
 import { ActivityCreateComponent } from './activity-create/activity-create.component';
 import { ActivityBackdetailsComponent } from './activity-backdetails/activity-backdetails.component';
 import { EventFrontlistComponent } from './event-frontlist/event-frontlist.component';
+import { ReclamationsComponent } from './Reclamation/reclamations/reclamations.component';
+import { OffresEmployeesComponent } from './CollabOffre/offres-employees/offres-employees.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -210,6 +212,8 @@ export class XhrInterceptor implements HttpInterceptor {
     ActivityBackdetailsComponent,
     EventFrontlistComponent,
 
+    ReclamationsComponent,
+    OffresEmployeesComponent
   ],
   imports: [
     NgbModule,
