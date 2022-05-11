@@ -256,4 +256,3 @@ voteTo(idUserConnected:any,idCandidate:any) {
 
 }
   
-

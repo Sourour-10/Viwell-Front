@@ -33,24 +33,34 @@
                           <span class="badge badge-pill badge-primary">{{event.startDate}}</span>
                           <span class="badge badge-pill badge-primary">{{event.endDate}}</span>
                           <span class="badge badge-pill badge-primary">{{event.tarif}} dt</span>
-                          <span class="badge badge-pill badge-primary"> Event ratting  </span>
-                          
+                          <span class="badge badge-pill badge-primary"> Event ratting </span>
+
                           <ng-container *ngFor='let in of counter(event.rating) ;let i = index'>
                             <img width="15" height="15" src="../../assets/img/brand/filled.png">
-            
-                        </ng-container>
-            
+
+                          </ng-container>
+
                         <div>
+
+                          <span class="badge badge-pill badge-primary"> Event ratting : {{event.ratting}} </span>
+                          <button (click)="getEventById(event.eventId)" class="btn btn-info" style="margin-left: 10px">
+                            Details</button>
+                          <button (click)="particiapteToEvent(event.eventId,0)" class="btn btn-info"
+                            style="margin-left: 10px"> Participate</button>
+                          <button (click)="particiapteToEvent(event.eventId,1)" class="btn btn-info"
+                            style="margin-left: 10px"> Interrested</button>
+                          <div>
+
+                          </div>
+
+                          <app-rate-event [event]="event"></app-rate-event>
+                          <app-discount [event]="event"></app-discount>
+                          <app-event-feed-backs [event]="event"></app-event-feed-backs>
 
                         </div>
 
-                        <app-rate-event [event]="event"></app-rate-event>
-                        <app-discount [event]="event"></app-discount>
-                        <app-event-feed-backs [event]="event"></app-event-feed-backs>
 
                       </div>
-
-
                     </div>
                   </div>
                 </div>

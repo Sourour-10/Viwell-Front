@@ -1,0 +1,23 @@
+<div class="container">
+    <h2> Event List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> title</th>
+            <th> Start Date </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let eve of events" >
+            <td> {{ eve.title }} </td>
+            <td> {{ eve.startDate }} </td>
+            <td>
+                <button (click) = "getEventById(eve.eventId)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+                <button (click) = "approveEventByAdmin(eve)" class = "btn btn-info" style="margin-left: 10px"> Approve</button>
+                <button (click) = "deleteEvent(eve.eventId)" class = "btn btn-info" style="margin-left: 10px"> Delete</button>                
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>

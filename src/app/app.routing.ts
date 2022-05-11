@@ -32,6 +32,19 @@ import { LinkedinLoginResponseComponent } from './login/linkedin/linkedin-login-
 
 import { ProfileFriendComponent } from './profile-friend/profile-friend.component';
 import { TeamComponent } from './Component/team/team.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryCreateComponent } from './category-create/category-create.component';
+import { CategoryUpdateComponent } from './category-update/category-update.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { EventCreateComponent } from './event-create/event-create.component';
+import { EventBacklistComponent } from './event-backlist/event-backlist.component';
+import { EventBackdetailsComponent } from './event-backdetails/event-backdetails.component';
+import { EventProposeComponent } from './event-propose/event-propose.component';
+import { EventFrontdetailsComponent } from './event-frontdetails/event-frontdetails.component';
+import { ListActivityComponent } from './list-activity/list-activity.component';
+import { ActivityBackdetailsComponent } from './activity-backdetails/activity-backdetails.component';
+import { ActivityCreateComponent } from './activity-create/activity-create.component';
+import { EventFrontlistComponent } from './event-frontlist/event-frontlist.component';
 
 import {CoachComponent} from './coach/coach.component';
 import {TrainingComponent} from './training/training.component';
@@ -85,7 +98,9 @@ const routes: Routes = [
   // Admin
   { path: 'create-poll', component: PollComponent },
   { path: 'rate-collaboration', component: RateCollabComponent },
-  { path: 'list-event', component: ListEventComponent },
+  { path: 'list-event', component: EventFrontlistComponent },
+  { path: 'eventAnas', component: ListEventComponent },
+
 
 
   // End Anas Routing
@@ -132,6 +147,33 @@ const routes: Routes = [
 {path:"Responses",component:ResponseComponent},
 {path:"ArticleFront",component:ArticleFrontComponent},
 
+    { path: "linkedInLogin", component: LinkedinLoginResponseComponent },
+
+
+    //Aziz
+
+    {path: 'category', component: CategoryComponent},
+    {path: 'category/create', component: CategoryCreateComponent},
+    {path: 'category/update', component: CategoryUpdateComponent},
+    {path: 'category-details/:id', component: CategoryDetailsComponent},
+
+    {path: 'event/create', component: EventCreateComponent},
+    {path: 'event/propose', component: EventProposeComponent},
+    {path: 'event/update', component: CategoryUpdateComponent},
+    {path: 'event-details/:id', component: EventBackdetailsComponent},
+    {path: 'back/event', component: EventBacklistComponent},
+    {path: 'event/details/:id', component: EventFrontdetailsComponent},
+
+
+    {path: 'activity', component: ListActivityComponent},
+    {path: 'activity/create', component: ActivityCreateComponent},
+    {path: 'activity/update', component: CategoryUpdateComponent},
+    {path: 'activity-details/:id', component: ActivityBackdetailsComponent}
+
+    
+
+    //End Aziz
+    
 ];
 
 // @ts-ignore

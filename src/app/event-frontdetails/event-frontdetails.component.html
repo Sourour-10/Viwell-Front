@@ -1,0 +1,95 @@
+<div class="product" style="margin-left: -160px;">
+  <div class="header">
+    <div class="back" (click)="goToEventList()"></div>
+  </div>
+  <div class="main">
+    <div class="left">
+      <h1>{{event.title}}</h1>
+      <h6>{{event.place}}</h6>
+      <h3>{{event.points}} POINTS</h3>
+
+
+    </div>
+    <div class="right">
+      <p>{{event.description}}</p>
+      <p>Starts at {{event.startDate}}</p>
+      <p>End at {{event.endDate}}</p>
+      <p *ngIf="event.privateEvent == false ">Public Event</p>
+      <p *ngIf="event.privateEvent == true ">Private Event</p>
+      <p>
+        <ng-container *ngFor='let in of counter(event.rating) ;let i = index'>
+          <span class="fa fa-star yellow"></span>
+        </ng-container>
+        
+
+        <app-rate-event [event]="event"></app-rate-event>
+        
+      </p>
+    </div>
+  </div>
+  <div class="footer">
+
+    <div class="right">
+      <button (click)="particiapteToEvent(event.eventId,0)" class="btn btn-danger"> Participate</button>
+      <button (click)="particiapteToEvent(event.eventId,1)" class="btn btn-info"> Interested</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const arrows = document.querySelector('.quantity').querySelectorAll('.fa');
+
+  const handleChange = (elem) => {
+    const qt = document.querySelector('#qt');
+    const total = document.querySelector('#price');
+    let value = parseInt(qt.innerText);
+    let classArr = Array.from(elem.classList);
+    if (/right/gi.test(classArr)) {
+      if (value != 9) value++;
+      else alert('Watch out! We\'ve got a badass over here!');
+    }
+    else {
+      if (value != 1) value--;
+      else alert('Watch out! We\'ve got a badass over here!');
+    }
+    qt.innerText = value;
+    total.innerText = '$' + (value * 320);
+  }
+
+  const product = document.querySelector('.product');
+
+  const moveBox = (val) => {
+    product.style.mozTransform =
+      product.style.msTransform =
+      product.style.webkitTransform =
+      product.style.transform = 'translateX(' + val + 'px)';
+  }
+
+  const back = document.querySelector('.back');
+
+  const spring = new rebound.SpringSystem();
+
+  let animation = spring.createSpring(60, 3);
+
+  animation.addListener({
+    onSpringUpdate(spring) {
+      let current = spring.getCurrentValue();
+      if (current > 1) spring.setEndValue(0);
+      let val = rebound.MathUtil.mapValueInRange(current, 0, 1, 0, 20);
+      moveBox(val);
+    }
+  })
+
+  back.addEventListener('click', () => {
+    animation.setEndValue(1);
+  });
+
+
+  const arrArr = Array.from(arrows);
+
+  arrArr.forEach(elem => {
+    elem.addEventListener('click', () => {
+      handleChange(elem);
+    })
+  })
+</script>

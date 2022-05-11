@@ -84,7 +84,19 @@ import { ArticleComponent } from './article/article.component';
 import { SubjectComponent } from './subject/subject.component';
 import { ResponseComponent } from './response/response.component';
 import { ArticleFrontComponent } from './article-front/article-front.component';
-
+import { CategoryComponent } from './category/category.component';
+import { CategoryCreateComponent } from './category-create/category-create.component';
+import { CategoryUpdateComponent } from './category-update/category-update.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { EventCreateComponent } from './event-create/event-create.component';
+import { EventProposeComponent } from './event-propose/event-propose.component';
+import { EventBacklistComponent } from './event-backlist/event-backlist.component';
+import { EventBackdetailsComponent } from './event-backdetails/event-backdetails.component';
+import { EventFrontdetailsComponent } from './event-frontdetails/event-frontdetails.component';
+import { ListActivityComponent } from './list-activity/list-activity.component';
+import { ActivityCreateComponent } from './activity-create/activity-create.component';
+import { ActivityBackdetailsComponent } from './activity-backdetails/activity-backdetails.component';
+import { EventFrontlistComponent } from './event-frontlist/event-frontlist.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -177,6 +189,25 @@ export class XhrInterceptor implements HttpInterceptor {
     SubjectComponent,
     ResponseComponent,
     ArticleFrontComponent,
+
+    DiscountComponent,
+
+    TeamComponent,
+    MemberComponent,
+    CategoryComponent,
+    CategoryCreateComponent,
+    CategoryUpdateComponent,
+    CategoryDetailsComponent,
+    EventCreateComponent,
+    EventProposeComponent,
+    EventBacklistComponent,
+    EventBackdetailsComponent,
+    EventFrontdetailsComponent,
+    ListActivityComponent,
+    ActivityCreateComponent,
+    ActivityBackdetailsComponent,
+    EventFrontlistComponent,
+
   ],
   imports: [
     NgbModule,

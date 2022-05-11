@@ -1,0 +1,31 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Create Category </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> description</label>
+            <input type="text" class ="form-control" id = "description"
+                [(ngModel)] = "activity.description" name = "description">
+        </div>
+    
+        <div class="form-group">
+            <label> image </label>
+            <input type="text" class ="form-control" id = "image"
+                [(ngModel)] = "activity.image" name = "image">
+        </div>
+    
+        <div class="form-group">
+            <label> place</label>
+            <input type="text" class ="form-control" id = "place"
+                [(ngModel)] = "activity.place" name = "place">
+        </div>
+    
+        <div class="form-group">
+            <label> rating </label>
+            <input type="number" class ="form-control" id = "rating"
+                [(ngModel)] = "activity.rating" name = "rating">
+        </div>
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div> 

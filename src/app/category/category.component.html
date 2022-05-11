@@ -1,0 +1,23 @@
+<div class="container">
+    <h2> Category List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> name</th>
+            <th> dictionary </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let cat of categorys" >
+            <td> {{ cat.name }} </td>
+            <td> {{ cat.dictionary }} </td>
+            <td>
+                <button (click) = "editCategory(cat)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteCategory(cat.categoryId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "getCategoryById(cat.categoryId)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
