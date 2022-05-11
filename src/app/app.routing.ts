@@ -46,6 +46,7 @@ import { ListPollComponent } from './list-poll/list-poll.component';
 import { AddCollaborationComponent } from './CollabOffre/add-collaboration/add-collaboration.component';
 import { DeletecollaborationComponent } from './CollabOffre/deletecollaboration/deletecollaboration.component';
 import { CollaborationsComponent } from './CollabOffre/collaborations/collaborations.component';
+import { ListPollFrontComponent } from './Component/list-poll-front/list-poll-front.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -55,6 +56,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   // Anas Routing
   {path: 'topEmployee', component: TopEmployeesComponent },
+  {path: 'polls', component: ListPollFrontComponent  },
+
   { path: 'Chat', component: ChatComponent },
   { path: 'rate-colleague', component: RateColleagueComponent },
   { path: 'rate-event', component: RateEventComponent },

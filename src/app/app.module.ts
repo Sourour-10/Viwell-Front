@@ -79,6 +79,7 @@ import { AddRreclamationComponent } from './Reclamation/add-rreclamation/add-rre
 import { SwitchsubjectRecComponent } from './Reclamation/switchsubject-rec/switchsubject-rec.component';
 import { NavBarBackofficeComponent } from './Component/nav-bar-backoffice/nav-bar-backoffice.component';
 import { SideBarBackComponent } from './Component/side-bar-back/side-bar-back.component';
+import { ListPollFrontComponent } from './Component/list-poll-front/list-poll-front.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -163,7 +164,8 @@ export class XhrInterceptor implements HttpInterceptor {
     PollWinnerComponent,
     EventFeedBacksComponent,
     NavBarBackofficeComponent,
-    SideBarBackComponent
+    SideBarBackComponent,
+    ListPollFrontComponent
   ],
   imports: [
     NgbModule,

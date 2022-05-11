@@ -1,70 +1,45 @@
-<main>
-    <section class="section section-shaped section-lg">
-        <div class="shape shape-style-1 bg-gradient-default">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Vote Now</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+        <div>
+            <strong> {{msg}} </strong>
         </div>
-        <div class="container pt-lg-md">
-            <div class="row justify-content-center">
-                <div class="col-lg-5">
-                    <div class="card bg-secondary shadow border-0">
-                        <div class="card-header bg-white pb-5">
-                            <div class="text-muted text-center mb-3">
-                                <small>Vote now</small>
-                                <div class="container row">
+        <button class="btn btn-1 btn-info" (click)="getCurrentResult()">Get your current
+            result </button>
 
-                                    <div>
-                                        <strong> {{msg}} </strong>
-                                    </div>
-                                    <button class="btn btn-1 btn-info" (click)="getCurrentResult()">Get your current
-                                        result </button>
+        <thead>
+            <tr>
+                <th style="width: 30%">First Name</th>
+                <th style="width: 30%">Last Name</th>
+                <th style="width: 10%">Number of votes</th>
+                <th style="width: 10%"></th>
+                <th></th>
 
+            </tr>
+        </thead>
+        <tbody>
 
-
-                                    <div class="col-lg-3 col-sm-6 mt-4 mt-md-0">
-                                        <!-- Radio buttons -->
-
-
-
-                                        <div *ngFor="let user of users">
-                                            <div>
+            <tr *ngFor="let user of users">
+                    <td>{{user.firstName }}</td>
+                    <td>{{user.lastName }}</td>
+                    <td>{{user.numberOfVote }}</td>
 
 
-                                                <small>{{user.userName }}</small>
+                    <button (click)="vote(user.userId)"> Vote
+                    </button>
+            </tr>
+
+        </tbody>
+    </div>
+    
 
 
-                                                <button class="btn btn-icon btn-3 btn-primary" type="button"
-                                                    (click)="vote(user.userId)"> Vote for {{user.userName}}
-                                                </button>
-                                            </div>
-
-
-                                        </div>
-
-                                        <!--
-                                            <div>
-                                                <button class="btn btn-icon btn-3 btn-primary" type="button"
-                                                    (click)="vote()">
-                                                    <span class="btn-inner--icon"><i class="ni ni-bag-17"></i></span>
-                                                    <span class="btn-inner--text">Vote now </span>
-                                                </button>
-                                            </div>
--->
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-</main>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>
+<button class="btn btn-sm btn-primary mr-1" (click)="openVerticallyCentered(content)">Vote</button>
