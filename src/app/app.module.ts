@@ -79,6 +79,7 @@ import { AddRreclamationComponent } from './Reclamation/add-rreclamation/add-rre
 import { SwitchsubjectRecComponent } from './Reclamation/switchsubject-rec/switchsubject-rec.component';
 import { NavBarBackofficeComponent } from './Component/nav-bar-backoffice/nav-bar-backoffice.component';
 import { SideBarBackComponent } from './Component/side-bar-back/side-bar-back.component';
+import { GoogleProfileComponent } from './Component/google-profile/google-profile.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -163,7 +164,8 @@ export class XhrInterceptor implements HttpInterceptor {
     PollWinnerComponent,
     EventFeedBacksComponent,
     NavBarBackofficeComponent,
-    SideBarBackComponent
+    SideBarBackComponent,
+    GoogleProfileComponent
   ],
   imports: [
     NgbModule,
@@ -190,8 +192,7 @@ export class XhrInterceptor implements HttpInterceptor {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '113757940963-bvpijvhjgep64ge3ajnmlepgnaopmvrf.apps.googleusercontent.com'
-            )
+'73195531714-l801elv0bompsomcmr38f79ct8ciah41.apps.googleusercontent.com'            )
           },
 
         ]

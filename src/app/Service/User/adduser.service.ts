@@ -118,6 +118,12 @@ updateuser( value: User) {
  
   return this.http.put(`http://localhost:8089/User/userUpdate/${ this.currentUser().id}`, value);
 }
+updateU( user: User) {
+ 
+  return this.http.put(`http://localhost:8089/User/update`, user);
+}
+
+
 //UPDATE USER
 public update( params) {
   this.userModel=params
@@ -241,10 +247,10 @@ getFriend(id :any) :Observable<any> {
 
 }
 
-getUser() :Observable<any> {
+getUser() {
 
 
-  return this.http.get(`http://localhost:8089/User/GetUserById/${this.currentUser().id}`);
+  return this.http.get<User>(`http://localhost:8089/User/GetUserById/${this.currentUser().id}`);
 
 }
 

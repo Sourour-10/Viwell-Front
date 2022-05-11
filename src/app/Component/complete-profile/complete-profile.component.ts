@@ -47,12 +47,19 @@ userDetails:User;
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-      this.prepareUpdateForm();
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      this.service.getUser().subscribe(res=>{
+        this.user=res;
+        console.log("oooooooo",+this.user)
+        this.prepareUpdateForm();
+    })
+     
+   
     });
   }
+
+
+
+ 
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -67,25 +74,32 @@ userDetails:User;
 
 
   ngOnInit() {
-   // this.user = new User()
-   this.getUser();
+    this.service.getUser().subscribe(res=>{
+      this.user=res;
+      console.log("oooooooo",+this.user)
+      this.prepareUpdateForm();})
  
   }
 
+ 
   userUpdateForm = new FormGroup({
-    
+    userId: new FormControl({value:'', disabled:true}),
     userName: new FormControl(''),  
     mail: new FormControl('',  Validators.email),   
     lastName: new FormControl(''), 
     firstName: new FormControl(''),   
     birthdate: new FormControl(''),
     cin: new FormControl(''),
-    phoneNumber: new FormControl(''),
+    phoneNumber: new FormControl('')
+  
 
   });
 
+
+
   prepareUpdateForm(){
     this.userUpdateForm.setValue({
+      userId: this.user.userId,
       userName: this.user.userName,
       mail: this.user.mail,
       lastName: this.user.lastName,
@@ -93,9 +107,12 @@ userDetails:User;
       birthdate: this.datePipe.transform(this.user.birthdate, 'yyyy-MM-dd'),
       cin: this.user.cin,
       phoneNumber: this.user.phoneNumber,
+      idPhoto:this.user.idPhoto,
+      password:this.user.password
     });
   }
 
+ 
   onSubmit(){
    
     // To get data from a disabled input element
@@ -108,8 +125,14 @@ userDetails:User;
     this.user.birthdate = this.userUpdateForm.value.birthdate;
     this.user.phoneNumber = this.userUpdateForm.value.phoneNumber;
     this.user.cin = this.userUpdateForm.value.cin;
+    this.user.idPhoto=this.userUpdateForm.value.idPhoto;
+    
     //console.log("USER for update"+ user.userId);
-    this.service.updateuser(this.user)
+    this.service.updateU(this.user).subscribe(rep=>{
+      this.getUser();
+      window.location.reload();
+    })
+    console.log("useeeeeeer",this.user);
 }
 
  // updateuser() {

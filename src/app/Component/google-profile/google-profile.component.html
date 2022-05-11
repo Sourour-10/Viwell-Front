@@ -1,0 +1,125 @@
+
+
+<main class="profile-page">
+  <section class="section-profile-cover section-shaped my-0">
+    <!-- Circles background -->
+    <div class="shape shape-style-1 shape-primary alpha-4">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </div>
+
+    <!-- SVG separator -->
+    <div class="separator separator-bottom separator-skew">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+        xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </section>
+  <section *ngIf="openC==false" class="section">
+
+    <div class="container">
+
+
+      <div class="card card-profile shadow mt--300">
+
+
+        <div class="px-4">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 order-lg-2">
+              <div class="card-profile-image">
+           
+                  <img [src]="userDetails?.photoUrl" class="img-fluid rounded-circle shadow" />
+                
+               
+                
+               
+              </div>
+              
+
+            </div>
+            <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+              <div class="card-profile-actions py-4 mt-lg-0">
+                <app-complete-profile></app-complete-profile>
+
+
+                <button (click)="openChat()" class="btn btn-sm btn-info mr-4">Chat </button>
+               
+               
+
+             </div>
+            </div>
+            <div class="col-lg-4 order-lg-1">
+
+
+
+              <div class="card-profile-stats d-flex justify-content-center">
+                <div>
+                  <span class="heading">22</span>
+                  <span class="description"> Post</span>
+                </div>
+                <div>
+                  <span class="heading">10</span>
+                  <span class="description">Rate</span>
+                </div>
+                <div>
+                  <span class="heading">89</span>
+                  <span class="description">Number</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-5">
+          <a  href="javascript:void(0)">  <app-add-photo></app-add-photo></a> 
+
+            <h3>
+            <strong> <span class="display-4 mb-0">
+            {{userDetails?.name}}
+              </span>
+            
+            </strong>
+            </h3>
+            <div class="h6 font-weight-300">
+              <i class="ni location_pin mr-2"></i>
+            </div>
+            <div class="h6 mt-4">
+              <i class="ni business_briefcase-24 mr-2"></i>Email :
+              {{userDetails?.email}}
+            </div>
+       
+          </div>
+          <div class="mt-5 py-5 border-top text-center">
+            <div class="row justify-content-center">
+              <div class="col-lg-9">
+                <a href="javascript:void(0)">Show more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+
+
+    </div>
+  </section>
+
+  <section *ngIf="openC==true" class="section">
+    <div class="container">
+      <div class="card card-profile shadow mt--300">
+        <button (click)="openChat()">Chat </button>
+
+        <app-chat *ngIf="openC"></app-chat>
+      </div>
+    </div>
+
+  </section>
+
+
+</main>
