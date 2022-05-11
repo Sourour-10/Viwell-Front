@@ -1,23 +1,64 @@
-<div class="container">
-    <h2> Event List</h2>
-<table class = "table table-striped">
-    <thead>
-        <tr>
-            <th> title</th>
-            <th> Start Date </th>
-            <th> Actions </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let eve of events" >
-            <td> {{ eve.title }} </td>
-            <td> {{ eve.startDate }} </td>
-            <td>
-                <button (click) = "getEventById(eve.eventId)" class = "btn btn-info" style="margin-left: 10px"> View</button>
-                <button (click) = "particiapteToEvent(eve.eventId,0)" class = "btn btn-info" style="margin-left: 10px"> Participate</button>
-                <button (click) = "particiapteToEvent(eve.eventId,1)" class = "btn btn-info" style="margin-left: 10px"> Interested</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+
+<!-- flip-card-container -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 d-flex justify-content-center" *ngFor="let eve of events">
+            <div class="flip-card-container" style="--hue: 220">
+                <div class="flip-card">
+
+                    <div class="card-front">
+                        <figure>
+                            <div class="img-bg"></div>
+                            <img src="https://images.unsplash.com/photo-1614907884263-9409f5a11875?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
+                                alt="Brohm Lake">
+                            <figcaption>{{ eve.title }}</figcaption>
+                        </figure>
+
+                        <ul>
+                            <li>START DATE {{ eve.startDate }}</li>
+                            <li>END DATE {{ eve.endDate }}</li>
+                            <li>{{ eve.points }} POINTS</li>
+                            <li>PUBLISH DATE {{ eve.publishDate }}</li>
+                            <li>{{ eve.description }}</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-back">
+                        <figure>
+                            <div class="img-bg"></div>
+                            <img src="https://images.unsplash.com/photo-1641808970296-9e08f26d813d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGV2ZW50JTIwbWFuYWdlbWVudHxlbnwwfDF8MHxibGFja3w%3D&auto=format&fit=crop&w=500&q=60"
+                                alt="Brohm Lake">
+                        </figure>
+<ul>
+    <li><button (click) = "getEventById(eve.eventId)" > View</button></li>
+        <li><button (click) = "particiapteToEvent(eve.eventId,0)"> Participate</button></li>
+            <li><button (click) = "particiapteToEvent(eve.eventId,1)"> Interested</button></li>
+                    </ul>
+                        <div class="design-container">
+                            <span class="design design--1"></span>
+                            <span class="design design--2"></span>
+                            <span class="design design--3"></span>
+                            <span class="design design--4"></span>
+                            <span class="design design--5"></span>
+                            <span class="design design--6"></span>
+                            <span class="design design--7"></span>
+                            <span class="design design--8"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
+
+<!-- /flip-card-container -->
+
+
+<a href="https://abubakersaeed.netlify.app/designs/d4-flip-card" class="abs-site-link" rel="nofollow noreferrer"
+    target="_blank">abs/designs/d4-flip-card</a>
+
+
+  
+  

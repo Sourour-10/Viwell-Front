@@ -35,4 +35,9 @@ export class EventFrontdetailsComponent implements OnInit {
     this.router.navigate(['/list-event']);
   }
 
+  particiapteToEvent(eventId: any,type: any){
+    this.eventService.particiapteToEvent(eventId,type).subscribe(()=> {window.location.reload();});
+    
+  }
+
 }
