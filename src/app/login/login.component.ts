@@ -59,6 +59,9 @@ SignInWithGoogle(): any {
           this.isLoginFailed = false;
           this.isLoggedIn=true;
           this.router.navigateByUrl("/user-profile");
+          //window.location.reload() ;
+
+          
         },
         (error) => {
           this.errorMessage = error.error.message;

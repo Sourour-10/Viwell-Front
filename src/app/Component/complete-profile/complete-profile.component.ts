@@ -67,6 +67,7 @@ userDetails:User;
 
 
   ngOnInit() {
+    
    // this.user = new User()
    this.getUser();
  
