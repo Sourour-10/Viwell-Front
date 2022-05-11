@@ -1,0 +1,52 @@
+<div class="container">
+    
+    <div class="row justify-content-center">
+      
+      <div class="col-lg-6 mt-5 mt-lg-0">
+        <!-- Menu -->
+        
+        <div class="custom-tab-content flex-column flex-md-row">
+          <ul ngbNav #nav1="ngbNav" [(activeId)]="active" class="nav nav-pills justify-content-center" type="pills">
+            <li class="nav-item" [ngbNavItem]="1" *ngFor='let s of listSubjects' >
+              <a class="nav-link" ngbNavLink (click)="getArticlesSubject(s.subjectId)"> {{s.name}} </a>
+            </li>
+        </ul>
+        </div>
+
+        <div class="custom-tab-content flex-column flex-md-row">
+          <ul ngbNav #nav1="ngbNav" [(activeId)]="active" class="nav nav-pills justify-content-center" type="pills">
+            <li class="nav-item" [ngbNavItem]="1" *ngFor='let a of listArticles'>
+              
+                <div class="tab-content" style="width: 635px; margin-bottom:10px;"  (click)="getResponsesArticle(a.articleId)">
+                    <p class="description">{{a.text}}</p>
+                </div>
+            </li>
+        </ul>
+          
+        </div>
+
+        <div class="custom-tab-content flex-column flex-md-row">
+            <ul ngbNav #nav1="ngbNav" [(activeId)]="active" class="nav nav-pills justify-content-center" type="pills" >
+              <li class="nav-item" [ngbNavItem]="1" *ngFor='let r of listResponses'>
+                
+                  <div class="tab-content" style="width: 300px; height:140px; margin-bottom:50px;"  >
+                      <p class="description">{{r.text}}</p>
+                        <ul style="display: block; list-style-type: none;">
+                            <li ><img src="../../assets/img/icons/angry.svg" id="smiley" (click)="react(5,r.responseId)" width="25px" height="25px" style="float: left; margin-left:5px;"/></li>
+                            <li ><img src="../../assets/img/icons/cry.svg" id="smiley" (click)="react(4,r.responseId)" width="25px" height="25px" style="float: left; margin-left:5px;"/></li>
+                            <li ><img src="../../assets/img/icons/haha.svg" id="smiley" (click)="react(2,r.responseId)" width="25px" height="25px" style="float: left; margin-left:5px;"/></li>
+                            <li ><img src="../../assets/img/icons/Like.svg" id="smiley" (click)="react(0,r.responseId)" width="25px" height="25px" style="float: left; margin-left:5px;"/></li>
+                            <li ><img src="../../assets/img/icons/love.svg" id="smiley" (click)="react(1,r.responseId)"  width="25px" height="25px" style="float: left; margin-left:5px;"/></li>
+                            <li><img src="../../assets/img/icons/wow.svg" id="smiley"  (click)="react(3,r.responseId)" width="25px" height="25px" style="float: left; margin-left:5px;"/></li>
+                        </ul>
+                  </div>
+              </li>
+          </ul>
+            
+          </div>
+        <div [ngbNavOutlet]="nav1" class="custom-tab-content"></div>
+      </div>
+    </div>
+  
+  
+  </div>

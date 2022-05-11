@@ -17,6 +17,8 @@ export class SideBarBackComponent implements OnInit {
   logout(): void {
     this.service.logout();
     this.route.navigateByUrl('/login');
+    //window.location.reload() ;
+
   }
 
 

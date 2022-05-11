@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Event } from 'src/app/Model/Event';
 import { FeedBackService } from 'src/app/Service/feed-back.service';
 
 @Component({
@@ -42,7 +43,7 @@ export class EventFeedBacksComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getfeedbacks(1)
+    this.getfeedbacks(this.event.eventId)
   }
 
   getfeedbacks(id: any) {

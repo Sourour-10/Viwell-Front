@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { RateService } from '../Service/Rate/rate.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Event } from '../Model/Event';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class RateEventComponent implements OnInit {
   submitted = false;
   closeResult = '';
 
-  constructor( private modalService: NgbModal,private service: RateService) {
+  constructor( private router:Router, private modalService: NgbModal,private service: RateService) {
   }
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -68,7 +69,7 @@ export class RateEventComponent implements OnInit {
     this.service.rateEvent(this.event.eventId,i).subscribe();
     this.ratted = true;
     this.ratting = i;
-
+    this.router.navigate(['/list-event']);
   }
   resetImage() {
     this.imgage1 = "../../assets/img/brand/empty.png"

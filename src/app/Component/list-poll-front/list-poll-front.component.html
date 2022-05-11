@@ -1,0 +1,39 @@
+<div class="position-relative">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <section class="section section-lg">
+    <div class="container">
+      <div>
+        <h1>Polls</h1>
+        <thead>
+          <tr>
+            <th style="width: 30%">Description</th>
+            <th style="width: 30%">Start date</th>
+            <th style="width: 30%">End Date</th>
+            <th style="width: 10%">Reward</th>
+            <th style="width: 10%">Points</th>
+            <th>Vote</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let poll of polls">
+            <td>{{ poll.description }}</td>
+            <td>{{ poll.startDate }}</td>
+            <td>{{ poll.endDate }}</td>
+            <td>{{ poll.badgeName }}</td>
+            <td>{{ poll.points }}</td>
+            <td><app-vote [poll]="poll"></app-vote></td>
+            <td style="white-space: nowrap"></td>
+          </tr>
+        </tbody>
+      </div>
+    </div>
+  </section>
+</div>

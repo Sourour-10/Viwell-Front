@@ -4,7 +4,7 @@ import { DOCUMENT } from '@angular/common';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
-import { filter, Subscription } from 'rxjs';
+import { filter, Subscription, windowWhen } from 'rxjs';
 import { AppService } from './Service/app.service';
 import { TokenStorageService } from './Service/User/token-storage.service';
 
@@ -22,29 +22,32 @@ var navbarHeight = 0;
 })
 export class AppComponent implements OnInit {
     private _router: Subscription;
-isEmployee= false ;
-    constructor(private tokenStorage: TokenStorageService, private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location, private app: AppService, private http: HttpClient) {
+    isEmployee = false;
+    currentUserVar: any
+    isLoggedIn = false;
+
+    constructor(private tokenStorage: TokenStorageService, private renderer: Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element: ElementRef, public location: Location, private app: AppService, private http: HttpClient) {
      /*this.app.authenticate(undefined, undefined)*/;
-        
+
     }
     public get currentUser(): any {
         return this.tokenStorage.getUser;
-      }
-   
- 
+    }
+
+
     @HostListener('window:scroll', ['$event'])
     hasScrolled() {
 
         var st = window.pageYOffset;
         // Make sure they scroll more than delta
-        if(Math.abs(lastScrollTop - st) <= delta)
+        if (Math.abs(lastScrollTop - st) <= delta)
             return;
 
         var navbar = document.getElementsByTagName('nav')[0];
 
         // If they scrolled down and are past the navbar, add class .headroom--unpinned.
         // This is necessary so you never see what is "behind" the navbar.
-        if (st > lastScrollTop && st > navbarHeight){
+        if (st > lastScrollTop && st > navbarHeight) {
             // Scroll Down
             if (navbar.classList.contains('headroom--pinned')) {
                 navbar.classList.remove('headroom--pinned');
@@ -54,7 +57,7 @@ isEmployee= false ;
         } else {
             // Scroll Up
             //  $(window).height()
-            if(st + window.innerHeight < document.body.scrollHeight) {
+            if (st + window.innerHeight < document.body.scrollHeight) {
                 // $('.navbar.headroom--unpinned').removeClass('headroom--unpinned').addClass('headroom--pinned');
                 if (navbar.classList.contains('headroom--unpinned')) {
                     navbar.classList.remove('headroom--unpinned');
@@ -66,33 +69,77 @@ isEmployee= false ;
         lastScrollTop = st;
     };
     ngOnInit() {
-        console.log (" ROLE EST 1  :" + this.currentUser.id) ;
+        //Test log in 
+        this.isLoggedinorNot();
 
-         console.log (" ROLE EST  :" + this.currentUser.authorities) ;
-        if (this.currentUser.authorities.contains("EMPLOYEE"))
-          this.isEmployee= true ; 
-          else
-          this.isEmployee=false ;
+        //End test
+
+        //Test admin
+        this.currentUserVar = this.tokenStorage.getUser();
+        console.log("User :" + JSON.stringify(this.currentUserVar.authorities))
+        var authorityString = JSON.stringify(this.currentUserVar.authorities);
+        if (authorityString.indexOf("ROLE_ADMIN") === -1) {
+            this.isEmployee = true;
+        } else
+            this.isEmployee = false;
 
 
-      var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
-      this._router = this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
-          if (window.outerWidth > 991) {
-              window.document.children[0].scrollTop = 0;
-          }else{
-              window.document.activeElement.scrollTop = 0;
-          }
-          this.renderer.listen('window', 'scroll', (event) => {
-              const number = window.scrollY;
-              if (number > 150 || window.pageYOffset > 150) {
-                  // add logic
-                  navbar.classList.add('headroom--not-top');
-              } else {
-                  // remove logic
-                  navbar.classList.remove('headroom--not-top');
-              }
-          });
-      });
-      this.hasScrolled();
+        //End test admin
+
+
+        var navbar: HTMLElement = this.element.nativeElement.children[0].children[0];
+        this._router = this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
+            if (window.outerWidth > 991) {
+                window.document.children[0].scrollTop = 0;
+            } else {
+                window.document.activeElement.scrollTop = 0;
+            }
+            this.renderer.listen('window', 'scroll', (event) => {
+                const number = window.scrollY;
+                if (number > 150 || window.pageYOffset > 150) {
+                    // add logic
+                    navbar.classList.add('headroom--not-top');
+                } else {
+                    // remove logic
+                    navbar.classList.remove('headroom--not-top');
+                }
+            });
+        });
+        this.hasScrolled();
     }
+
+
+    isLoggedinorNot() {
+        if (this.tokenStorage.getUser() === null) {
+            this.isLoggedIn = false;
+            console.log("Log in   = = " + this.isLoggedIn)
+
+
+
+        }
+        else {
+            this.isLoggedIn = true;
+            console.log("Log in   = = " + this.isLoggedIn)
+            //  window.location.reload() ;
+
+        }
+
+    }
+
+    testAdmin() {
+        //Test admin
+        this.currentUserVar = this.tokenStorage.getUser();
+        console.log("User :" + JSON.stringify(this.currentUser.authorities))
+        var authorityString = JSON.stringify(this.currentUser.authorities);
+        if (authorityString.indexOf("ROLE_ADMIN") === -1) {
+            this.isEmployee = true;
+        } else
+            this.isEmployee = false;
+
+
+        //End test admin
+    }
+
+
+
 }

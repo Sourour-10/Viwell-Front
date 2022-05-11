@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card" class="text-center">
+            <table class="table">
+                <thead class="table-dark">
+                  <th>Subject Id</th>
+                  <th>Subject Text</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let s of listSubjects'>
+                        <td> {{s.subjectId }}</td>
+                        <td>{{s.name}}</td>
+                        <td><button type="button" class="btn btn-outline-primary" (click)="open(mymodal)">edit</button>
+                          <ng-template #mymodal let-modal>
+                          </ng-template>
+                          <button type="button" class="btn btn-outline-danger" (click)="deleteSubject(s.subjectId)">delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 
+<div class="row">
+    <form >
+        <div class="row" class="col-md-6">
+            <input type="text" placeholder="Subject text" [(ngModel)]="subject.name" [ngModelOptions]="{standalone: true}">
+            
+
+            <br>
+            <button type="button" class="btn btn-success" (click)="addSubject(subject)">Add</button>
+        </div>
+    </form>
+</div>
+
+<

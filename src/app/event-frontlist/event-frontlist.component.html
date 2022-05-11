@@ -1,0 +1,68 @@
+<!-- flip-card-container -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 d-flex justify-content-center" *ngFor="let event of events">
+            <div class="flip-card-container" style="--hue: 220">
+                <div class="flip-card">
+
+                    <div class="card-front">
+                        <figure>
+                            <div class="img-bg"></div>
+                            <img src="https://images.unsplash.com/photo-1614907884263-9409f5a11875?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
+                                alt="Brohm Lake">
+                            <figcaption>{{ event.title }}</figcaption>
+                        </figure>
+
+                        <ul>
+                            <li>START DATE {{ event.startDate }}</li>
+                            <li>END DATE {{ event.endDate }}</li>
+                            <li>{{ event.points }} POINTS</li>
+                            <li>PUBLISH DATE {{ event.publishDate }}</li>
+                            <li>{{ event.description }}</li>
+                           
+                        </ul>
+                    </div>
+
+                    <div class="card-back">
+                        <figure>
+                            <div class="img-bg"></div>
+                            <img src="https://images.unsplash.com/photo-1641808970296-9e08f26d813d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGV2ZW50JTIwbWFuYWdlbWVudHxlbnwwfDF8MHxibGFja3w%3D&auto=format&fit=crop&w=500&q=60"
+                                alt="Brohm Lake">
+                        </figure>
+                        <ul>
+                            <li><button (click)="getEventById(event.eventId)"> View</button></li>
+                            <li><button (click)="particiapteToEvent(event.eventId,0)"> Participate</button></li>
+                            <li><button (click)="particiapteToEvent(event.eventId,1)"> Interested</button></li>
+
+                            <li>
+                                <app-event-feed-backs [event]="event"></app-event-feed-backs>
+                            </li>
+                            <li>
+                                <app-discount [event]="event"></app-discount>
+                            </li>
+
+                        </ul>
+                        <div class="design-container">
+                            <span class="design design--1"></span>
+                            <span class="design design--2"></span>
+                            <span class="design design--3"></span>
+                            <span class="design design--4"></span>
+                            <span class="design design--5"></span>
+                            <span class="design design--6"></span>
+                            <span class="design design--7"></span>
+                            <span class="design design--8"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- /flip-card-container -->
+
+
+<a href="https://abubakersaeed.netlify.app/designs/d4-flip-card" class="abs-site-link" rel="nofollow noreferrer"
+    target="_blank">abs/designs/d4-flip-card</a>

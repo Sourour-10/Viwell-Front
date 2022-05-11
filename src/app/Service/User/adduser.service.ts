@@ -256,10 +256,9 @@ getUser() {
 
 voteTo(idUserConnected:any,idCandidate:any) {
 
-  return this.http.put(`${this.apiUrl}/voteTo/${1}/${idCandidate}`,null) ;
+  return this.http.put(`${this.apiUrl}/voteTo/${idUserConnected}/${idCandidate}`,null) ;
   
 }
 
 }
   
-

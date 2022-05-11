@@ -7,10 +7,10 @@ export class Event {
     publishDate:Date ;
     startDate:Date;
     endDate:Date ;
-    isApprooved: Boolean;
+    isApprooved: Boolean = true;
     privateEvent: Boolean;
     rating: number;
     ratingNumber: number;
     tarif: number;
-    points: 50;
+    points: number;
 }

@@ -1,0 +1,24 @@
+<h3> View Activity Details</h3>
+<div>
+    <div>
+        <label> <b> Description: </b></label> {{activity.description}}
+    </div>
+    <div>
+        <label> <b> Place: </b></label> {{activity.place}}
+    </div>
+    <div>
+        <label> <b> Date: </b></label> {{activity.date}}
+    </div>
+    <div>
+        <label> <b> rating: </b></label> {{activity.rating}}
+    </div>
+    <div>
+        <label> <b> Likes number: </b></label> {{activity.nbrLikes}}
+    </div>
+    <div>
+        <label> <b> Category: </b></label> {{activity.category.name}}
+    </div>
+    <div>
+        <button (click) = "goToBackActivityList()" class = "btn btn-info" style="margin-left: 10px"> Back</button>
+    </div>
+</div>

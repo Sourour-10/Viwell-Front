@@ -3,6 +3,7 @@ import { FeedBack } from '../Model/FeedBack';
 import { FeedBackService } from '../Service/feed-back.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Event } from '../Model/Event';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feedback-event',
@@ -20,7 +21,7 @@ export class FeedbackEventComponent implements OnInit {
   submitted = false;
   closeResult = '';
 
-  constructor( private modalService: NgbModal,private service: FeedBackService) {
+  constructor( private router:Router ,private modalService: NgbModal,private service: FeedBackService) {
   }
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -72,7 +73,10 @@ export class FeedbackEventComponent implements OnInit {
     this.feedBack.date = new Date();
     console.log("feed"+this.feedBack);
 
-    this.service.makeFeedBackToEvent(this.event.eventId ,this.feedBack).subscribe();
+    this.service.makeFeedBackToEvent(this.event.eventId ,this.feedBack).subscribe(()=> {window.location.reload();});
+
+   // this.router.navigate(['list-event']);
+
   }
 
   close(){

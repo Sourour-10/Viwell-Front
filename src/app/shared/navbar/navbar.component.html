@@ -136,6 +136,37 @@
           </a>
          
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret" [routerLink]="['/category']" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Category </span>
+          </a>
+         
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret" [routerLink]="['/list-event']" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Event Front </span>
+          </a>
+         
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret" [routerLink]="['/back/event']" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Event Back </span>
+          </a>
+         
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret" [routerLink]="['/activity']" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Activity Back</span>
+          </a>
+         
+        </li>
 
       
           <a class="nav-link no-caret" data-toggle="dropdown" role="button">
@@ -178,37 +209,29 @@
         <li class="nav-item dropdown">
           <a class="nav-link no-caret" data-toggle="dropdown" role="button">
             <i class="ni ni-ui-04 d-lg-none"></i>
-            <span class="nav-link-inner--text">Collaborations</span>
+            <span class="nav-link-inner--text">Polls</span>
           </a>
           <div class="dropdown-menu-xl dropdown-menu" >
             <div class="dropdown-menu-inner">
-              <a  routerLinkActive="active"  [routerLink]="['/collabs']" class="media d-flex align-items-center">
+              <a  routerLinkActive="active"  [routerLink]="['/Polls']" class="media d-flex align-items-center">
                 <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
                   <i class="ni ni-spaceship"></i>
                 </div>
                 <div class="media-body ml-3">
-                  <h6 class="heading text-primary mb-md-1">Collaborations</h6>
-                  <p class="description d-none d-md-inline-block mb-0">.......</p>
+                  <h6 class="heading text-primary mb-md-1">Polss</h6>
+                  <p class="description d-none d-md-inline-block mb-0"></p>
                 </div>
               </a>
-              <a routerLinkActive="active"  [routerLink]="['/addCollab']" class="media d-flex align-items-center">
+              <a routerLinkActive="active"  [routerLink]="['/']" class="media d-flex align-items-center">
                 <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
                   <i class="ni ni-palette"></i>
                 </div>
                 <div class="media-body ml-3">
-                  <h6 class="heading text-primary mb-md-1">Add Collaboration</h6>
+                  <h6 class="heading text-primary mb-md-1"></h6>
                   <p class="description d-none d-md-inline-block mb-0"> ......</p>
                 </div>
               </a>
-              <a routerLinkActive="active" [routerLink]="['deleteCollab']" class="media d-flex align-items-center">
-                <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
-                  <i class="ni ni-ui-04"></i>
-                </div>
-                <div class="media-body ml-3">
-                  <h5 class="heading text-warning mb-md-1">Delete Collab</h5>
-                  <p class="description d-none d-md-inline-block mb-0">....</p>
-                </div>
-              </a>
+            
             </div>
           </div>
         </li>

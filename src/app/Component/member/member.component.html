@@ -9,10 +9,14 @@
       <h5 class="title">
         <span class="d-block mb-1">{{user.firstName}} {{user.lastName}}</span>
         <small class="h6 text-muted">{{user.mail}}</small>
+        <ng-container *ngFor='let in of counter(user.rating) ;let i = index'>
+          <img width="30" height="30" src="./../assets/img/brand/filled.png"> 
+  
+      </ng-container>
       </h5>
       <div class="mt-3">
-        <app-rate-colleague >     </app-rate-colleague>
-        <app-feedback-colleague > </app-feedback-colleague>
+        <app-rate-colleague [user]="user">     </app-rate-colleague>
+        <app-feedback-colleague [user]="user"> </app-feedback-colleague>
       </div>
     </div>
   </div>

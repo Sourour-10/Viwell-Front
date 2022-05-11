@@ -30,5 +30,8 @@ apiUrl="http://localhost:8089/FeedBack"
     listFeedBacksEvent(id:any){
       return this.http.get(`${this.apiUrl}/getEventFeedBacks/${id}`);
     }  
+    deletFeedback(id:any){
+      return this.http.delete(`${this.apiUrl}/delete/${id}`)
+    }
   }
 
