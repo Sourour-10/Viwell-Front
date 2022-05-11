@@ -16,7 +16,7 @@ pathReact: string;
 
   ngOnInit(): void {
   }
-  addReactComment(reactid:number,user:number){
+  addReactComment(reactid:number){
     //i est lid de post
     this.react = new React();
     switch(reactid){
@@ -41,7 +41,7 @@ pathReact: string;
     }
 
     this.react.commentLike=this.CommentCommented;
-    this.pathReact="/"+reactid+"/"+this.CommentCommented.commentId+"/"+1;
+    this.pathReact="/"+reactid+"/"+this.CommentCommented.commentId+"/";
     console.log(reactid);
 this.saveReactToComment();
   this.refresh();

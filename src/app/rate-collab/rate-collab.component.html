@@ -1,4 +1,3 @@
-
 <ng-template #content let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Rate This Collaboration</h4>
@@ -19,7 +18,7 @@
         (click)="rate(5)">
 </div>
 <div *ngIf="ratted==true">
-    <h1> You ratted {{collab.companyName}}   </h1>
+    <h1> You ratted {{colab.companyName}}   </h1>
     <ng-container *ngFor='let in of counter(ratting) ;let i = index'>
         <img width="30" height="30" src="./../assets/img/brand/filled.png"> 
 
@@ -31,6 +30,5 @@
    
   </ng-template>
   
-  <button> href="javascript:void(0)" class="btn btn-warning btn-icon-only rounded-circle" (click)="open(content)">Rate
-  </button> 
-  
+  <button href="javascript:void(0)" class="btn btn-warning btn-icon-only rounded-circle" (click)="open(content)"> Rate
+  </button>

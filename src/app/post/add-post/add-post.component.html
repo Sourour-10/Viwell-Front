@@ -44,10 +44,9 @@
               <button type="submit" [disabled]="postForm.invalid" class="btn btn-default btn-round btn-block btn-lg">Post</button>
             </div>
           </form>
-          <div class="row"> 
-              <div  *ngIf=isAdded>
-                  <p class="mb-1">Post Added SuccessFully!</p> 
-              </div>
+          <div class="row">
+            {{ messageforbidden }}
+
           </div>
           </div>
         </div>

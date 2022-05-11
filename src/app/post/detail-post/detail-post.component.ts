@@ -87,7 +87,7 @@ export class DetailPostComponent implements OnInit {
     window.location.reload();
 }
 getMyEmoji(){
-  this.reactfeedService.getMyEmoji(this.productID,1).subscribe((data) => {
+  this.reactfeedService.getMyEmoji(this.productID).subscribe((data) => {
     console.log("reacccccccttttttt: "+data);
     this.reaction = data;
   })

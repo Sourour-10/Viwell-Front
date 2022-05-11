@@ -1,22 +1,29 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Reclamation } from 'src/app/Model/Reclamation';
+import { TokenStorageService } from '../User/token-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReclamationService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private token :TokenStorageService) { }
+  public get currentuser(): any{
+    return this.token.getUser;
+  }
 
   getReclamations(): Observable<Reclamation[]>{
+
+    //const headers = new HttpHeaders().set('Content-Type', 'application/json;');
+    //headers.set('Content-Length', '140317'); { headers }
     return this.http.get<Reclamation[]>("/api/Reclamation/getAllReclamations");
 
   }
 
-  addReclamation(UserId:number,num:number,complaintSubject:string,Content:string): Observable<string>{
-    return this.http.post<string>("/api/Reclamation/create/"+UserId+"/"+num+"/"+complaintSubject, Content);
+  addReclamation(num:number,complaintSubject:string,Content:string): Observable<string>{
+    return this.http.post<string>("/api/Reclamation/create/"+num+"/"+this.currentuser().id+"/"+complaintSubject, Content);
   }
   deleteReclamation(id: number):Observable<{}>{
     return this.http.delete(`/api/Reclamation/delete/${id}`)
@@ -31,6 +38,11 @@ export class ReclamationService {
                       .pipe(catchError(this.handleError));
   }
 
+  complaintsSystemDecision(){
+    return this.http.get(`/api/Reclamation/complaintsSystemDecision/${this.currentuser().id}`)
+    .pipe(catchError(this.handleError));
+
+  }
 
 
 

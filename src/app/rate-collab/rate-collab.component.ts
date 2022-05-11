@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Collaboration } from '../Model/Collaboration';
 import { RateService } from '../Service/Rate/rate.service';
 
@@ -10,7 +10,7 @@ import { RateService } from '../Service/Rate/rate.service';
   styleUrls: ['./rate-collab.component.css']
 })
 export class RateCollabComponent implements OnInit {
- @Input() collab : Collaboration ;
+ @Input() colab : Collaboration ;
   imgage1!: string;
   imgage2!: string;
   imgage3!: string;
@@ -33,12 +33,32 @@ export class RateCollabComponent implements OnInit {
     this.ratting = 0;
 
   }
+  closeResult='';
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult =` Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+      
+    }
+  }
+  
   counter(i: number) {
     return new Array(i);
   }
 
   rate(i: number) {
-    this.service.rateCollaboration(this.collab.collaborationId,i).subscribe();
+    this.service.rateCollaboration(this.colab.collaborationId,i).subscribe();
     this.ratted = true;
     this.ratting = i;
 

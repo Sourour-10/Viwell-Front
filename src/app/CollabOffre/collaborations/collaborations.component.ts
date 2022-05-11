@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Collaboration } from 'src/app/Model/Collaboration';
 import { CollaborationService } from 'src/app/Service/CollabOffre/collaboration.service';
+import { OffreService } from 'src/app/Service/CollabOffre/offre.service';
 
 @Component({
   selector: 'app-collaborations',
@@ -17,8 +18,9 @@ export class CollaborationsComponent implements OnInit {
   deleteMsg:string = "";
   colabActivities = ['Online business', 'Textile industry', 'sports','telecommunications','Hotel chain','Optics'];  
   @ViewChild('closebutton') closebutton;
+  offerByconvention:boolean = false;
 
-  constructor(private collaborationService : CollaborationService,private modalService: NgbModal, private datePipe: DatePipe) { }
+  constructor(private  offreService:OffreService,private collaborationService : CollaborationService,private modalService: NgbModal, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     console.log('All collab ')
@@ -110,6 +112,14 @@ export class CollaborationsComponent implements OnInit {
       }, 
       error=> console.log(error));
   }
+
+  addingoffers(){
+    return this.offreService.createOfferByConvention().subscribe()  ;
+  }
+  counter(i: number) {
+    return new Array(i);
+  }
+
 }
 
 

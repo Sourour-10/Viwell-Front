@@ -60,7 +60,10 @@
                   <!-- react ends-->
                   <!--My react start-->
                   <li class="nav-item">
-                    
+                    <a class="navbar-brand" href="javascript:void(0)" style="cursor:pointer" (click)="openVerticallyCentered(content,c.commentId)" >
+                      <img height="30px" width="30px" src="./assets/img/icons/common/report.svg"> 
+                      Report Comment
+                    </a>
                   </li>
                   <!--My react ends-->
            
@@ -114,3 +117,45 @@
    </div>
  </div>
  </div>
+    <!-- Reclamation-->
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <button type="button" class="ni ni-fat-remove" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <form class="form-sm" [formGroup]="reclamationForm" (ngSubmit)="onSubmit()">
+          <div class="modal-body">
+            <div class="form-group">
+                <label for="commentId">commentId </label>
+                <input type="int" class="form-control" id="commentId"
+                  formControlName="commentId">       
+             </div>                      
+                  </div>  
+           <div class="form-group">
+            <label for="complaintSubject">complaintSubject </label>
+            <input type="text" class="form-control" id="complaintSubject"
+              formControlName="complaintSubject">       
+         </div>                      
+
+
+
+
+  
+            <div class="form-group">
+              <label for="contentReport">content Report </label>
+              <select class="form-control" id="contentReport"                    
+              formControlName="contentReport">
+                <option *ngFor="let type of contentReportList" [value]="type">{{type}}</option>
+              </select>
+            </div>
+
+  
+          <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Send Report</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+          </form>
+      <div class="modal-footer">
+     
+      </div>
+    </ng-template>
+  

@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 import { Post } from 'src/app/Model/Post';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { User } from 'src/app/Model/User';
 import { ReactfeedService } from '../React/reactfeed.service';
+import { TokenStorageService } from '../User/token-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostServiceService {
   getpostUrl : string = "/api/Post/getAllPosts";
-  addpostUrl : string = "/api/Post/create/1";
+  addpostUrl : string = "/api/Post/create/";
   getpostByIdUrl : string = "/api/Post/getPostById";
   sharepostUrl: string = "/api/Post/SharePost";
   myPosts:string = "/api/Post/GetMyPosts/"
@@ -25,12 +26,15 @@ export class PostServiceService {
   postResponse: any;
   successResponse: string;
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient,private token:TokenStorageService) {
    
     this.http.get<Post[]>(this.getpostUrl).subscribe(
       (data: Post[]) => this.ListPost = data);
     
    }
+   public get currentuser(): any{
+    return this.token.getUser;
+  }
 
   getPosts(): Observable<Post[]>{
     return this.http.get<Post[]>(this.getpostUrl);
@@ -56,13 +60,14 @@ export class PostServiceService {
 } */
 
 addPost(post: Post): Observable<Post>{
-  return this.http.put<Post>(this.addpostUrl, post);
+ 
+  return this.http.put<Post>( `/api/Post/create/${ this.currentuser().id}`, post);
 }
-sharepost(postId:number, userId:number,post: Post): Observable<Post> {
+sharepost(postId:number,post: Post): Observable<Post> {
 
   console.log("im gonna share a post")
   console.log(this.sharepostUrl);
-  return this.http.put<Post>(this.sharepostUrl+"/"+postId+"/"+userId, post);
+  return this.http.put<Post>(this.sharepostUrl+"/"+postId+"/"+this.currentuser().id, post);
 }
 
 public  getPostById(id: number) {
@@ -103,6 +108,11 @@ uploadPostPicture(postId:number) {
       reportProgress: true,
       observe: 'events'
     })
+  }
+
+  createPostForbidden(post: Post){
+    const headers = new HttpHeaders();
+    return this.http.put("/api/Post/createPostForbidden/"+this.currentuser().id ,post,{ headers, responseType: 'text' },);
   }
   
 

@@ -26,8 +26,8 @@
           <tr *ngFor="let poll of polls">
             <td>{{ poll.description }}</td>
             <td>{{ poll.startDate }}</td>
-            <td>{{ poll.endDate }}</td>
-            <td>{{ poll.badgeName }}</td>
+            <td>{{ poll.endDate | date:'dd/MM/yyyy'}}</td>
+            <td>{{ poll.badgeName | date:'dd/MM/yyyy' }}</td>
             <td>{{ poll.points }}</td>
             <td><app-vote [poll]="poll"></app-vote></td>
             <td style="white-space: nowrap"></td>
