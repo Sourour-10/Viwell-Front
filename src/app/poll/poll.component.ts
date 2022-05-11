@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Poll } from '../Model/Poll';
 import { User } from '../Model/User';
 import { PollService } from '../Service/Poll/poll.service';
@@ -17,7 +18,7 @@ export class PollComponent implements OnInit {
   focus;
   focus1;
   focus2;
-  constructor(private servicePoll: PollService, private service: AdduserService, private router:Router) { }
+  constructor( private modalService: NgbModal ,private servicePoll: PollService, private service: AdduserService, private router:Router) { }
 
   ngOnInit() {
     this.user = new User();
@@ -29,6 +30,9 @@ export class PollComponent implements OnInit {
   savePoll() {
     this.servicePoll.createPoll(this.poll).subscribe();
     this.router.navigateByUrl('/listPoll');
+  }
+  openVerticallyCentered(content) {
+    this.modalService.open(content, { centered: true });
   }
 
 }

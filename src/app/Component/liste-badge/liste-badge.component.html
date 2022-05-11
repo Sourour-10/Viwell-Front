@@ -1,3 +1,10 @@
+<nav>
+<app-nav-bar-backoffice></app-nav-bar-backoffice>
+</nav>
+<app-side-bar-back></app-side-bar-back>
+
+
+
 <div class="container">
    
 <span></span>
@@ -35,13 +42,12 @@
 <span></span>
 <span></span>
 <span></span>
-            <h1>Users</h1>
+            <h1>Badges</h1>
     
             <thead>
                 <tr>
                     <th style="width: 30%">Name</th>
                     <th style="width: 30%">Points</th>
-                    <th style="width: 30%">Photo</th>
                     <th style="width: 10%"></th>
                 </tr>
             </thead>
@@ -49,7 +55,6 @@
                 <tr *ngFor="let badge of badges  ">
                     <td>{{badge.name}}</td>
                     <td>{{badge.points}}</td>
-                    <td> </td>
                     <td style="white-space: nowrap">
                       
                    

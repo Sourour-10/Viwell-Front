@@ -1,20 +1,14 @@
-﻿<div class="container">
-   
+﻿<nav>
+    <app-nav-bar-backoffice></app-nav-bar-backoffice>
+</nav>
+<app-side-bar-back></app-side-bar-back>
 
-<div>
+<div class="container">
+    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="filterTerm" />
     <div>
-     
+        <div></div>
     </div>
-</div>
     <table class="table table-striped">
-        <h1>Users</h1>
-
-        <input
-        type="text"
-        class="form-control"
-        placeholder="Search..."
-        [(ngModel)]="filterTerm"
-      />
         <thead>
             <tr>
                 <th style="width: 30%">First Name</th>
@@ -24,15 +18,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of users  | filter: filterTerm">
-                <td>{{user.firstName}}</td>
-                <td>{{user.lastName}}</td>
-                <td>{{user.userName}}</td>
+            <tr *ngFor="let user of users | filter: filterTerm">
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.userName }}</td>
                 <td style="white-space: nowrap">
-                    <!--Debut Anas-->
-                    <app-assign-badge-to-user [user]="user" ></app-assign-badge-to-user>                    <!-- Fin Anas-->
+                    <app-assign-badge-to-user [user]="user"></app-assign-badge-to-user>
+                    <!-- Fin Anas-->
                     <app-details-user [user]="user"></app-details-user>
-             <!--    <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Details</a>-->
+                    <!--    <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Details</a>-->
                     <button (click)="deleteUser(user.userId)" class="btn btn-sm btn-danger btn-delete-user">
                         Delete
                     </button>

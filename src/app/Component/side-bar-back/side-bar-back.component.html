@@ -1,0 +1,235 @@
+<div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+
+            <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+
+                <li class="nav-item dropdown">
+                <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+                  <i class="ni ni-ui-04 d-lg-none"></i>
+                  <span class="nav-link-inner--text">Training</span>
+                </a>
+                <div class="dropdown-menu-xl dropdown-menu" >
+                  <div class="dropdown-menu-inner">
+                    <a routerLinkActive="active" [routerLink]="['documentation/tutorial']" class="media d-flex align-items-center">
+                      <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                        <i class="ni ni-spaceship"></i>
+                      </div>
+                      <div class="media-body ml-3">
+                        <h6 class="heading text-primary mb-md-1">Getting started</h6>
+                        <p class="description d-none d-md-inline-block mb-0">Learn how to use Argon compiling Scss, change brand colors and more.</p>
+                      </div>
+                    </a>
+                    <a routerLinkActive="active" [routerLink]="['documentation/colors']" class="media d-flex align-items-center">
+                      <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                        <i class="ni ni-palette"></i>
+                      </div>
+                      <div class="media-body ml-3">
+                        <h6 class="heading text-primary mb-md-1">Foundation</h6>
+                        <p class="description d-none d-md-inline-block mb-0">Learn more about colors, typography, icons and the grid system we used for Argon.</p>
+                      </div>
+                    </a>
+                    <a routerLinkActive="active" [routerLink]="['documentation/alerts']" class="media d-flex align-items-center">
+                      <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                        <i class="ni ni-ui-04"></i>
+                      </div>
+                      <div class="media-body ml-3">
+                        <h5 class="heading text-warning mb-md-1">Components</h5>
+                        <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </li>
+                <li class="nav-item dropdown">
+                  <a [routerLink]="['/newsfeed']" class="nav-link no-caret" data-toggle="dropdown" role="button">
+                    <i class="ni ni-ui-04 d-lg-none"></i>
+                    <span class="nav-link-inner--text">Newsfeed</span>
+                  </a>
+                  <div class="dropdown-menu-xl dropdown-menu" >
+                    <div class="dropdown-menu-inner">
+                      <a routerLinkActive="active" [routerLink]="['documentation/tutorial']" class="media d-flex align-items-center">
+                        <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                          <i class="ni ni-spaceship"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                          <h6 class="heading text-primary mb-md-1">Getting started</h6>
+                          <p class="description d-none d-md-inline-block mb-0">Learn how to use Argon compiling Scss, change brand colors and more.</p>
+                        </div>
+                      </a>
+                      <a routerLinkActive="active" [routerLink]="['documentation/colors']" class="media d-flex align-items-center">
+                        <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                          <i class="ni ni-palette"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                          <h6 class="heading text-primary mb-md-1">Foundation</h6>
+                          <p class="description d-none d-md-inline-block mb-0">Learn more about colors, typography, icons and the grid system we used for Argon.</p>
+                        </div>
+                      </a>
+                      <a routerLinkActive="active" [routerLink]="['documentation/alerts']" class="media d-flex align-items-center">
+                        <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                          <i class="ni ni-ui-04"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                          <h5 class="heading text-warning mb-md-1">Components</h5>
+                          <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link no-caret" [routerLink]="['/my-badges']" role="button">
+                    <i class="ni ni-ui-04 d-lg-none"></i>
+                    <span class="nav-link-inner--text">Badges</span>
+                  </a>
+                 
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link no-caret" [routerLink]="['/list-event']" role="button">
+                    <i class="ni ni-ui-04 d-lg-none"></i>
+                    <span class="nav-link-inner--text">Events</span>
+                  </a>
+                 
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link no-caret" [routerLink]="['/my-feedbacks']" role="button">
+                    <i class="ni ni-ui-04 d-lg-none"></i>
+                    <span class="nav-link-inner--text">FeedBacks</span>
+                  </a>
+                 
+                </li>
+        
+                
+                <li class="nav-item dropdown">
+                  <a class="nav-link no-caret" [routerLink]="['/team']" role="button">
+                    <i class="ni ni-ui-04 d-lg-none"></i>
+                    <span class="nav-link-inner--text">Team </span>
+                  </a>
+                 
+                </li>
+        
+              
+                  <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+                    <i class="ni ni-ui-04 d-lg-none"></i>
+                    <span class="nav-link-inner--text" [routerLink]="['user-profile']" >Profile</span>
+                  </a>
+                  <div class="dropdown-menu-xl dropdown-menu" >
+                    <div class="dropdown-menu-inner">
+                      <a routerLinkActive="active" [routerLink]="['documentation/tutorial']" class="media d-flex align-items-center">
+                        <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                          <i class="ni ni-spaceship"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                          <h6 class="heading text-primary mb-md-1">Getting started</h6>
+                          <p class="description d-none d-md-inline-block mb-0">Learn how to use Argon compiling Scss, change brand colors and more.</p>
+                        </div>
+                      </a>
+                      <a routerLinkActive="active" [routerLink]="['documentation/colors']" class="media d-flex align-items-center">
+                        <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                          <i class="ni ni-palette"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                          <h6 class="heading text-primary mb-md-1">Foundation</h6>
+                          <p class="description d-none d-md-inline-block mb-0">Learn more about colors, typography, icons and the grid system we used for Argon.</p>
+                        </div>
+                      </a>
+                      <a routerLinkActive="active" [routerLink]="['documentation/alerts']" class="media d-flex align-items-center">
+                        <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                          <i class="ni ni-ui-04"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                          <h5 class="heading text-warning mb-md-1">Components</h5>
+                          <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+            
+        
+                <li class="nav-item dropdown">
+                  <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+                    <i class="ni ni-ui-04 d-lg-none"></i>
+                    <span class="nav-link-inner--text">Collaborations</span>
+                  </a>
+                  <div class="dropdown-menu-xl dropdown-menu" >
+                    <div class="dropdown-menu-inner">
+                      <a  routerLinkActive="active"  [routerLink]="['/collabs']" class="media d-flex align-items-center">
+                        <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                          <i class="ni ni-spaceship"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                          <h6 class="heading text-primary mb-md-1">Collaborations</h6>
+                          <p class="description d-none d-md-inline-block mb-0">.......</p>
+                        </div>
+                      </a>
+                      <a routerLinkActive="active"  [routerLink]="['/addCollab']" class="media d-flex align-items-center">
+                        <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                          <i class="ni ni-palette"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                          <h6 class="heading text-primary mb-md-1">Add Collaboration</h6>
+                          <p class="description d-none d-md-inline-block mb-0"> ......</p>
+                        </div>
+                      </a>
+                      <a routerLinkActive="active" [routerLink]="['deleteCollab']" class="media d-flex align-items-center">
+                        <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                          <i class="ni ni-ui-04"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                          <h5 class="heading text-warning mb-md-1">Delete Collab</h5>
+                          <p class="description d-none d-md-inline-block mb-0">....</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+        
+                <li class="nav-item dropdown">
+                  <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+                    <i class="ni ni-collection d-lg-none"></i>
+                    <span class="nav-link-inner--text">About us</span>
+                  </a>
+                  <div class="dropdown-menu">
+                    <a [routerLink]="['/landing']" class="dropdown-item">Landing</a>
+                    <a [routerLink]="['/user-profile']" class="dropdown-item">Profile</a>
+                    <a [routerLink]="['/login']" class="dropdown-item">Login</a>
+                    <a [routerLink]="['/register']" class="dropdown-item">Register</a>
+                  </div>
+                </li>
+              </ul>
+              <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+             
+              
+                <li>               <app-notification></app-notification>
+                </li>
+        
+        
+               
+              </ul>
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <app-notification></app-notification>
+            </li>
+
+            <!-- Nav Item - Messages -->
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+
+                <!-- Dropdown - User Information -->
+                <a href="javascript:void(0)" class="btn btn-sm btn-default float-right" (click)="logout()">Logout</a>
+            </li>
+
+
+        </nav>
+    </div>
+</div>

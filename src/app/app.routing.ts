@@ -111,6 +111,7 @@ const routes: Routes = [
     { path: 'deleteCollab',             component: DeletecollaborationComponent },
     { path: 'collabs',             component: CollaborationsComponent },
 
+
     {path: 'userlist', component: UserListComponent},
     {path: 'notification' , component: NotificationComponent},
     {path: 'completeProfile' , component: CompleteProfileComponent},
@@ -130,6 +131,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
+  
   exports: [
   ],
 })

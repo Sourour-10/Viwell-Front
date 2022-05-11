@@ -2,3 +2,18 @@
     border-top:20px;
 
 }
+
+nav {
+    float: left;
+    width: 30%;
+    height: 147px;
+    padding: 0px;
+  }
+  section::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  * {
+    box-sizing: border-box;
+  }

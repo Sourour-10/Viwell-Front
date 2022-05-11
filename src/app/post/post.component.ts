@@ -19,36 +19,21 @@ export class PostComponent implements OnInit {
   DateAujourdhui:  Date = new Date() ;
   react: React ;
   pathReact: string;
-  post: any ;
+  post : any ;
   reaction : any;
 
-  constructor(private postService: PostServiceService, private router: Router, private reactfeedService: ReactfeedService) { }
+
+  constructor(private postService: PostServiceService,private router: Router,private reactfeedService:ReactfeedService) {
+    
 
 
-
+   }
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe(
       (data: Post[]) => this.ListPost = data);
     //get react of the user connected
 
-  }
-  addReactPost(i: number) {
-    // i est lid de post
-    this.react = new React();
-    this.react.reaction = Reaction.LIKE;
-
-    this.react.PostLike = this.ListPost[i];
-this.pathReact = '/' + 1 + '/' + this.ListPost[i] + '/' + 1;
-
-    this.save();
-  }
-  save() {
-
-    this.reactfeedService.addReactToPost('/0/1/1', this.react)
-                    .subscribe(react => {console.log(React);
-
-                    }, error => console.log(error));
   }
 
  
