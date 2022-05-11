@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import {FeedBackService} from '../Service/feed-back.service' ;
 import {FeedBack} from '../Model/FeedBack' ;
 import { User } from '../Model/User';
+import { TokenStorageService } from '../Service/User/token-storage.service';
+import { first } from 'rxjs';
 
 
 
@@ -16,28 +18,33 @@ export class MyFeedBacksComponent implements OnInit {
   listFeedBacks: any;
   
   users=null;
-  constructor(private service:FeedBackService ) { }
+  constructor(private service:FeedBackService, private tokenStorage:TokenStorageService ) { }
 
   ngOnInit(): void {
  this.getFeedbacks();
      
   }
+  public get currentUser():any{
+    return this.tokenStorage.getUser;
+  }
 
   getFeedbacks(){
-    this.service.listFeedBacks(5).subscribe(res =>{this.listFeedBacks=res
+    this.service.listFeedBacks(this.currentUser().id).subscribe(res =>{this.listFeedBacks=res
     console.log("listFeed backs :"+this.listFeedBacks)
     console.log("res :"+res)
 
     })
   }
-/*
+  feedback=null;
+
   deleteFeedBack(id: any) {
-    const user = this.users.find(x => x.id === id);
+   // const feedback = this.feedbacks.find(x => x.id === id);
   
-    this.service.deleteUser(id)
+    this.service.deletFeedback(id)
         .pipe(first() )
-        .subscribe(() => {this.users = this.users.filter(x => x.id !== id)
+        .subscribe(() => {this.feedback = this.feedback.filter(x => x.id !== id)
+          window.location.reload();
         }
         );
-}*/
+}
 }

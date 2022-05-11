@@ -61,12 +61,30 @@
         </li>
 
 
-        <li class="nav-item dropdown">
-          <a class="nav-link no-caret" [routerLink]="['/team']" role="button">
-            <i class="ni ni-ui-04 d-lg-none"></i>
-            <span class="nav-link-inner--text">Team </span>
-          </a>
+    
 
+        <li class="nav-item dropdown">
+          <a [routerLink]="['/newsfeed']" class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Team</span>
+          </a>
+          <div class="dropdown-menu-xl dropdown-menu" >
+            <div class="dropdown-menu-inner">
+              <a routerLinkActive="active" [routerLink]="['/team']" class="media d-flex align-items-center">
+              
+                <div class="media-body ml-3">
+                  <h6 class="heading text-primary mb-md-1">Our Team</h6>
+                </div>
+              </a>
+              <a routerLinkActive="active" [routerLink]="['topEmployee']" class="media d-flex align-items-center">
+                
+                <div class="media-body ml-3">
+                  <h6 class="heading text-primary mb-md-1"> Top Employee</h6>
+                </div>
+              </a>
+             
+            </div>
+          </div>
         </li>
 
         <li class="nav-item dropdown">
@@ -78,13 +96,7 @@
         </li>
 
         
-        <li class="nav-item dropdown">
-          <a class="nav-link no-caret" [routerLink]="['/listBadges']" role="button">
-            <i class="ni ni-ui-04 d-lg-none"></i>
-            <span class="nav-link-inner--text">Badges </span>
-          </a>
-
-        </li>
+      
 
         <li class="nav-item dropdown">
           <a class="nav-link no-caret" [routerLink]="['/SubjectsFront']" role="button">

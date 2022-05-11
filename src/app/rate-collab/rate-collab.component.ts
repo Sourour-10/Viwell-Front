@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Collaboration } from '../Model/Collaboration';
 import { RateService } from '../Service/Rate/rate.service';
 
 
@@ -8,6 +10,7 @@ import { RateService } from '../Service/Rate/rate.service';
   styleUrls: ['./rate-collab.component.css']
 })
 export class RateCollabComponent implements OnInit {
+ @Input() collab : Collaboration ;
   imgage1!: string;
   imgage2!: string;
   imgage3!: string;
@@ -17,7 +20,7 @@ export class RateCollabComponent implements OnInit {
   ratted = false;
   ratting = 0;
 
-  constructor(private service: RateService ) {
+  constructor(private modalService: NgbModal,private service: RateService ) {
   }
 
   ngOnInit(): void {
@@ -35,7 +38,7 @@ export class RateCollabComponent implements OnInit {
   }
 
   rate(i: number) {
-    this.service.rateCollaboration(1,i).subscribe();
+    this.service.rateCollaboration(this.collab.collaborationId,i).subscribe();
     this.ratted = true;
     this.ratting = i;
 

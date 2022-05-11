@@ -79,6 +79,7 @@ import { AddRreclamationComponent } from './Reclamation/add-rreclamation/add-rre
 import { SwitchsubjectRecComponent } from './Reclamation/switchsubject-rec/switchsubject-rec.component';
 import { NavBarBackofficeComponent } from './Component/nav-bar-backoffice/nav-bar-backoffice.component';
 import { SideBarBackComponent } from './Component/side-bar-back/side-bar-back.component';
+import { GoogleProfileComponent } from './Component/google-profile/google-profile.component';
 import { ListPollFrontComponent } from './Component/list-poll-front/list-poll-front.component';
 import { ArticleComponent } from './article/article.component';
 import { SubjectComponent } from './subject/subject.component';
@@ -183,6 +184,7 @@ export class XhrInterceptor implements HttpInterceptor {
     EventFeedBacksComponent,
     NavBarBackofficeComponent,
     SideBarBackComponent,
+    GoogleProfileComponent,
     ListPollFrontComponent,
 
     ArticleComponent,
@@ -234,8 +236,7 @@ export class XhrInterceptor implements HttpInterceptor {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '113757940963-bvpijvhjgep64ge3ajnmlepgnaopmvrf.apps.googleusercontent.com'
-            )
+'73195531714-l801elv0bompsomcmr38f79ct8ciah41.apps.googleusercontent.com'            )
           },
 
         ]

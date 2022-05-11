@@ -46,9 +46,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(
 
-  ) {    this.authService.authState.subscribe((employee)=>{this.employee=employee})}
-SignInWithGoogle(): any {
-  this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
+  ) {    
+  
+    }
+  
+SignInWithGoogle(): void {
+  this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data)=>{
+    localStorage.setItem('google_auth',JSON.stringify(data));
+    this.router.navigateByUrl('/userProfile').then();
+  })
 }
   onSubmit() {
     this.app

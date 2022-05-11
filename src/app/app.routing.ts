@@ -59,6 +59,7 @@ import { ListPollComponent } from './list-poll/list-poll.component';
 import { AddCollaborationComponent } from './CollabOffre/add-collaboration/add-collaboration.component';
 import { DeletecollaborationComponent } from './CollabOffre/deletecollaboration/deletecollaboration.component';
 import { CollaborationsComponent } from './CollabOffre/collaborations/collaborations.component';
+import { GoogleProfileComponent } from './Component/google-profile/google-profile.component';
 import { ListPollFrontComponent } from './Component/list-poll-front/list-poll-front.component';
 import { SubjectComponent } from './subject/subject.component';
 import { ArticleComponent } from './article/article.component';
@@ -71,6 +72,7 @@ const routes: Routes = [
   { path: 'register', component: SignupComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'login', component: LoginComponent },
+  {path:'userProfile',component:GoogleProfileComponent},
   // Anas Routing
   {path: 'topEmployee', component: TopEmployeesComponent },
   {path: 'polls', component: ListPollFrontComponent  },

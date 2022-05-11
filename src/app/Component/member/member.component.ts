@@ -35,6 +35,10 @@ selectedFile: File;
     this.service.ListUser().subscribe(res =>this.users=res)
   }
 
+  counter(i: number) {
+    return new Array(i);
+  }
+
   
 
 
