@@ -50,11 +50,20 @@ export class LoginComponent implements OnInit {
   
     }
   
-SignInWithGoogle(): void {
-  this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data)=>{
-    localStorage.setItem('google_auth',JSON.stringify(data));
-    this.router.navigateByUrl('/userProfile').then();
-  })
+    
+    signInWithGoogle(): void {
+      this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data)=>{
+        localStorage.setItem('google_auth',JSON.stringify(data));
+        this.router.navigateByUrl('/userProfile').then();})
+    }
+//SignInWithGoogle(): void {
+  //this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data)=>{
+    //localStorage.setItem('google_auth',JSON.stringify(data));
+    //this.router.navigateByUrl('/userProfile').then();
+  //})
+//}
+signOut(): void {
+  this.authService.signOut();
 }
   onSubmit() {
     this.app
