@@ -13,11 +13,12 @@
             <td> {{ cat.name }} </td>
             <td> {{ cat.dictionary }} </td>
             <td>
-                <button (click) = "editCategory(cat)" class = "btn btn-info"> Update</button>
-                <button (click) = "deleteCategory(cat.categoryId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-                <button (click) = "getCategoryById(cat.categoryId)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+                <button *ngIf="isEmployee==false"  (click) = "editCategory(cat)" class = "btn btn-info"> Update</button>
+                <button *ngIf="isEmployee==false" (click) = "deleteCategory(cat.categoryId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button *ngIf="isEmployee==false" (click) = "getCategoryById(cat.categoryId)" class = "btn btn-success" style="margin-left: 10px"> View</button>
             </td>
         </tr>
     </tbody>
 </table>
+<a href="/category/create" ><button  class = "btn btn-success"  >Create</button></a>
 </div>

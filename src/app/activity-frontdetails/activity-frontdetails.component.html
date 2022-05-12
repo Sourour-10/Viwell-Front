@@ -1,0 +1,120 @@
+<h3> View Activity Details</h3>
+<div>
+    <div>
+        <label> <b> Description: </b></label> {{activity.description}}
+    </div>
+    <div>
+        <label> <b> Place: </b></label> {{activity.place}}
+    </div>
+    <div>
+        <label> <b> Date: </b></label> {{activity.date}}
+    </div>
+    <div>
+        <label> <b> Likes number: </b></label> {{activity.nbrLikes}}
+    </div>
+    <div>
+        <label> <b> Category: </b></label> {{activity.category.name}}
+    </div>
+    <div>
+        <button (click) = "goToBackActivityList()" class = "btn btn-info" style="margin-left: 10px"> Back</button>
+    </div>
+</div>
+
+---------------------------------------------------------
+
+<!--
+<div class="product" style="margin-left: -160px;">
+    <div class="header">
+      <div class="back" (click) = "goToEventList()"></div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <h1>{{activity.category.name}}</h1>
+        <h6>{{activity.place}}</h6>
+        <h3>{{activity.points}} POINTS</h3>
+      
+       
+      </div>
+      <div class="right">
+        <p>{{activity.description}}</p>
+        <p>Starts at {{activity.startDate}}</p>
+        <p>End at {{activity.endDate}}</p>
+        <p *ngIf="activity.privateEvent == false ">Public Event</p>
+        <p *ngIf="activity.privateEvent == true ">Private Event</p>
+        <p>
+          <span class="fa fa-star yellow"></span>
+          <span class="fa fa-star yellow"></span>
+          <span class="fa fa-star yellow"></span>
+          <span class="fa fa-star yellow"></span>
+          <span class="fa fa-star"></span>
+          <span>(4.67 - 172 reviews)</span>
+        </p>
+      </div>
+    </div>
+    <div class="footer">
+      
+      <div class="right">
+        <button (click) = "particiapteToEvent(activity.activityId,0)" class = "btn btn-danger" > Participate</button>
+        <button (click) = "particiapteToEvent(activity.activityId,1)" class = "btn btn-info" > Interested</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+      const arrows = document.querySelector('.quantity').querySelectorAll('.fa');
+
+const handleChange = (elem)=>{
+  const qt = document.querySelector('#qt');
+  const total = document.querySelector('#price');
+  let value = parseInt(qt.innerText);
+  let classArr = Array.from(elem.classList);
+  if(/right/gi.test(classArr)) {
+    if(value!=9) value++;
+    else alert('Watch out! We\'ve got a badass over here!');
+  }
+  else {
+    if(value!=1) value--;
+    else alert('Watch out! We\'ve got a badass over here!');
+  }
+  qt.innerText = value;
+  total.innerText = '$'+(value*320); 
+}
+
+const product = document.querySelector('.product');
+
+const moveBox = (val)=>{
+  product.style.mozTransform =
+  product.style.msTransform =
+  product.style.webkitTransform =
+  product.style.transform = 'translateX('+val+'px)';
+}
+
+const back = document.querySelector('.back');
+
+const spring = new rebound.SpringSystem();
+
+let animation = spring.createSpring(60,3);
+
+animation.addListener({
+  onSpringUpdate(spring){
+    let current = spring.getCurrentValue();
+    if(current > 1) spring.setEndValue(0);
+    let val =  rebound.MathUtil.mapValueInRange(current,0,1,0,20);
+    moveBox(val);
+  }
+})
+
+back.addEventListener('click',()=>{
+  animation.setEndValue(1);
+});
+
+
+const arrArr = Array.from(arrows);
+
+arrArr.forEach(elem=>{
+  elem.addEventListener('click',()=>{
+    handleChange(elem);
+  })
+})
+  </script>
+  -->

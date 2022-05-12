@@ -43,6 +43,7 @@
                         <div>
 
                           <span class="badge badge-pill badge-primary"> Event ratting : {{event.ratting}} </span>
+<<<<<<< HEAD
                           <button (click)="getEventById(event.eventId)" class="btn btn-info" style="margin-left: 10px">
                             Details</button>
                           <button (click)="particiapteToEvent(event.eventId,0)" class="btn btn-info"
@@ -52,6 +53,14 @@
                           <div>
 
                           </div>
+=======
+                          <button (click) = "getEventById(event.eventId)" class = "btn btn-info" style="margin-left: 10px"> Details</button>
+                          <button (click) = "particiapteToEvent(event.eventId,0)" class = "btn btn-info" style="margin-left: 10px"> Participate</button>
+                          <button (click) = "particiapteToEvent(event.eventId,1)" class = "btn btn-info" style="margin-left: 10px"> Interrested</button>
+                          <div>
+                           
+                        </div>
+>>>>>>> origin/dridi
 
                           <app-rate-event [event]="event"></app-rate-event>
                           <app-discount [event]="event"></app-discount>

@@ -31,7 +31,10 @@ export class CategoryCreateComponent implements OnInit {
   
   onSubmit(){
     console.log(this.category);
-    this.addCategory();
+    //this.addCategory();
+    this.categoryService.editCategory(this.category).subscribe() ;
+    this.goToCategoryList();
+    
   }
 
 }

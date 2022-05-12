@@ -44,20 +44,52 @@
 
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link no-caret" [routerLink]="['/activity']" role="button">
-            <i class="ni ni-ui-04 d-lg-none"></i>
-            <span class="nav-link-inner--text">Activities</span>
-          </a>
+          <i class="ni ni-ui-04 d-lg-none"></i>
+          <span class="nav-link-inner--text">Activity</span>
+        <div class="dropdown-menu-xl dropdown-menu" >
+          <div class="dropdown-menu-inner">
+            <a routerLinkActive="active" [routerLink]="['/activity']" class="media d-flex align-items-center">
+            
+              <div class="media-body ml-3">
+                <h6 class="heading text-primary mb-md-1">Activities</h6>
+              </div>
+            </a>
+            <a routerLinkActive="active" [routerLink]="['/category']" class="media d-flex align-items-center">
 
-        </li>
+              <div class="media-body ml-3">
+                <h6 class="heading text-primary mb-md-1"> Category</h6>
+              </div>
+            </a>
+           
+          </div>
+        </div>
+      </li>
+
+
        
         <li class="nav-item dropdown">
-          <a class="nav-link no-caret" [routerLink]="['/list-event']" role="button">
             <i class="ni ni-ui-04 d-lg-none"></i>
             <span class="nav-link-inner--text">Events</span>
-          </a>
+          <div class="dropdown-menu-xl dropdown-menu" >
+            <div class="dropdown-menu-inner">
+              <a routerLinkActive="active" [routerLink]="['/event/propose']" class="media d-flex align-items-center">
+              
+                <div class="media-body ml-3">
+                  <h6 class="heading text-primary mb-md-1">Propose</h6>
+                </div>
+              </a>
+              <a routerLinkActive="active" [routerLink]="['/list-event']" class="media d-flex align-items-center">
 
+                <div class="media-body ml-3">
+                  <h6 class="heading text-primary mb-md-1"> Events List</h6>
+                </div>
+              </a>
+             
+            </div>
+          </div>
         </li>
+
+
         <li class="nav-item dropdown">
           <a class="nav-link no-caret" [routerLink]="['/my-feedbacks']" role="button">
             <i class="ni ni-ui-04 d-lg-none"></i>
@@ -70,7 +102,7 @@
     
 
         <li class="nav-item dropdown">
-          <a [routerLink]="['/newsfeed']" class="nav-link no-caret" data-toggle="dropdown" role="button">
+          <a  class="nav-link no-caret" data-toggle="dropdown" role="button">
             <i class="ni ni-ui-04 d-lg-none"></i>
             <span class="nav-link-inner--text">Team</span>
           </a>
