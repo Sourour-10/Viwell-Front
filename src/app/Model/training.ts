@@ -1,14 +1,14 @@
 export class Training {
-   trainingId :any ;
+   trainingId: any ;
 
-   title:any;
-   description:any;
-   startDate:any;
-   endDate:any;
+   title: any;
+   description: any;
+   startDate: any;
+   endDate: any;
 
-   hoursNumbers:any;
-   maxParticipant:any;
-   costs:any;
+   hoursNumbers: any;
+   maxParticipant: any;
+   costs: any;
    certified: boolean | undefined;
-  idCoach:any;
+   coachid: any;
 }

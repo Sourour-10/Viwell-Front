@@ -306,49 +306,52 @@
 
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+
                 <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        <td> <button type="button" class="btn btn-outline-danger" [routerLink]="['quiz/add-question/',quizId]" >Add Question</button>  </td>
-                        <td> <button type="button" class="btn btn-outline-danger" (click)="assign()"  >Assign quiz to users </button>  </td>
                     </div>
                     <div class="card-body">
-
-                        <!--  NAV BAAR -->
-
-
-                        <div class="row" >
-                            <div class="col-md-12">
-                                <div class="card text-center table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead style="background-color: rgb(192,183,183);">
-                                        <th>question</th>
-                                        <th>correctOption</th>
-                                        <th>quizId</th>
-
-
-
-                                        </thead>
-                                        <tbody>
-                                        <tr *ngFor="let c of listQuestions">
-                                            <td>{{c.question}}</td>
-                                            <td>{{c.correctOption}}</td>
-
-                                            <td>{{c.quizId}}</td>
-                                            <td>  <button type="button" class="btn btn-outline-primary" [routerLink]="['quiz/update-question',c.id]"
-
-                                            > update</button>  </td>
-                                            <td> <button type="button" class="btn btn-outline-danger" >delete</button>  </td>
-
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
+                        <div class="row">
+                            <form >
+                                <div class="row col-md-6">
+                                    <input type="text"  placeholder="question" [(ngModel)]="question.question" [ngModelOptions]="{standalone: true }" >
                                 </div>
-                            </div>
+                                <div class="row col-md-6">
+                                    <input type="text"  placeholder="option 1" [(ngModel)]="question.option1" [ngModelOptions]="{standalone: true }" >
+                                </div>
+                                <div class="row col-md-6">
+                                    <input type="text"  placeholder="option 2" [(ngModel)]="question.option2" [ngModelOptions]="{standalone: true }" >
+                                </div>
+                                <div class="row col-md-6">
+                                    <input type="text"  placeholder="option 3" [(ngModel)]="question.option3" [ngModelOptions]="{standalone: true }" >
+                                </div>
+                                <div class="row col-md-6">
+                                    <input type="text"  placeholder="option 1" [(ngModel)]="question.option4" [ngModelOptions]="{standalone: true }" >
+                                </div>
+
+
+
+                                <div class="row col-md-6">
+                                    <small>choose the correct option </small>
+                                    <select name="correctOption" [(ngModel)]="question.correctOption" [ngModelOptions]="{standalone: true }" >
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                </div>
+
+
+
+
+                                <br>
+                                <button type="button" class="btn btn-success" (click)="addQuestion(question)">Add Question </button>
+
+
+
+                            </form>
                         </div>
-
-

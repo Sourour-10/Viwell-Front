@@ -41,4 +41,7 @@ export class TrainingService {
   getAllTraining() {
     return this.httpClient.get(`${this.API_URL}/getAllTraining`);
   }
+  getTraining(idTraining: any) {
+    return this.httpClient.get(`${this.API_URL}/getTraining/${idTraining}`);
+  }
 }

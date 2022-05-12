@@ -38,7 +38,7 @@ export class TrainingComponent implements OnInit {
       maxParticipant: null ,
       costs: null ,
       certified: false ,
-      idCoach: null ,
+      coachid: null ,
 
     };
   }

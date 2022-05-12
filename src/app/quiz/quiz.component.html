@@ -317,6 +317,7 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+
                     </div>
                     <div class="card-body">
 
@@ -341,11 +342,10 @@
 
                     <td>{{c.instructions}}</td>
                     <td>{{c.maxMarks}}</td>
-                    <td>  <button type="button" class="btn btn-outline-primary"
 
-                    > edit</button>  </td>
                     <td> <button type="button" class="btn btn-outline-danger" (click)="deleteQuiz(c.id)">delete</button>  </td>
-
+                    <td> <button type="button" class="btn btn-outline-danger" [routerLink]="['/updateQuiz/',c.id]" >update</button>  </td>
+                    <td> <button type="button" class="btn btn-outline-danger" [routerLink]="['/quiz/questions/',c.id]" >details</button>  </td>
                 </tr>
 
                 </tbody>
@@ -353,31 +353,47 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <form *ngIf="form">
-        <div class="row col-md-6">
-            <input type="text"  placeholder="quiz title" [(ngModel)]="quiz.quizName" [ngModelOptions]="{standalone: true }" >
-        </div>
-        <div class="row col-md-6">
-            <input type="text"  placeholder="subject" [(ngModel)]="quiz.subject" [ngModelOptions]="{standalone: true }" >
-        </div>
-
-
-        <div class="row col-md-6">
-            <input type="text" placeholder="instructions" [(ngModel)]="quiz.instructions"
-                   [ngModelOptions]="{standalone: true }" >
-        </div>
-        <div class="row col-md-6">
-            <input type="Number"  placeholder="maxMarks" [(ngModel)]="quiz.maxMarks" [ngModelOptions]="{standalone: true }" >
-        </div>
 
 
 
-        <br>
-        <button type="button" class="btn btn-success" (click)="addQuiz(quiz)">Add Quiz</button>
 
 
 
-    </form>
+<section class="section section-shaped section-lg">
+                            <div class="shape shape-style-1 bg-gradient-default">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="container pt-lg-md">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-5">
+                                        <div class="card bg-secondary shadow border-0">
+                                            <div class="card-header bg-white pb-5">
+                                                <div class="text-muted text-center mb-3">
+                                                    <small>My badges</small>
+                                                    <div class="container row">
+                                                        <div class="col-md-12">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--<button (click)="getAllBadges()">click</button>   -->
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div></div></div></div>
+
+    </div>
 </div>
-

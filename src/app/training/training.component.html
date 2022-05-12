@@ -346,9 +346,9 @@
                     <td>{{c.hoursNumbers}}</td>
                     <td>{{c.maxParticipant}}</td>
                     <td>{{c.certified}}</td>
-                    <td>  <button type="button" class="btn btn-outline-primary"
+                    <td>  <button type="button" class="btn btn-outline-primary" [routerLink]="['/updateTraining',c.trainingId]"
 
-                    > edit</button>  </td>
+                    > update</button>  </td>
                     <td> <button type="button" class="btn btn-outline-danger" (click)="deleteTraining(c.trainingId)">delete</button>  </td>
 
                 </tr>
@@ -358,42 +358,5 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <form *ngIf="form">
-        <div class="row col-md-6">
-            <input type="text"  placeholder="training title" [(ngModel)]="training.title" [ngModelOptions]="{standalone: true }" >
-        </div>
-        <div class="row col-md-6">
-            <input type="text"  placeholder="description" [(ngModel)]="training.description" [ngModelOptions]="{standalone: true }" >
-        </div>
 
-
-        <div class="row col-md-6">
-            <input type="date" placeholder="start date " [(ngModel)]="training.startDate"
-                   [ngModelOptions]="{standalone: true }" >
-
-            <input type="date" placeholder="end date" [(ngModel)]="training.endDate" [ngModelOptions]="{standalone: true }">
-        </div>
-        <div class="row col-md-6">
-            <input type="Number"  placeholder="hoursNumbers" [(ngModel)]="training.hoursNumbers" [ngModelOptions]="{standalone: true }" >
-        </div>
-        <div class="row col-md-6">
-            <input type="number"  placeholder="MaxParticipant" [(ngModel)]="training.maxParticipant" [ngModelOptions]="{standalone: true }" >
-        </div>
-        <div class="row col-md-6">
-            <input type="number"  placeholder="idCoach" [(ngModel)]="training.idCoach" [ngModelOptions]="{standalone: true }" >
-        </div>
-
-        <select name="certified" [(ngModel)]="training.certified" [ngModelOptions]="{standalone: true }" >
-            <option value="true">Certified</option>
-            <option value="false">Not Certified</option>
-
-        </select>
-        <br>
-        <button type="button" class="btn btn-success" (click)="addAndAffectTrainingToCoach(training , training.idCoach )">Add training </button>
-
-
-
-    </form>
-</div>
 

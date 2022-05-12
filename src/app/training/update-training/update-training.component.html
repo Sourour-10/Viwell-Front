@@ -1,3 +1,8 @@
+
+
+
+<!--  NAV BAAR -->
+<!-- Page Wrapper -->
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -312,43 +317,45 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        <td> <button type="button" class="btn btn-outline-danger" [routerLink]="['quiz/add-question/',quizId]" >Add Question</button>  </td>
-                        <td> <button type="button" class="btn btn-outline-danger" (click)="assign()"  >Assign quiz to users </button>  </td>
                     </div>
                     <div class="card-body">
-
-                        <!--  NAV BAAR -->
-
-
-                        <div class="row" >
-                            <div class="col-md-12">
-                                <div class="card text-center table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead style="background-color: rgb(192,183,183);">
-                                        <th>question</th>
-                                        <th>correctOption</th>
-                                        <th>quizId</th>
+<div class="container">
+    <form >
+        <div class="row col-md-6">
+            {{training.trainingId}}
+            <input type="text"  placeholder="training title" [(ngModel)]="training.title" [ngModelOptions]="{standalone: true }" >
+        </div>
+        <div class="row col-md-6">
+            <input type="text"  placeholder="description" [(ngModel)]="training.description" [ngModelOptions]="{standalone: true }" >
+        </div>
 
 
+        <div class="row col-md-6">
+            <input type="date" placeholder="start date " [(ngModel)]="training.startDate"
+                   [ngModelOptions]="{standalone: true }" >
 
-                                        </thead>
-                                        <tbody>
-                                        <tr *ngFor="let c of listQuestions">
-                                            <td>{{c.question}}</td>
-                                            <td>{{c.correctOption}}</td>
+            <input type="date" placeholder="end date" [(ngModel)]="training.endDate" [ngModelOptions]="{standalone: true }">
+        </div>
+        <div class="row col-md-6">
+            <input type="Number"  placeholder="hoursNumbers" [(ngModel)]="training.hoursNumbers" [ngModelOptions]="{standalone: true }" >
+        </div>
+        <div class="row col-md-6">
+            <input type="number"  placeholder="MaxParticipant" [(ngModel)]="training.maxParticipant" [ngModelOptions]="{standalone: true }" >
+        </div>
+        <div class="row col-md-6">
+            <input type="number"  placeholder="idCoach" [(ngModel)]="training.coachid" [ngModelOptions]="{standalone: true }" >
+        </div>
 
-                                            <td>{{c.quizId}}</td>
-                                            <td>  <button type="button" class="btn btn-outline-primary" [routerLink]="['quiz/update-question',c.id]"
+        <select name="certified" [(ngModel)]="training.certified" [ngModelOptions]="{standalone: true }" >
+            <option value="true">Certified</option>
+            <option value="false">Not Certified</option>
 
-                                            > update</button>  </td>
-                                            <td> <button type="button" class="btn btn-outline-danger" >delete</button>  </td>
-
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+        </select>
+        <br>
+        <button type="button" class="btn btn-success" (click)="updateTraining(training)">update training </button>
 
 
+
+    </form>
+</div>
+                    </div></div></div></div></div></div>

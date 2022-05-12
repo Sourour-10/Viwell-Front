@@ -1,0 +1,38 @@
+<section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="container">
+        <div _ngcontent-ovc-c110="" class="row row-grid">
+
+            <div _ngcontent-ovc-c110="" class="col-lg-4" *ngFor='let b of listTraining'>
+                <div _ngcontent-ovc-c110="" class="card card-lift--hover shadow border-0">
+                    <div _ngcontent-ovc-c110="" class="card-body py-5">
+                        <div _ngcontent-ovc-c110="" class="icon icon-shape icon-shape-success rounded-circle mb-4">
+                            <i _ngcontent-ovc-c110="" class="ni ni-istanbul"></i>
+                        </div>
+
+                        <h6 _ngcontent-ovc-c110="" class="text-success text-uppercase"> {{b.trainingId }}</h6>
+
+                        <p _ngcontent-ovc-c110="" class="description mt-3">Start Date : {{b.startDate | date: "dd MMMM yyyy" | uppercase}}</p>
+                        <p _ngcontent-ovc-c110="" class="description mt-3">maxParticpant: {{b.endDate | date: "dd MMMM yyyy" | uppercase}} </p>
+                        <p _ngcontent-ovc-c110="" class="description mt-3">hours Number : {{b.hoursNumbers }} </p>
+                        <div _ngcontent-ovc-c110="">
+
+                            <span _ngcontent-ovc-c110="" class="badge badge-pill badge-success">vision</span>
+                            <span _ngcontent-ovc-c110="" class="badge badge-pill badge-success">success</span></div>
+                        <a _ngcontent-ovc-c110="" [routerLink]="['/quiz/',b.id]"  class="btn btn-success mt-4">Get the Quiz</a></div></div></div>
+
+
+
+        </div>
+    </div>
+
+</section>

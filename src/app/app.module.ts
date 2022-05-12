@@ -59,6 +59,14 @@ import { DetailBadgeComponent } from './Component/detail-badge/detail-badge.comp
 import { CommonModule } from '@angular/common';
 import { PollWinnerComponent } from './Component/poll-winner/poll-winner.component';
 import { EventFeedBacksComponent } from './Component/event-feed-backs/event-feed-backs.component';
+import { AddQuizComponent } from './quiz/add-quiz/add-quiz.component';
+import { UpdateQuizComponent } from './quiz/update-quiz/update-quiz.component';
+import { AddTrainingComponent } from './training/add-training/add-training.component';
+import { UpdateTrainingComponent } from './training/update-training/update-training.component';
+import { ListQuizFrontComponent } from './list-quiz-front/list-quiz-front.component';
+import { TrainingFrontComponent } from './training-front/training-front.component';
+import { UpdateQuestionComponent } from './question/update-question/update-question.component';
+import { AddQuestionComponent } from './question/add-question/add-question.component';
 
 export class XhrInterceptor implements HttpInterceptor {
 
@@ -123,7 +131,15 @@ export class XhrInterceptor implements HttpInterceptor {
     ListeBadgeComponent,
     DetailBadgeComponent,
     PollWinnerComponent,
-    EventFeedBacksComponent
+    EventFeedBacksComponent,
+    AddQuizComponent,
+    UpdateQuizComponent,
+    AddTrainingComponent,
+    UpdateTrainingComponent,
+    ListQuizFrontComponent,
+    TrainingFrontComponent,
+    UpdateQuestionComponent,
+    AddQuestionComponent
 
   ],
   imports: [

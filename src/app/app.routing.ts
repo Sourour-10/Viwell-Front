@@ -42,6 +42,14 @@ import {WelcomeQuizComponent} from './welcome-quiz/welcome-quiz.component';
 import { TopEmployeesComponent } from './top-employees/top-employees.component';
 import { ListeBadgeComponent } from './Component/liste-badge/liste-badge.component';
 import { ListPollComponent } from './list-poll/list-poll.component';
+import {UpdateTrainingComponent} from './training/update-training/update-training.component';
+import {ListQuizFrontComponent} from './list-quiz-front/list-quiz-front.component';
+import {UpdateQuizComponent} from './quiz/update-quiz/update-quiz.component';
+import {AddQuizComponent} from './quiz/add-quiz/add-quiz.component';
+import {AddTrainingComponent} from './training/add-training/add-training.component';
+import {QuestionComponent} from './question/question.component';
+import {AddQuestionComponent} from './question/add-question/add-question.component';
+import {UpdateQuestionComponent} from './question/update-question/update-question.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -61,11 +69,30 @@ const routes: Routes = [
 
   { path: 'friend-profile', component: ProfileFriendComponent },
   // Admin
+    // youssef ====================
   { path: 'coach', component: CoachComponent },
   { path: 'training', component: TrainingComponent },
+  { path: 'add-training', component: AddTrainingComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'questions', component: QuestionFrontComponent },
+  { path: 'question/:quizId', component: QuestionFrontComponent },
+  { path: 'quiz/questions/:quizId', component: QuestionComponent },
+  { path: 'quiz/add-question/:quizId', component: AddQuestionComponent },
+  { path: 'quiz/update-question/:quizId', component: UpdateQuestionComponent },
+
+
   { path: 'quizn', component: WelcomeQuizComponent },
+  { path: 'quiz/:quizId', component: WelcomeQuizComponent },
+  { path: 'updateTraining/:trainingId', component: UpdateTrainingComponent },
+  { path: 'quizFront', component: ListQuizFrontComponent },
+  { path: 'updateQuiz/:quizId', component: UpdateQuizComponent },
+  { path: 'add-quiz', component: AddQuizComponent },
+
+  // youssef ======================
+
+
+
+
   {path: 'listBadges', component: ListeBadgeComponent},
   {path: 'listPoll', component: ListPollComponent},
 
