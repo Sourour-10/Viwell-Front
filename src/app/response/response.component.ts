@@ -36,9 +36,9 @@ export class ResponseComponent implements OnInit {
     })
   }
 
-  addResponse(s : any){
+  addResponse(s : any, articleId:any){
     
-    this.responseService.addResponse(s).subscribe(()=>{
+    this.responseService.addResponse(s,articleId).subscribe(()=>{
       this.getAllResponses();
       this.form = false ; 
     });

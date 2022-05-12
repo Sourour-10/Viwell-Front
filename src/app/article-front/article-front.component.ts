@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Article } from '../Model/article';
+import { Subject } from '../Model/subject';
+import { Response } from '../Model/response';
 import { ArticleService } from '../Service/Article/article-service';
 import { ResponseService } from '../Service/Response/response-service';
 import { SubjectService } from '../Service/Subject/subject-service';
@@ -18,10 +20,15 @@ export class ArticleFrontComponent implements OnInit {
   active1 = 1;
   active2 = 1;
 
+  nbreact:any;
+  inputValue: any ;
+  iscomment=false;
   listResponses: any;
   listSubjects: any;
   listArticles: any;
   article!: Article;
+  subject!: Subject;
+  response!: Response;
   closeResult!: string;
   form: boolean = false;
 
@@ -29,7 +36,7 @@ export class ArticleFrontComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllArticles();
-    this.getAllSubjects();
+    this.getAllApprovedSubjects();
     this.getAllResponses();
 
     this.article ={
@@ -39,6 +46,19 @@ export class ArticleFrontComponent implements OnInit {
       user:null,
       responses: null
     }
+    this.subject ={
+      subjectId: null,
+      name: null,
+      approved:null,
+      articles:null
+      }
+      this.response ={
+        responseId: null,
+        text: null,
+        Nlikes:null,
+        dateCreation:null,
+        article:null
+      }
   }
 
   getAllArticles(){
@@ -49,6 +69,12 @@ export class ArticleFrontComponent implements OnInit {
 
   getAllSubjects(){
     this.subjectService.getAllSubjects().subscribe(res => {this.listSubjects = res;
+      console.log("liste des sujets",this.listSubjects) ;
+    })
+  }
+
+  getAllApprovedSubjects(){
+    this.subjectService.getAllApprovedSubjects().subscribe(res => {this.listSubjects = res;
       console.log("liste des sujets",this.listSubjects) ;
     })
   }
@@ -77,6 +103,36 @@ export class ArticleFrontComponent implements OnInit {
   react(id:any,responseId:any){
     
     this.responseService.react(id,responseId).subscribe() ;
+    window.location.reload();
   }
+
+  responseReacts(responseId:any){
+    this.responseService.responseReacts(responseId).subscribe(res => {this.nbreact = res;
+      console.log("liste des reponses",this.nbreact) ;
+    }) ;
+  }
+
+  proposeSubject(s : any){
+    this.subjectService.proposeSubject(s).subscribe(()=>{
+      this.getAllApprovedSubjects();
+      this.form = false ; 
+    });
+  }
+
+  addResponse(s : any, articleId:any){
+    
+    this.responseService.addResponse(s,articleId).subscribe(()=>{
+      this.getAllResponses();
+      this.form = false ; 
+    });
+  }
+
+  commenter(id: any, articleId:any){
+    
+    this.iscomment=true;
+    
+  }
+
+    
 
 }

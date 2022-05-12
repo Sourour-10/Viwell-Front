@@ -1,39 +1,39 @@
-<table class="table">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card" class="text-center">
+            <table class="table">
+                <thead class="table-dark">
+                    <th>Article Id</th>
+                    <th>Article Text</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let a of listArticles'>
+                        <td> {{a.articleId }}</td>
+                        <td>{{a.text}}</td>
+                        <td><button type="button" class="btn btn-outline-primary" (click)="open(mymodal)">edit</button>
+                            <ng-template #mymodal let-modal>
+                            </ng-template>
+                            <button type="button" class="btn btn-outline-danger"
+                                (click)="deleteArticle(a.articleId)">delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <form>
+        <div class="row" class="col-md-6">
+            <input type="text" class="form-control" placeholder="Article text" [(ngModel)]="article.text"
+                [ngModelOptions]="{standalone: true}" style="width: 500px;">
+            <select class="form-select" style="width: 500px; margin-top:15px;">
+                <option *ngFor='let s of listSubjects'>{{s.name}}</option>
+            </select>
+            <button type="button" class="btn btn-success" style="width: 500px; margin-top:15px;" (click)= "addArticle(article,1)">Add</button>
+        </div>
+    </form>
 
-    <thead class="table-dark">
 
-        <th>Article Id</th>
-        <th>Article Text</th>
-        <th>Actions</th>
-    </thead>
-    <tbody>
-
-        <tr *ngFor='let a of listArticles'>
-            <td> {{a.articleId }}</td>
-            <td>{{a.text}}</td>
-            <td><button type="button" class="btn btn-outline-primary" (click)="open(mymodal)">edit</button>
-                <ng-template #mymodal let-modal>
-                </ng-template>
-                <button type="button" class="btn btn-outline-danger"
-                    (click)="deleteArticle(a.articleId)">delete</button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>
-                    <form [formGroup]="sujetForm" (ngSubmit)="onSubmit()">
-                        <div class="form-group" class="row" class="col-md-6">
-                            <input type="text" placeholder="Article text" [(ngModel)]="article.text"
-                                [ngModelOptions]="{standalone: true}">
-                            <select (change)="selectChangeHandler($event)">
-                                <option *ngFor='let s of listSubjects' value={{s.subjectId}}>{{s.name}}</option>
-
-                            </select>
-                            <button type="submit" class="btn btn-success">Add</button>
-                        </div>
-                    </form>
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+</div>
