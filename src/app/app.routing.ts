@@ -153,10 +153,7 @@ const routes: Routes = [
 {path:"ArticleFront",component:ArticleFrontComponent},
 //end Ramzi
     { path: "linkedInLogin", component: LinkedinLoginResponseComponent },
-
-
     //Aziz
-
     {path: 'category', component: CategoryComponent},
     {path: 'category/create', component: CategoryCreateComponent},
     {path: 'category/update', component: CategoryUpdateComponent},
