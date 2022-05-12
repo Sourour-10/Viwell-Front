@@ -49,6 +49,8 @@ import { ListActivityComponent } from './list-activity/list-activity.component';
 import { ActivityBackdetailsComponent } from './activity-backdetails/activity-backdetails.component';
 import { ActivityCreateComponent } from './activity-create/activity-create.component';
 import { EventFrontlistComponent } from './event-frontlist/event-frontlist.component';
+import { ActivityFrontdetailsComponent } from './activity-frontdetails/activity-frontdetails.component';
+import { ActivityBacklistComponent } from './activity-backlist/activity-backlist.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -120,9 +122,11 @@ const routes: Routes = [
 
 
     {path: 'activity', component: ListActivityComponent},
+    {path: 'back/activity', component: ActivityBacklistComponent},
     {path: 'activity/create', component: ActivityCreateComponent},
     {path: 'activity/update', component: CategoryUpdateComponent},
-    {path: 'activity-details/:id', component: ActivityBackdetailsComponent}
+    {path: 'activity-details/:id', component: ActivityFrontdetailsComponent},
+    {path: 'back/activity-details/:id', component: ActivityBackdetailsComponent}
 
     
 

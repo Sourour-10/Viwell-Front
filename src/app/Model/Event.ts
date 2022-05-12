@@ -13,4 +13,6 @@ export class Event {
     ratingNumber: number;
     tarif: number;
     points: number;
+    nbrpart: number;
+    nbrint: number;
 }
