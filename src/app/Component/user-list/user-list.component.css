@@ -1,5 +1,6 @@
 .container{
     border-top:20px;
+    padding-top: 12%;
 
 }
 
@@ -17,3 +18,8 @@ nav {
   * {
     box-sizing: border-box;
   }
+
+  *[_ngcontent-yye-c140] {
+    box-sizing: border-box;
+    padding-top: 3%;
+}

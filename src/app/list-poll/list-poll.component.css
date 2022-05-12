@@ -1,5 +1,7 @@
 .container{
     border-top:20px;
+    
+    padding: 10%;
 
 }
 
@@ -17,3 +19,6 @@ nav {
   * {
     box-sizing: border-box;
   }
+
+  .btn[_ngcontent-pui-c133]:not(:disabled):not(.disabled) {
+    cursor: pointer;}
