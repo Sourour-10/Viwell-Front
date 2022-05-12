@@ -19,8 +19,8 @@ export class ResponseService {
         return this.httpClient.get(`${this.API_URL}/getAllResponses`)
        
     }
-    addResponse(response: any ){
-        return this.httpClient.post(`${this.API_URL}/create/${2}`,response)
+    addResponse(response: any, articleId: any ){
+        return this.httpClient.post(`${this.API_URL}/create/${articleId}`,response)
     }
     editResponse(response: any){
         return this.httpClient.put(`${this.API_URL}/update`,response)
@@ -36,9 +36,12 @@ export class ResponseService {
     }
 
     react(id:any,responseId: any){
-      
-      //  return this.httpClient.put(`${this.API_URL2}/ReactToResponse/6/3/1`,null)    
 
           return this.httpClient.put(`${this.API_URL2}/ReactToResponse/${id}/${responseId}/1`,null)    
     }
+
+    responseReacts(responseId: any){
+
+        return this.httpClient.get(`${this.API_URL2}/ResponseReacts/${responseId}`)    
+  }
 }

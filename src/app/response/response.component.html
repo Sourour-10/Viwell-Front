@@ -13,7 +13,7 @@
                   <tr *ngFor='let s of listResponses'>
                       <td> {{s.responseId }}</td>
                       <td>{{s.text}}</td>
-                      <td>{{s.Nlikes}}</td>
+                      <td>{{s.nlikes}}</td>
                       <td>{{s.dateCreation}}</td>
                       <td><button type="button" class="btn btn-outline-primary" (click)="open(mymodal)">edit</button>
                         <ng-template #mymodal let-modal>
@@ -29,11 +29,8 @@
 <div class="row">
     <form >
         <div class="row" class="col-md-6">
-            <input type="text" placeholder="Resonse text" [(ngModel)]="response.text" [ngModelOptions]="{standalone: true}">
-            
-
-            <br>
-            <button type="button" class="btn btn-success" (click)="addResponse(response)">Add</button>
+            <input type="text" style="width: 500px;" class="form-control" placeholder="Resonse text" [(ngModel)]="response.text" [ngModelOptions]="{standalone: true}">
+            <button type="button" style="width: 500px; margin-top:15px;" class="btn btn-success" (click)="addResponse(response,1)">Add</button>
         </div>
     </form>
 </div>

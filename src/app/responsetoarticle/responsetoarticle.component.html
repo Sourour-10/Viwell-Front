@@ -1,0 +1,18 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add response</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form >
+            <div class="row" class="col-md-6">
+                <input type="text" class="form-control" style="width:430px;" placeholder="Resonse text" [(ngModel)]="response.text" [ngModelOptions]="{standalone: true}">
+                <br>
+                <button type="button" style="width:200px;margin-left: 120px;" class="btn btn-success" (click)="addResponse(response,article.articleId)">Add</button>
+            </div>
+        </form>
+    </div>
+ </ng-template>
+  
+  <button href="javascript:void(0)" style="margin-bottom: 15px;;" class="btn btn-success btn-sm" (click)="open(content)"> add response
+  </button>

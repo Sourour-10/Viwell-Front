@@ -8,6 +8,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
+import { SubjectComponent } from './subject/subject.component';
+import { ArticleComponent } from './article/article.component';
+import { ResponseComponent } from './response/response.component';
+import { ArticleFrontComponent } from './article-front/article-front.component';
+import { ResponsetoarticleComponent } from './responsetoarticle/responsetoarticle.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
@@ -15,6 +20,13 @@ const routes: Routes =[
     { path: 'register',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'login',          component: LoginComponent },
+    //Ramzi 
+    {path:"Subjects", component:SubjectComponent},
+    {path:"Articles", component:ArticleComponent},
+    {path:"Responses",component:ResponseComponent},
+    {path:"ArticleFront",component:ArticleFrontComponent},
+    
+    //end Ramzi
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

@@ -11,7 +11,7 @@
                   <tr *ngFor='let a of listArticles'>
                       <td> {{a.articleId }}</td>
                       <td>{{a.text}}</td>
-                      <td><button type="button" class="btn btn-outline-primary" (click)="open(mymodal)">edit</button>
+                      <td><button type="button"  class="btn btn-outline-primary" (click)="open(mymodal)">edit</button>
                         <ng-template #mymodal let-modal>
                         </ng-template>
                         <button type="button" class="btn btn-outline-danger" (click)="deleteArticle(a.articleId)">delete</button>
@@ -25,9 +25,11 @@
 <div class="row">
     <form >
         <div class="row" class="col-md-6">
-            <input type="text" placeholder="Article text" [(ngModel)]="article.text" [ngModelOptions]="{standalone: true}">
-            <br>
-            <button type="button" class="btn btn-success" (click)="addArticle(article)">Add</button>
+            <input type="text" class="form-control" placeholder="Article text" [(ngModel)]="article.text" [ngModelOptions]="{standalone: true}" style="width: 500px;">
+            <select class="form-select" style="width: 500px; margin-top:15px;">
+                <option *ngFor='let s of listSubjects'>{{s.name}}</option>
+            </select>
+            <button type="button" class="btn btn-success" style="width: 500px; margin-top:15px;"  (click)="addArticle(article)">Add</button>
         </div>
     </form>
     

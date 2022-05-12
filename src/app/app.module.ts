@@ -20,6 +20,8 @@ import { ArticleComponent } from './article/article.component';
 import { SubjectComponent } from './subject/subject.component';
 import { ResponseComponent } from './response/response.component';
 import { ArticleFrontComponent } from './article-front/article-front.component';
+import { ResponsetoarticleComponent } from './responsetoarticle/responsetoarticle.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ArticleFrontComponent } from './article-front/article-front.component';
     ArticleComponent,
     SubjectComponent,
     ResponseComponent,
-    ArticleFrontComponent
+    ArticleFrontComponent,
+    ResponsetoarticleComponent
+
   ],
   imports: [
     BrowserModule,
