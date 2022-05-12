@@ -23,7 +23,6 @@ users=null;
   constructor(private service: FeedBackService, private modalService: NgbModal, private route: ActivatedRoute,
     private router: Router) { }
 
-
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -32,11 +31,11 @@ users=null;
     } else {
       return `with: ${reason}`;
     }
-
+    
   }
   ngOnInit(): void {
     this.feedBack = new FeedBack()
-    
+
   } sendFeedBack() {
     console.log(this.feedbackText);
 

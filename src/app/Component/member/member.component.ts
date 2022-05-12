@@ -75,8 +75,8 @@ getImage() {
 
 //yossr Reclamation
 reclamationForm = new FormGroup({
-  commentId: new FormControl({value:'', disabled:true}),
-  complaintSubject: new FormControl({value:'', disabled:true}),
+  userId: new FormControl({value:'', disabled:true}),
+  complaintSubject: new FormControl({value:'ReportProfile', disabled:true}),
   contentReport: new FormControl(''),  
 });
 openVerticallyCenteredReportProfile(content,userId:number) {

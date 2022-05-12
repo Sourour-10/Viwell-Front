@@ -147,12 +147,11 @@ const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'linkedInLogin', component: LinkedinLoginResponseComponent },
 //Ramzi 
- //Admin
 {path:"Subjects", component:SubjectComponent},
 {path:"Articles", component:ArticleComponent},
 {path:"Responses",component:ResponseComponent},
 {path:"ArticleFront",component:ArticleFrontComponent},
-
+//end Ramzi
     { path: "linkedInLogin", component: LinkedinLoginResponseComponent },
 
 
