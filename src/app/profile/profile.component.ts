@@ -30,6 +30,7 @@ selectedFile: File;
   imageUrll: string;
 
   isEmployee = true ;
+  userDetails:User;
 
 
 
@@ -43,7 +44,7 @@ selectedFile: File;
         {
           this.isEmployee=false ;
         }
-
+this.getUser();
         
       }
       public get currentuser(): any{
@@ -52,6 +53,12 @@ selectedFile: File;
        logout(): void {
         this.service.logout();
         this.router.navigateByUrl('/login');
+      }
+
+      getUser(){
+        this.service.getUser().subscribe(res=>{
+          this.userDetails=res;
+        })
       }
     
 openChat() {

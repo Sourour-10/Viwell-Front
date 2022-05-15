@@ -50,6 +50,7 @@ userDetails:User;
       this.service.getUser().subscribe(res=>{
         this.user=res;
         console.log("oooooooo",+this.user)
+        this.currentUser.idPhoto==8;
         this.prepareUpdateForm();
     })
      
@@ -76,6 +77,7 @@ userDetails:User;
   ngOnInit() {
     this.service.getUser().subscribe(res=>{
       this.user=res;
+      this.currentUser().idPhoto===8;
       console.log("oooooooo",+this.user)
       console.log("photooo",this.currentUser().idPhoto );
       this.prepareUpdateForm();})
@@ -130,14 +132,15 @@ userDetails:User;
     this.user.birthdate = this.userUpdateForm.value.birthdate;
     this.user.phoneNumber = this.userUpdateForm.value.phoneNumber;
     this.user.cin = this.userUpdateForm.value.cin;
- this.user.idPhoto=this.currentUser.idPhoto,
+ 
     
     //console.log("USER for update"+ user.userId);
     this.service.updateU(this.user).subscribe(rep=>{
+      this.user.idPhoto===8;
       this.getUser();
-      window.location.reload();
+    
     })
- 
+    window.location.reload();
     console.log("useeeeeeer",this.user);
 }
 
@@ -166,6 +169,12 @@ userDetails:User;
                 this.loading = false;
             }
         });
+}
+
+private saveUserData(data){
+  this.tokenStorage.saveToken(data.accessToken);
+  this.tokenStorage.saveUser(data);
+  
 }
 /*uploadFile() {
   const formData = new FormData();
