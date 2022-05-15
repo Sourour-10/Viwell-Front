@@ -116,6 +116,10 @@ export class CollaborationsComponent implements OnInit {
   addingoffers(){
     return this.offreService.createOfferByConvention().subscribe()  ;
   }
+  counter(i: number) {
+    return new Array(i);
+  }
+
 }
 
 

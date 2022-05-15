@@ -17,8 +17,6 @@ export class SubjectService {
 
     getAllSubjects (){
         return this.httpClient.get(`${this.API_URL}/getAllSubjects`)
-       
-
     }
     addSubject(subject: any){
         return this.httpClient.post(`${this.API_URL}/create/`,subject)
@@ -36,4 +34,14 @@ export class SubjectService {
         return this.httpClient.get(`${this.API_URL}/getSubjectById/${subjectId}`)
     }
 
+    proposeSubject(subject: any){
+        return this.httpClient.post(`${this.API_URL}/proposeSubject/`,subject)
+    }
+
+    getAllApprovedSubjects (){
+        return this.httpClient.get(`${this.API_URL}/getAllApprovedSubjects`)
+    }
+    approuverSubject(subject: any,subjectId: any){
+        return this.httpClient.put(`${this.API_URL}/approve/${subjectId}`,subject)
+    }
 }

@@ -1,31 +1,46 @@
-<ng-template #content let-modal>
+<div class="container">
+  <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Give a feedback</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      <h4 class="modal-title" id="modal-basic-title">Give a feedback</h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
     </div>
     <div class="modal-body">
-        <div class="content">
-            <div class="container">
-                <div class="head">
-                        <h3>Express your feelings towards this person anonymously</h3>
-
-
-                </div>
-            </div>
-            <div class="textarea">
-                <textarea name="exp" id="exp" placeholder={{feedbackText}} [(ngModel)]="feedbackText"></textarea>
-            </div>
-            <div class="end">
-                <div class="submission">
-                    <button class="sub btn" (click)="sendFeedBack()">Send</button>
-                </div>
-
-            </div>
+      <div class="content">
+        <div class="container">
+          <div class="head">
+            <h3>Express your feelings towards this person anonymously</h3>
+          </div>
         </div>
+        <div class="textarea">
+          <textarea
+            name="exp"
+            id="exp"
+            placeholder="{{ feedbackText }}"
+            [(ngModel)]="feedbackText"
+          ></textarea>
+        </div>
+        <div class="end">
+          <div class="submission">
+            <button class="sub btn" (click)="sendFeedBack()">Send</button>
+          </div>
+        </div>
+      </div>
     </div>
-</ng-template>
+  </ng-template>
 
-<div>
-<img width="5" height="5" src="../../assets/img/icons/feedback.png" class="btn btn-warning btn-icon-only rounded-circle" alt="angry" (click)="open(content)">
+  <div>
+    <img
+      width="5"
+      height="5"
+      src="../../assets/img/icons/feedback.png"
+      class="btn btn-warning btn-icon-only rounded-circle"
+      alt="angry"
+      (click)="open(content)"
+    />
+  </div>
 </div>
-

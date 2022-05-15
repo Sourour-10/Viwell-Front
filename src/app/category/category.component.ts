@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Category } from '../Model/category';
 import { CategoryService } from '../Service/Activity/category-service.service';
+import { TokenStorageService } from '../Service/User/token-storage.service';
 
 
 @Component({
@@ -16,11 +17,22 @@ export class CategoryComponent implements OnInit {
   categorys: Category[];
   closeResult!: string;
   form: boolean = false;
+  isEmployee = false ;
+  currentUserVar : any ;
 
-  constructor(private categoryService: CategoryService,
+  constructor(private tokenStorage:TokenStorageService, private categoryService: CategoryService,
     private router: Router , private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    this.currentUserVar = this.tokenStorage.getUser();
+        console.log("User :" + JSON.stringify(this.currentUserVar.authorities))
+        var authorityString = JSON.stringify(this.currentUserVar.authorities);
+        if (authorityString.indexOf("ROLE_ADMIN") === -1) {
+            this.isEmployee = true;
+        } else
+            this.isEmployee = false;
+
+
     this.getAllCategorys();   
   }
 
@@ -63,5 +75,6 @@ export class CategoryComponent implements OnInit {
     this.categoryService.deleteCategory(categoryId).subscribe(()=> this.getAllCategorys());
   }
    */
+  
 
 }

@@ -9,3 +9,8 @@ textarea {
     width: 400px;
     border-radius: 12%;
 }
+.container{
+    border-top:20px;
+    padding-top: 10%;
+
+}

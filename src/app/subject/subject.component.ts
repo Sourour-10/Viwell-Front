@@ -52,6 +52,11 @@ export class SubjectComponent implements OnInit {
     this.subjectService.deleteSubject(subjectId).subscribe(()=> this.getAllSubjects());
   }
 
+  approuverSubject(s: any,subjectId: any){
+    this.subjectService.approuverSubject(s,subjectId).subscribe(()=>{
+      this.getAllSubjects(); 
+    });
+  }
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

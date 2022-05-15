@@ -19,6 +19,8 @@ export class ActivityCreateComponent implements OnInit {
 
   addActivity(){
     this.activity.nbrLikes=0;
+    this.activity.rating=0;
+    this.activity.image="activity.jpg";
     this.activity.date=new Date();
     console.log("event"+this.activity);
     this.activityService.addActivity(this.activity).subscribe( data =>{

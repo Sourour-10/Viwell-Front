@@ -9,95 +9,95 @@ import { TokenStorageService } from './token-storage.service';
 import { LoginInfo } from 'src/app/Model/LoginInfo';
 import { PasswordModel } from 'src/app/Model/PasswordModel';
 
-const httpOptions={
-  headers: new HttpHeaders({'Content-Type':'application/json'})
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-const TOKEN_KEY='AuthToken';
+const TOKEN_KEY = 'AuthToken';
 const USER_KEY = 'auth-user';
 @Injectable({
   providedIn: 'root'
 })
 export class AdduserService {
 
-private currentUserSubject:BehaviorSubject<any>;
-public CurrentUser:Observable<any>;
-private signupUrl='http://localhost:8089/Auth/Register';
-private loginUrl='http://localhost:8089/Auth/login';
-private getUserByUserName='http://localhost:8089/User/getUserbyUserName/';
+  private currentUserSubject: BehaviorSubject<any>;
+  public CurrentUser: Observable<any>;
+  private signupUrl = 'http://localhost:8089/Auth/Register';
+  private loginUrl = 'http://localhost:8089/Auth/login';
+  private getUserByUserName = 'http://localhost:8089/User/getUserbyUserName/';
 
   public user: Observable<User>;
   public userSubject: BehaviorSubject<User>;
-  passwordModel:PasswordModel;
-  userModel:User;
+  passwordModel: PasswordModel;
+  userModel: User;
   uploadedImage: File;
   dbImage: any;
   postResponse: any;
   successResponse: string;
   image: any;
-  isAuthenticated=false;
+  isAuthenticated = false;
 
 
   //
-  changePasswordUrl:"http://localhost:4200/#/app-resetpassword/";
- 
-  apiUrl="http://localhost:8089/User";
- // apiuser="http://localhost:8089/User/getUserConnected";
-  constructor(private http:HttpClient, private router:Router , private tokenStorage:TokenStorageService) {
-    this.currentUserSubject = new BehaviorSubject<any>(sessionStorage.getItem('user'));
-  this.CurrentUser =this.currentUserSubject.asObservable();
+  changePasswordUrl: "http://localhost:4200/#/app-resetpassword/";
 
-  this.userSubject=new BehaviorSubject<User>(JSON.parse(localStorage.getItem(USER_KEY)));
-  this.user=this.userSubject.asObservable();
+  apiUrl = "http://localhost:8089/User";
+  // apiuser="http://localhost:8089/User/getUserConnected";
+  constructor(private http: HttpClient, private router: Router, private tokenStorage: TokenStorageService) {
+    this.currentUserSubject = new BehaviorSubject<any>(sessionStorage.getItem('user'));
+    this.CurrentUser = this.currentUserSubject.asObservable();
+
+    this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem(USER_KEY)));
+    this.user = this.userSubject.asObservable();
   }
-  public  get userValue(): User{
-return this.userSubject.value;
+  public get userValue(): User {
+    return this.userSubject.value;
   }
-  public get currentUserValue(): any{
+  public get currentUserValue(): any {
     return this.currentUserSubject.value;
   }
 
-  public get currentUser(): any{
+  public get currentUser(): any {
     return this.tokenStorage.getUser;
   }
-  login(loginInfo:LoginInfo){
+  login(loginInfo: LoginInfo) {
     return this.http.post<jwtResponse>(this.loginUrl, loginInfo, httpOptions)
-    .pipe(map(data=>{
-      this.saveUserData(data);
-     // console.log('iddddddd',this.userValue.id)
-      return data;
-    }))
+      .pipe(map(data => {
+        this.saveUserData(data);
+        // console.log('iddddddd',this.userValue.id)
+        return data;
+      }))
   }
-  Top3User(){
+  Top3User() {
     return this.http.get(`${this.apiUrl}/getUsersByPoints`);
   }
-  
-  
-  
-  
+
+
+
+
   signUp(signupInfo: SignupInfo) {
     return this.http.post<jwtResponse>(this.signupUrl, signupInfo, httpOptions)
-    .pipe(map(data=>{
-      this.saveUserData(data);
-      return data;
-    }))
+      .pipe(map(data => {
+        this.saveUserData(data);
+        return data;
+      }))
   }
-  private saveUserData(data){
+  private saveUserData(data) {
     this.tokenStorage.saveToken(data.accessToken);
     this.tokenStorage.saveUser(data);
-    
+
   }
-  public Authenticated(){
-    if (this.tokenStorage.getUser){
-      return this.isAuthenticated=true;
+  public Authenticated() {
+    if (this.tokenStorage.getUser) {
+      return this.isAuthenticated = true;
     }
-    else return this.isAuthenticated=false;
-  } 
+    else return this.isAuthenticated = false;
+  }
 
 
-//UserConnected
-public isLoggedIn(): boolean {
-  const token: string = this.tokenStorage.getToken();
+  //UserConnected
+  public isLoggedIn(): boolean {
+    const token: string = this.tokenStorage.getToken();
     if (token) {
       const payload = JSON.parse(atob(token.split('.')[1]));
       return payload.exp > (Date.now() / 1000);
@@ -107,87 +107,87 @@ public isLoggedIn(): boolean {
   }
 
 
-public getCurrentUser(): User {
-  if (this.isLoggedIn()) {
-    const token: string = this.tokenStorage.getToken();
-    const {  userName,lastName,firstName ,mail, phoneNumber  } = JSON.parse(atob(token.split('.')[1]));
-    return { userName , lastName,firstName ,mail, phoneNumber } as User;
-  } 
-}
-updateuser( value: User) {
- 
-  return this.http.put(`http://localhost:8089/User/userUpdate/${ this.currentUser().id}`, value);
-}
-updateU( user: User) {
- 
-  return this.http.put(`http://localhost:8089/User/update`, user);
-}
+  public getCurrentUser(): User {
+    if (this.isLoggedIn()) {
+      const token: string = this.tokenStorage.getToken();
+      const { userName, lastName, firstName, mail, phoneNumber } = JSON.parse(atob(token.split('.')[1]));
+      return { userName, lastName, firstName, mail, phoneNumber } as User;
+    }
+  }
+  updateuser(value: User) {
 
+    return this.http.put(`http://localhost:8089/User/userUpdate/${this.currentUser().id}`, value);
+  }
+  updateU(user: User) {
 
-//UPDATE USER
-public update( params) {
-  this.userModel=params
-console.log('azertyu'+this.currentUser().id)
-//console.log("elo",params);
-  return this.http.put(`http://localhost:8089/User/update/${ this.currentUser().id}`, this.userModel)
-      .pipe(map(x => {
-        
-      //  console.log('iddddddd',this.userValue.id)
-          // update stored user if the logged in user updated their own record
-         
-              // update local storage
-              const user = { ...this.userValue, ...params };
-              console.log('hknhk',user)
-              localStorage.setItem(USER_KEY, JSON.stringify(user));
-            
-
-              // publish updated user to subscribers
-              this.userSubject.next(user);
-          
-          return x;
-      }));
-}
-//delete User
-deleteUser(idUser :any){
-  return this.http.delete(`http://localhost:8089/User/delete/${idUser}`);
-}
-
-/*delete(id: number) {
-  return this.http.delete(`http://localhost:8089/User/delete/${id}`)
-      .pipe(map(x => {
-          // auto logout if the logged in user deleted their own record
-          if (id == this.userValue.id) {
-              this.logout();
-          }
-          return x;
-      }));
-}*/
-//getByUserName
-//public getByUserName(userName : string):User {
-  //return User;
-//return this.http.get(this.getUserByUserName,)}
-
-LinkedinLogin(){
-  return this.http.get('http://localhost:8089/User/linkedInLogin');
-}
-
-  addUser(u:User){
-    return this.http.post(`${this.apiUrl}/registration`,u);
+    return this.http.put(`http://localhost:8089/User/update`, user);
   }
 
-  
 
-ListUser(){
-  return this.http.get(`${this.apiUrl}/getAllUsers`);
-}
+  //UPDATE USER
+  public update(params) {
+    this.userModel = params
+    console.log('azertyu' + this.currentUser().id)
+    //console.log("elo",params);
+    return this.http.put(`http://localhost:8089/User/update/${this.currentUser().id}`, this.userModel)
+      .pipe(map(x => {
+
+        //  console.log('iddddddd',this.userValue.id)
+        // update stored user if the logged in user updated their own record
+
+        // update local storage
+        const user = { ...this.userValue, ...params };
+        console.log('hknhk', user)
+        localStorage.setItem(USER_KEY, JSON.stringify(user));
+
+
+        // publish updated user to subscribers
+        this.userSubject.next(user);
+
+        return x;
+      }));
+  }
+  //delete User
+  deleteUser(idUser: any) {
+    return this.http.delete(`http://localhost:8089/User/delete/${idUser}`);
+  }
+
+  /*delete(id: number) {
+    return this.http.delete(`http://localhost:8089/User/delete/${id}`)
+        .pipe(map(x => {
+            // auto logout if the logged in user deleted their own record
+            if (id == this.userValue.id) {
+                this.logout();
+            }
+            return x;
+        }));
+  }*/
+  //getByUserName
+  //public getByUserName(userName : string):User {
+  //return User;
+  //return this.http.get(this.getUserByUserName,)}
+
+  LinkedinLogin() {
+    return this.http.get('http://localhost:8089/User/linkedInLogin');
+  }
+
+  addUser(u: User) {
+    return this.http.post(`${this.apiUrl}/registration`, u);
+  }
 
 
 
-  public checkEmail(email: string):Observable<any>{
-   this.passwordModel=new PasswordModel();
-    this.passwordModel.mail=email;
-    console.log('hhehehheh',email, this.passwordModel)
-    return this.http.post(`${this.apiUrl}/resetPassword`,  this.passwordModel)
+  ListUser() {
+    return this.http.get(`${this.apiUrl}/getAllUsers`);
+  }
+
+
+
+  public checkEmail(email: string): Observable<any> {
+    this.passwordModel = new PasswordModel();
+    this.passwordModel.mail = email;
+    console.log('hhehehheh', email, this.passwordModel)
+    return this.http.post(`${this.apiUrl}/resetPassword`, this.passwordModel)
     /*.pipe(map(
       response=>{
         return response;
@@ -195,71 +195,69 @@ ListUser(){
     ))*/
 
   }
- public ResetPassword(email:string,token :string , newPassword:string):Observable<any>{
-  this.passwordModel=new PasswordModel();
-  this.passwordModel.mail=email;
-  this.passwordModel.token=token;
-  this.passwordModel.newPassword=newPassword;
+  public ResetPassword(email: string, token: string, newPassword: string): Observable<any> {
+    this.passwordModel = new PasswordModel();
+    this.passwordModel.mail = email;
+    this.passwordModel.token = token;
+    this.passwordModel.newPassword = newPassword;
     return this.http.post(`${this.apiUrl}/savePassword`, this.passwordModel).pipe(map(
-      response=>{
+      response => {
         return response;
       }
     ))
 
   }
 
-//LOGOUT
+  //LOGOUT
   public logout(): void {
-    window.sessionStorage.removeItem("auth-user");}
-//Uplodad photo
-public onImageUpload(event) {
-  this.uploadedImage = event.target.files[0];
-}
-uploadUserProfilePicture() {
-const imageFormData= new FormData();
-imageFormData.append('photo',this.uploadedImage)
- 
-this.http.post(`http://localhost:8089/Photo/upload/photo/${this.currentUser().id}`, imageFormData)
-.subscribe((response) => {
-  if (response=== 200) {
-    this.postResponse = response;
-    this.successResponse = this.postResponse.body.message;
-  } else {
-    this.successResponse = 'Image not uploaded due to some error!';
+    window.sessionStorage.removeItem("auth-user");
   }
+  //Uplodad photo
+  public onImageUpload(event) {
+    this.uploadedImage = event.target.files[0];
+  }
+  uploadUserProfilePicture() {
+    const imageFormData = new FormData();
+    imageFormData.append('photo', this.uploadedImage)
+
+    this.http.post(`http://localhost:8089/Photo/upload/photo/${this.currentUser().id}`, imageFormData)
+      .subscribe((response) => {
+        if (response === 200) {
+          this.postResponse = response;
+          this.successResponse = this.postResponse.body.message;
+        } else {
+          this.successResponse = 'Image not uploaded due to some error!';
+        }
+      }
+      );
+  }
+  uploadProfileImage(formData: FormData): Observable<any> {
+    return this.http.post<FormData>('http://localhost:8089/Photo/upload/image', formData, {
+      reportProgress: true,
+      observe: 'events'
+    })
+  }
+
+  // Anas
+  voteTo(idUserConnected: any, idCandidate: any) {
+
+    return this.http.put(`${this.apiUrl}/voteTo/${idUserConnected}/${idCandidate}`, null);
+
+  }
+
+  getFriend(id: any): Observable<any> {
+
+
+    return this.http.get(`http://localhost:8089/User/GetUserById/${id}`);
+
+  }
+
+
+  getUser() {
+
+
+    return this.http.get<User>(`http://localhost:8089/User/GetUserById/${this.currentUser().id}`);
+  }
+
+
 }
-);
-}
-    uploadProfileImage(formData: FormData): Observable<any> {
-      return this.http.post<FormData>('http://localhost:8089/Photo/upload/image', formData, {
-        reportProgress: true,
-        observe: 'events'
-      })
-    }
-
-// Anas
-
-
-getFriend(id :any) :Observable<any> {
-
-
-  return this.http.get(`http://localhost:8089/User/GetUserById/${id}`);
-
-}
-
-getUser() {
-
-
-  return this.http.get<User>(`http://localhost:8089/User/GetUserById/${this.currentUser().id}`);
-
-}
-
-voteTo(idUserConnected:any,idCandidate:any) {
-
-  return this.http.put(`${this.apiUrl}/voteTo/${1}/${idCandidate}`,null) ;
-  
-}
-
-}
-  
-

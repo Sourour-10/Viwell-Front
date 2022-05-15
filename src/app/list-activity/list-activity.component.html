@@ -1,24 +1,92 @@
-<div class="container">
-    <h2> Activity List</h2>
-<table class = "table table-striped">
-    <thead>
-        <tr>
-            <th> Image</th>
+<div class="row">
+  <div class="example-2 card" *ngFor="let act of activitys" style="margin-bottom: 2rem;">
+    <div *ngIf="act.category.name == 'resto' ">
+      <div class="wrapper" style="background: url(https://static.actu.fr/uploads/2020/08/resto.jpg) center/cover no-repeat;">
+        <div class="header">
+          <div class="date">
+            <span class="day">{{ act.date }}</span>
+          </div>
+          <ul class="menu-content">
+            <li><a (click)="UserLikesActivity(act.activityId)" class="fa fa-heart-o" style="cursor: pointer;"><span>{{
+                  act.nbrLikes }}</span></a></li>
+          </ul>
+        </div>
+        <div class="data">
+          <div class="content">
+            <span class="author">Category : {{ act.category.name }}</span>
+            <h1 class="title"><a href="#">{{ act.place }}</a></h1>
+            <p class="text">{{ act.description }}</p>
+            <a class="button" (click)="getActivityById(act.activityId)" style="cursor: pointer;">More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="act.category.name == 'camping' ">
+      <div class="wrapper" style="background: url(https://s3.amazonaws.com/imagescloud/images/medias/annexes/annexe-camping-2022.jpg) center/cover no-repeat;">
+        <div class="header">
+          <div class="date">
+            <span class="day">{{ act.date }}</span>
+          </div>
+          <ul class="menu-content">
+            <li><a (click)="UserLikesActivity(act.activityId)" class="fa fa-heart-o" style="cursor: pointer;"><span>{{
+                  act.nbrLikes }}</span></a></li>
+          </ul>
+        </div>
+        <div class="data">
+          <div class="content">
+            <span class="author">Category : {{ act.category.name }}</span>
+            <h1 class="title"><a href="#">{{ act.place }}</a></h1>
+            <p class="text">{{ act.description }}</p>
+            <a class="button" (click)="getActivityById(act.activityId)" style="cursor: pointer;">More</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-            <th> Actions </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let act of activitys" >
-            <td> {{ act.image }} </td>
+    <div *ngIf="act.category.name == 'soiree' ">
+      <div class="wrapper" style="background: url(https://linstant-m.tn//uploads/5568.png) center/cover no-repeat;">
+        <div class="header">
+          <div class="date">
+            <span class="day">{{ act.date }}</span>
+          </div>
+          <ul class="menu-content">
+            <li><a (click)="UserLikesActivity(act.activityId)" class="fa fa-heart-o" style="cursor: pointer;"><span>{{
+                  act.nbrLikes }}</span></a></li>
+          </ul>
+        </div>
+        <div class="data">
+          <div class="content">
+            <span class="author">Category : {{ act.category.name }}</span>
+            <h1 class="title"><a href="#">{{ act.place }}</a></h1>
+            <p class="text">{{ act.description }}</p>
+            <a class="button" (click)="getActivityById(act.activityId)" style="cursor: pointer;">More</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-            <td>
-                <button (click) = "editActivity(act)" class = "btn btn-info"> Update</button>
-                <button (click) = "UserLikesActivity(act.activityId)" class = "btn btn-info"> Like {{ act.nbrLikes }}</button>
-                <button (click) = "deleteActivity(act.activityId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-                <button (click) = "getActivityById(act.activityId)" class = "btn btn-info" style="margin-left: 10px"> View</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <div *ngIf="act.category.name == 'Other' ">
+      <div class="wrapper">
+        <div class="header">
+          <div class="date">
+            <span class="day">{{ act.date }}</span>
+          </div>
+          <ul class="menu-content">
+            <li><a (click)="UserLikesActivity(act.activityId)" class="fa fa-heart-o" style="cursor: pointer;"><span>{{
+                  act.nbrLikes }}</span></a></li>
+          </ul>
+        </div>
+        <div class="data">
+          <div class="content">
+            <span class="author">Category : {{ act.category.name }}</span>
+            <h1 class="title"><a href="#">{{ act.place }}</a></h1>
+            <p class="text">{{ act.description }}</p>
+            <a class="button" (click)="getActivityById(act.activityId)" style="cursor: pointer;">More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

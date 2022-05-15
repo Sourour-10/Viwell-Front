@@ -46,11 +46,11 @@ import { ActivityBackdetailsComponent } from './activity-backdetails/activity-ba
 import { ActivityCreateComponent } from './activity-create/activity-create.component';
 import { EventFrontlistComponent } from './event-frontlist/event-frontlist.component';
 
-import {CoachComponent} from './coach/coach.component';
-import {TrainingComponent} from './training/training.component';
-import {QuizComponent} from './quiz/quiz.component';
-import {QuestionFrontComponent} from './question-front/question-front.component';
-import {WelcomeQuizComponent} from './welcome-quiz/welcome-quiz.component';
+import { CoachComponent } from './coach/coach.component';
+import { TrainingComponent } from './training/training.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { QuestionFrontComponent } from './question-front/question-front.component';
+import { WelcomeQuizComponent } from './welcome-quiz/welcome-quiz.component';
 
 import { TopEmployeesComponent } from './top-employees/top-employees.component';
 import { ListeBadgeComponent } from './Component/liste-badge/liste-badge.component';
@@ -67,6 +67,8 @@ import { ResponseComponent } from './response/response.component';
 import { ArticleFrontComponent } from './article-front/article-front.component';
 import { ReclamationsComponent } from './Reclamation/reclamations/reclamations.component';
 import { OffresEmployeesComponent } from './CollabOffre/offres-employees/offres-employees.component';
+import { ActivityFrontdetailsComponent } from './activity-frontdetails/activity-frontdetails.component';
+import { ActivityBacklistComponent } from './activity-backlist/activity-backlist.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -74,10 +76,10 @@ const routes: Routes = [
   { path: 'register', component: SignupComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'login', component: LoginComponent },
-  {path:'userProfile',component:GoogleProfileComponent},
+  { path: 'userProfile', component: GoogleProfileComponent },
   // Anas Routing
-  {path: 'topEmployee', component: TopEmployeesComponent },
-  {path: 'polls', component: ListPollFrontComponent  },
+  { path: 'topEmployee', component: TopEmployeesComponent },
+  { path: 'polls', component: ListPollFrontComponent },
 
   { path: 'Chat', component: ChatComponent },
   { path: 'rate-colleague', component: RateColleagueComponent },
@@ -95,91 +97,87 @@ const routes: Routes = [
   { path: 'quiz', component: QuizComponent },
   { path: 'questions', component: QuestionFrontComponent },
   { path: 'quizn', component: WelcomeQuizComponent },
-  {path: 'listBadges', component: ListeBadgeComponent},
-  {path: 'listPoll', component: ListPollComponent},
+  { path: 'listBadges', component: ListeBadgeComponent },
+  { path: 'listPoll', component: ListPollComponent },
 
 
   // Admin
   { path: 'create-poll', component: PollComponent },
   { path: 'rate-collaboration', component: RateCollabComponent },
   { path: 'list-event', component: EventFrontlistComponent },
-  { path: 'eventAnas', component: ListEventComponent },
-
-
-
   // End Anas Routing
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'userlist', component: UserListComponent },
-  {path: 'notification' , component: NotificationComponent},
-  {path: 'completeProfile' , component: CompleteProfileComponent},
-  {path: 'reset', component: ResetPasswordComponent},
+  { path: 'notification', component: NotificationComponent },
+  { path: 'completeProfile', component: CompleteProfileComponent },
+  { path: 'reset', component: ResetPasswordComponent },
   { path: 'linkedInLogin', component: LinkedinLoginResponseComponent },
   { path: 'team', component: TeamComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
 
-// Yossr
-  { path: 'newsfeed',          component: NewsfeedComponent },
-    { path: 'postdetail/:postId',          component: DetailPostComponent },
-    {path: 'posts' , component: PostComponent},
-    { path: '',  redirectTo: '/posts', pathMatch: 'full' },
-    { path: 'home',             component: HomeComponent },
-    { path: 'user-profile',     component: ProfileComponent },
-    { path: 'register',           component: SignupComponent },
-    { path: 'landing',          component: LandingComponent },
-    { path: 'login',          component: LoginComponent },
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'newsfeed',          component: NewsfeedComponent },
-    { path: 'postdetail/:postId',          component: DetailPostComponent },
-    {path: 'posts' , component: PostComponent},
-    { path: 'addCollab',             component: AddCollaborationComponent },
-    { path: 'deleteCollab',             component: DeletecollaborationComponent },
-    { path: 'collabs',             component: CollaborationsComponent },
+  // Yossr
+  { path: 'newsfeed', component: NewsfeedComponent },
+  { path: 'postdetail/:postId', component: DetailPostComponent },
+  { path: 'posts', component: PostComponent },
+  { path: '', redirectTo: '/posts', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'user-profile', component: ProfileComponent },
+  { path: 'register', component: SignupComponent },
+  { path: 'landing', component: LandingComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'newsfeed', component: NewsfeedComponent },
+  { path: 'postdetail/:postId', component: DetailPostComponent },
+  { path: 'posts', component: PostComponent },
+  { path: 'addCollab', component: AddCollaborationComponent },
+  { path: 'deleteCollab', component: DeletecollaborationComponent },
+  { path: 'collabs', component: CollaborationsComponent },
 
-    { path: 'reclamations',             component: ReclamationsComponent },
-    { path: 'OffresEmployees',             component: OffresEmployeesComponent },
+  { path: 'reclamations', component: ReclamationsComponent },
+  { path: 'OffresEmployees', component: OffresEmployeesComponent },
 
-    {path: 'userlist', component: UserListComponent},
-    {path: 'notification' , component: NotificationComponent},
-    {path: 'completeProfile' , component: CompleteProfileComponent},
-    {path: 'reset', component: ResetPasswordComponent},
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'linkedInLogin', component: LinkedinLoginResponseComponent },
-//Ramzi 
- //Admin
-{path:"Subjects", component:SubjectComponent},
-{path:"Articles", component:ArticleComponent},
-{path:"Responses",component:ResponseComponent},
-{path:"ArticleFront",component:ArticleFrontComponent},
+  { path: 'userlist', component: UserListComponent },
+  { path: 'notification', component: NotificationComponent },
+  { path: 'completeProfile', component: CompleteProfileComponent },
+  { path: 'reset', component: ResetPasswordComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'linkedInLogin', component: LinkedinLoginResponseComponent },
+  //Ramzi 
+  { path: "Subjects", component: SubjectComponent },
+  { path: "Articles", component: ArticleComponent },
+  { path: "Responses", component: ResponseComponent },
+  { path: "ArticleFront", component: ArticleFrontComponent },
+  //end Ramzi
+  { path: "linkedInLogin", component: LinkedinLoginResponseComponent },
+  //Aziz
+  //Aziz
 
-    { path: "linkedInLogin", component: LinkedinLoginResponseComponent },
+  { path: 'category', component: CategoryComponent },
+  { path: 'category/create', component: CategoryCreateComponent },
+  { path: 'category/update', component: CategoryUpdateComponent },
+  { path: 'category-details/:id', component: CategoryDetailsComponent },
 
-
-    //Aziz
-
-    {path: 'category', component: CategoryComponent},
-    {path: 'category/create', component: CategoryCreateComponent},
-    {path: 'category/update', component: CategoryUpdateComponent},
-    {path: 'category-details/:id', component: CategoryDetailsComponent},
-
-    {path: 'event/create', component: EventCreateComponent},
-    {path: 'event/propose', component: EventProposeComponent},
-    {path: 'event/update', component: CategoryUpdateComponent},
-    {path: 'event-details/:id', component: EventBackdetailsComponent},
-    {path: 'back/event', component: EventBacklistComponent},
-    {path: 'event/details/:id', component: EventFrontdetailsComponent},
+  { path: 'event/create', component: EventCreateComponent },
+  { path: 'event/propose', component: EventProposeComponent },
+  { path: 'event/update', component: CategoryUpdateComponent },
+  { path: 'event-details/:id', component: EventBackdetailsComponent },
+  { path: 'back/event', component: EventBacklistComponent },
+  { path: 'event/details/:id', component: EventFrontdetailsComponent },
 
 
-    {path: 'activity', component: ListActivityComponent},
-    {path: 'activity/create', component: ActivityCreateComponent},
-    {path: 'activity/update', component: CategoryUpdateComponent},
-    {path: 'activity-details/:id', component: ActivityBackdetailsComponent}
+  { path: 'activity', component: ListActivityComponent },
+  { path: 'back/activity', component: ActivityBacklistComponent },
+  { path: 'activity/create', component: ActivityCreateComponent },
+  { path: 'activity/update', component: CategoryUpdateComponent },
+  { path: 'activity-details/:id', component: ActivityFrontdetailsComponent },
+  { path: 'back/activity-details/:id', component: ActivityBackdetailsComponent }
 
-    
 
-    //End Aziz
-    
+
+
+  //End Aziz
 ];
 
 // @ts-ignore
@@ -190,7 +188,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  
+
   exports: [
   ],
 })

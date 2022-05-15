@@ -17,7 +17,6 @@ import { first } from 'rxjs';
 export class MyFeedBacksComponent implements OnInit {
   listFeedBacks: any;
   
-
   users=null;
   constructor(private service:FeedBackService, private tokenStorage:TokenStorageService ) { }
 

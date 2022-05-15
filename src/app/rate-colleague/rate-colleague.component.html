@@ -19,11 +19,12 @@
         (click)="rate(5)">
 </div>
 <div *ngIf="ratted==true">
-    <h1> You ratted X {{ratting}} stars </h1>
+    <h1> You ratted {{user.userName}}   </h1>
     <ng-container *ngFor='let in of counter(ratting) ;let i = index'>
-        <img width="30" height="30" src="./../assets/img/brand/filled.png">
+        <img width="30" height="30" src="./../assets/img/brand/filled.png"> 
 
     </ng-container>
+   <h1> stars</h1>
 </div>
         
     </div>

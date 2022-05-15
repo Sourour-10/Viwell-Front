@@ -5,11 +5,11 @@ import { Activity } from '../Model/Activity';
 import { ActivityService } from '../Service/Activity/activity-service.service';
 
 @Component({
-  selector: 'app-list-activity',
-  templateUrl: './list-activity.component.html',
-  styleUrls: ['./list-activity.component.css']
+  selector: 'app-activity-backlist',
+  templateUrl: './activity-backlist.component.html',
+  styleUrls: ['./activity-backlist.component.css']
 })
-export class ListActivityComponent implements OnInit {
+export class ActivityBacklistComponent implements OnInit {
 
   console = console;
   listActivitys: any;
@@ -21,7 +21,6 @@ export class ListActivityComponent implements OnInit {
     private router: Router , private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    
     this.getAllActivitys();   
   }
 
@@ -37,7 +36,7 @@ export class ListActivityComponent implements OnInit {
   }
 
   getActivityById(activityId: number){
-    this.router.navigate(['activity-details', activityId]);
+    this.router.navigate(['back/activity-details', activityId]);
   }
 
   editActivity(id: number){

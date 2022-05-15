@@ -30,7 +30,7 @@ export class CategoryService {
       }
 
     addCategory(category: Category): Observable<Category> {
-        return this.httpClient.post<Category>(`${this.API_URL}/create`,category,this.httpOptions)
+        return this.httpClient.post<Category>(`${this.API_URL}/create`,category)
     }
 
     editCategory(category: any){

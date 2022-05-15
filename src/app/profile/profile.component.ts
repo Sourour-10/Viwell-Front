@@ -39,6 +39,7 @@ selectedFile: File;
     ngOnInit() {
         this.currentUser = this.token.getUser();
         this.getImage(this.currentUser.idPhoto) ;
+        this.getUser();
         this.getUserImage();
         if (this.currentUser.idPhoto==8 )
         {
@@ -47,6 +48,7 @@ selectedFile: File;
 this.getUser();
         
       }
+  
       public get currentuser(): any{
         return this.token.getUser;
       }

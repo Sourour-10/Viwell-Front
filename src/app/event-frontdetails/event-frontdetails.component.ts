@@ -12,31 +12,31 @@ export class EventFrontdetailsComponent implements OnInit {
   id: number
   event: Event
   events: Event[];
-  constructor(private eventService: EventService,private route: ActivatedRoute, private employeService: EventService,
+  constructor(private eventService: EventService, private route: ActivatedRoute, private employeService: EventService,
     private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
 
     this.event = new Event();
-    this.employeService.getEventById(this.id).subscribe( data => {
+    this.employeService.getEventById(this.id).subscribe(data => {
       this.event = data;
     });
   }
 
-  getAllEvents(){
+  getAllEvents() {
     this.eventService.getAllEvents().subscribe(data => {
       this.events = data;
     });
   }
 
-  goToEventList(){
+  goToEventList() {
     this.router.navigate(['/list-event']);
   }
 
-  particiapteToEvent(eventId: any,type: any){
-    this.eventService.particiapteToEvent(eventId,type).subscribe(()=> {window.location.reload();});
-    
+  particiapteToEvent(eventId: any, type: any) {
+    this.eventService.particiapteToEvent(eventId, type).subscribe(() => { window.location.reload(); });
+
   }
   counter(i: number) {
     return new Array(i);
