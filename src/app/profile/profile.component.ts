@@ -30,6 +30,7 @@ selectedFile: File;
   imageUrll: string;
 
   isEmployee = true ;
+  userDetails:User;
 
 
 
@@ -38,6 +39,7 @@ selectedFile: File;
     ngOnInit() {
         this.currentUser = this.token.getUser();
         this.getImage(this.currentUser.idPhoto) ;
+        this.getUser();
         this.getUserImage();
         if (this.currentUser.idPhoto==8 )
         {
@@ -45,6 +47,11 @@ selectedFile: File;
         }
 
         
+      }
+      getUser(){
+        this.service.getUser().subscribe(res=>{
+          this.userDetails=res;
+        })
       }
       public get currentuser(): any{
         return this.token.getUser;

@@ -1,36 +1,42 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="card" class="text-center">
-            <table class="table">
-                <thead class="table-dark">
-                  <th>Response Id</th>
-                  <th>Response Text</th>
-                  <th>Nombre de react</th>
-                  <th>Date de creation</th>
-                  <th>Actions</th>
-                </thead>
-                <tbody>
-                  <tr *ngFor='let s of listResponses'>
-                      <td> {{s.responseId }}</td>
-                      <td>{{s.text}}</td>
-                      <td>{{s.nlikes}}</td>
-                      <td>{{s.dateCreation}}</td>
-                      <td><button type="button" class="btn btn-outline-primary" (click)="open(mymodal)">edit</button>
-                        <ng-template #mymodal let-modal>
-                        </ng-template>
-                        <button type="button" class="btn btn-outline-danger" (click)="deleteResponse(s.responseId)">delete</button>
-                      </td>
-                  </tr>
-                </tbody>
-            </table>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card" class="text-center">
+                <table class="table">
+                    <thead class="table-dark">
+                        <th>Response Id</th>
+                        <th>Response Text</th>
+                        <th>Nombre de react</th>
+                        <th>Date de creation</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let s of listResponses'>
+                            <td> {{s.responseId }}</td>
+                            <td>{{s.text}}</td>
+                            <td>{{s.nlikes}}</td>
+                            <td>{{s.dateCreation}}</td>
+                            <td><button type="button" class="btn btn-outline-primary"
+                                    (click)="open(mymodal)">edit</button>
+                                <ng-template #mymodal let-modal>
+                                </ng-template>
+                                <button type="button" class="btn btn-outline-danger"
+                                    (click)="deleteResponse(s.responseId)">delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div> 
-<div class="row">
-    <form >
-        <div class="row" class="col-md-6">
-            <input type="text" style="width: 500px;" class="form-control" placeholder="Resonse text" [(ngModel)]="response.text" [ngModelOptions]="{standalone: true}">
-            <button type="button" style="width: 500px; margin-top:15px;" class="btn btn-success" (click)="addResponse(response,1)">Add</button>
-        </div>
-    </form>
-</div>
+    <div class="row">
+        <form>
+            <div class="row" class="col-md-6">
+                <input type="text" style="width: 500px;" class="form-control" placeholder="Resonse text"
+                    [(ngModel)]="response.text" [ngModelOptions]="{standalone: true}">
+                <button type="button" style="width: 500px; margin-top:15px;" class="btn btn-success"
+                    (click)="addResponse(response,1)">Add</button>
+            </div>
+        </form>
+    </div>
